@@ -1,0 +1,20 @@
+# Model registry. Keys are used by `python -m extractor.run --model <key>`.
+# price_per_mtok is USD per 1M tokens, used for the cost per 1000 documents metric.
+anthropic_haiku:
+  provider: anthropic
+  model: claude-haiku-4-5
+  timeout_s: 60      # per-request timeout
+  max_retries: 3     # SDK retries 408/409/429/5xx and connection errors with backoff
+  price_per_mtok:
+    input: 1.0
+    output: 5.0
+
+ollama_qwen:
+  provider: ollama
+  model: qwen2.5:3b-instruct
+  timeout_s: 180     # local 3B model on a laptop is slow, especially the first call
+  max_retries: 2     # implemented in OllamaProvider (the Ollama client has no retry)
+  num_ctx: 8192      # context window; Ollama's default 2048 would cut our ~5k-token prompts
+  price_per_mtok:    # local inference: no API cost (electricity is not counted)
+    input: 0.0
+    output: 0.0
