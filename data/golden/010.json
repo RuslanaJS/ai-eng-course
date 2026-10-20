@@ -1,0 +1,24 @@
+{
+  "project_name": "Unii Lubelskiej Vita",
+  "developer": "Develia",
+  "address": {
+    "street": "ul. Unii Lubelskiej 10",
+    "district": "Nowe Miasto",
+    "city": "Poznań"
+  },
+  "completion_date": "2026-Q2",
+  "area_m2": 51.23,
+  "rooms": 3,
+  "floor": 6,
+  "price_per_m2_pln": {
+    "min": 12150.0,
+    "max": 12550.0
+  },
+  "finish": "developer_standard",
+  "parking": "underground",
+  "amenities": [
+    "winda",
+    "rowerownia",
+    "balkon"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "project_name": "Flora Śródmieście",
+  "developer": "King Cross Flora Sp. z o.o.",
+  "address": {
+    "street": "ul. Jana Kilińskiego 111",
+    "district": "Śródmieście",
+    "city": "Łódź"
+  },
+  "completion_date": "2026-Q4",
+  "area_m2": 33.54,
+  "rooms": 1,
+  "floor": 3,
+  "price_per_m2_pln": {
+    "min": 10200.0,
+    "max": 14000.0
+  },
+  "finish": "developer_standard",
+  "parking": "underground",
+  "amenities": [
+    "ochrona całodobowa",
+    "monitoring",
+    "teren ogrodzony",
+    "klimatyzacja",
+    "winda",
+    "rowerownia",
+    "sala fitness",
+    "miejsce do ładowania samochodów elektrycznych",
+    "balkon",
+    "loggia"
+  ]
+}

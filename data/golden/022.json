@@ -1,0 +1,34 @@
+{
+  "project_name": "Kopernika 71",
+  "developer": "Develia",
+  "address": {
+    "street": "ul. Kopernika 71A",
+    "district": "Redłowo",
+    "city": "Gdynia"
+  },
+  "completion_date": "2027-Q2",
+  "area_m2": 45.82,
+  "rooms": 2,
+  "floor": 1,
+  "price_per_m2_pln": {
+    "min": 23000.0,
+    "max": 28499.0
+  },
+  "finish": "developer_standard",
+  "parking": "underground",
+  "amenities": [
+    "winda",
+    "monitoring",
+    "ochrona całodobowa",
+    "teren ogrodzony",
+    "plac zabaw",
+    "sauna",
+    "rowerownia",
+    "inteligentny dom",
+    "sala fitness",
+    "wózkarnia",
+    "instalacja fotowoltaiczna",
+    "videodomofon",
+    "klub fitness"
+  ]
+}

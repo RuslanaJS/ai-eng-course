@@ -1,0 +1,25 @@
+{
+  "project_name": "Kosocicka Ambient",
+  "developer": "Hammak",
+  "address": {
+    "street": "ul. Kosocicka 112-114",
+    "district": "Podgórze Duchackie",
+    "city": "Kraków"
+  },
+  "completion_date": "2028-Q1",
+  "area_m2": 99.97,
+  "rooms": 5,
+  "floor": 0,
+  "price_per_m2_pln": {
+    "min": 13956.0,
+    "max": 15441.0
+  },
+  "finish": "developer_standard",
+  "parking": "surface",
+  "amenities": [
+    "rekuperacja",
+    "pompa ciepła",
+    "klimatyzacja",
+    "ogródek"
+  ]
+}

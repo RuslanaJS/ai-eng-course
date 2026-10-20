@@ -1,0 +1,25 @@
+{
+  "project_name": "Portowa Zabłocie",
+  "developer": "YIT Development Sp. z o.o.",
+  "address": {
+    "street": "ul. Portowa",
+    "district": "Podgórze",
+    "city": "Kraków"
+  },
+  "completion_date": "2025-Q4",
+  "area_m2": 57.36,
+  "rooms": 3,
+  "floor": 1,
+  "price_per_m2_pln": {
+    "min": 18245.0,
+    "max": 19010.0
+  },
+  "finish": "developer_standard",
+  "parking": "underground",
+  "amenities": [
+    "klimatyzacja",
+    "winda",
+    "rowerownia",
+    "miejsce do ładowania samochodów elektrycznych"
+  ]
+}

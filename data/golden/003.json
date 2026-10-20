@@ -1,0 +1,27 @@
+{
+  "project_name": "Stilla",
+  "developer": "Skanska Residential Development Poland Sp. z o.o.",
+  "address": {
+    "street": "ul. Fajansowa 5",
+    "district": "Włochy",
+    "city": "Warszawa"
+  },
+  "completion_date": "2025-Q4",
+  "area_m2": 30.08,
+  "rooms": 1,
+  "floor": 7,
+  "price_per_m2_pln": {
+    "min": 17012.0,
+    "max": 23155.0
+  },
+  "finish": "developer_standard",
+  "parking": "underground",
+  "amenities": [
+    "teren ogrodzony",
+    "winda",
+    "rowerownia",
+    "wózkarnia",
+    "instalacja fotowoltaiczna",
+    "balkon"
+  ]
+}

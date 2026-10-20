@@ -1,0 +1,23 @@
+{
+  "project_name": "Urok Jagienki",
+  "developer": "Yuniversal Podlaski Sp. z o.o.",
+  "address": {
+    "street": "ul. Jagienki",
+    "district": "Sienkiewicza",
+    "city": "Białystok"
+  },
+  "completion_date": "2027-Q1",
+  "area_m2": 35.4,
+  "rooms": 2,
+  "floor": 2,
+  "price_per_m2_pln": {
+    "min": 11200.0,
+    "max": 13100.0
+  },
+  "finish": "developer_standard",
+  "parking": "both",
+  "amenities": [
+    "winda",
+    "plac zabaw"
+  ]
+}

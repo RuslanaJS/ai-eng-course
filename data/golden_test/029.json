@@ -1,0 +1,26 @@
+{
+  "project_name": "Murapol Novo",
+  "developer": "Murapol Real Estate",
+  "address": {
+    "street": "ul. Droga Trzeposka",
+    "district": null,
+    "city": "Toruń"
+  },
+  "completion_date": "2027-Q3",
+  "area_m2": 43.44,
+  "rooms": 1,
+  "floor": 5,
+  "price_per_m2_pln": {
+    "min": 10500.0,
+    "max": 15125.0
+  },
+  "finish": "developer_standard",
+  "parking": "both",
+  "amenities": [
+    "winda",
+    "wózkarnia",
+    "miejsce do ładowania samochodów elektrycznych",
+    "teren ogrodzony",
+    "inteligentny dom"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "project_name": "Antczaka 46",
+  "developer": "Apro Investment Sp. z o.o.",
+  "address": {
+    "street": "ul. Antczaka 46",
+    "district": null,
+    "city": "Toruń"
+  },
+  "completion_date": "2026-Q4",
+  "area_m2": 49.3,
+  "rooms": 2,
+  "floor": 3,
+  "price_per_m2_pln": {
+    "min": 10800.0,
+    "max": 12700.0
+  },
+  "finish": "developer_standard",
+  "parking": "underground",
+  "amenities": [
+    "teren ogrodzony",
+    "klimatyzacja",
+    "usługi w budynku"
+  ]
+}

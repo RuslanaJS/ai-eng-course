@@ -1,0 +1,23 @@
+{
+  "project_name": "Apartamenty Malczewskiego",
+  "developer": "Przemysłówka P.B.P. Holding Sp. z o.o.",
+  "address": {
+    "street": "ul. J. Malczewskiego 130",
+    "district": "Siedlce",
+    "city": "Gdańsk"
+  },
+  "completion_date": "2025-Q2",
+  "area_m2": 54.64,
+  "rooms": 3,
+  "floor": 0,
+  "price_per_m2_pln": {
+    "min": 18037.0,
+    "max": 19367.0
+  },
+  "finish": "developer_standard",
+  "parking": "underground",
+  "amenities": [
+    "winda",
+    "ogródek"
+  ]
+}

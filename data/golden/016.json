@@ -1,0 +1,24 @@
+{
+  "project_name": "Przemysłowa 10",
+  "developer": "EDACH Sp. z o.o. Sp.k.",
+  "address": {
+    "street": "ul. Przemysłowa 10",
+    "district": "Śródmieście",
+    "city": "Lublin"
+  },
+  "completion_date": "2025-Q2",
+  "area_m2": 42.61,
+  "rooms": 1,
+  "floor": 3,
+  "price_per_m2_pln": {
+    "min": 10500.0,
+    "max": 12000.0
+  },
+  "finish": "developer_standard",
+  "parking": "surface",
+  "amenities": [
+    "przystosowane dla niepełnosprawnych",
+    "usługi w budynku",
+    "winda"
+  ]
+}
