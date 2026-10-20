@@ -1,0 +1,17 @@
+{
+  "project_name": null,
+  "developer": null,
+  "address": {
+    "street": null,
+    "district": null,
+    "city": null
+  },
+  "completion_date": null,
+  "area_m2": null,
+  "rooms": null,
+  "floor": null,
+  "price_per_m2_pln": null,
+  "finish": "not_stated",
+  "parking": "not_stated",
+  "amenities": []
+}

@@ -1,0 +1,26 @@
+{
+  "project_name": "Odrzańskie Bulvary",
+  "developer": "Propvestor Sp. z o.o.",
+  "address": {
+    "street": "ul. Jana z Kolna",
+    "district": "Śródmieście",
+    "city": "Szczecin"
+  },
+  "completion_date": "2023-Q2",
+  "area_m2": 85.19,
+  "rooms": 3,
+  "floor": 6,
+  "price_per_m2_pln": {
+    "min": 9890.0,
+    "max": 15561.0
+  },
+  "finish": "turnkey",
+  "parking": "underground",
+  "amenities": [
+    "klimatyzacja",
+    "winda",
+    "usługi w budynku",
+    "taras",
+    "ogródek"
+  ]
+}

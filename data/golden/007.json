@@ -1,0 +1,29 @@
+{
+  "project_name": "Nowa Stawowa",
+  "developer": "Platforma Mieszkaniowa",
+  "address": {
+    "street": "ul. Stawowa 10",
+    "district": "Stare Miasto",
+    "city": "Wrocław"
+  },
+  "completion_date": "2026-Q4",
+  "area_m2": 32.89,
+  "rooms": 1,
+  "floor": 4,
+  "price_per_m2_pln": {
+    "min": 16600.0,
+    "max": 27660.0
+  },
+  "finish": "developer_standard",
+  "parking": "underground",
+  "amenities": [
+    "plac zabaw",
+    "monitoring",
+    "teren ogrodzony",
+    "winda",
+    "rowerownia",
+    "inteligentny dom",
+    "miejsce do ładowania samochodów elektrycznych",
+    "balkon"
+  ]
+}

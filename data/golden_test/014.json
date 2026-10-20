@@ -1,0 +1,33 @@
+{
+  "project_name": "ATAL Olimpijska",
+  "developer": "ATAL S.A.",
+  "address": {
+    "street": "ul. Olimpijska",
+    "district": "Bogucice",
+    "city": "Katowice"
+  },
+  "completion_date": "2026-Q1",
+  "area_m2": 25.38,
+  "rooms": 1,
+  "floor": 9,
+  "price_per_m2_pln": {
+    "min": 10570.0,
+    "max": 18924.0
+  },
+  "finish": "developer_standard",
+  "parking": "both",
+  "amenities": [
+    "ochrona całodobowa",
+    "plac zabaw",
+    "monitoring",
+    "klimatyzacja",
+    "recepcja",
+    "usługi w budynku",
+    "winda",
+    "rowerownia",
+    "inteligentny dom",
+    "miejsce do ładowania samochodów elektrycznych",
+    "rekuperacja",
+    "loggia"
+  ]
+}
