@@ -1,0 +1,6 @@
+# Sampling configurations. Keys are used by `python -m extractor.run --sampling <key>`.
+# Haiku 4.5 accepts temperature, top_p and top_k (Haiku 5.5 does not).
+t0:
+  temperature: 0
+t07:
+  temperature: 0.7
