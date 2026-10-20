@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Secrets
+.env
+
+# Working notes (sources, candidates, drafts), not submitted
+WORKING_NOTES.md
+
+# Run results (reproduced by `make run`)
+results/*
+!results/.gitkeep
+
+# macOS / IDE
+.DS_Store
+.idea/
+.vscode/
