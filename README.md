@@ -38,6 +38,13 @@ data/texts/NNN.txt  --prompt (prompts/extract_vN.md)-->  model  -->  JSON
 - `configs/`: models (price, timeout, retries) and sampling.
 - `data/`: `texts/` (33 texts), `golden/` (10 labeled texts, development set), `golden_test/`
   (8 labeled texts, held-out test set), `sources.csv` (URL and date of every text).
+- `results/`: committed snapshot of the 12 runs behind `REPORT.md` (JSON Lines, one row per text: model, prompt version, sampling, status, latency, tokens, raw and parsed answer). `make run-all` skips configurations that already have a file; run `uv run python -m extractor.matrix --force` to redo them (about 0.2 USD per Haiku run, 15-20 minutes per Ollama run).
+
+## Working with Claude Code
+
+`CLAUDE.md` holds the project rules and `.claude/skills/` three task skills (`run-experiment`,
+`prompt-iteration`, `release-check`); both are committed so every clone has them.
+`make check-labels` verifies that every labeled value can be found in its source text.
 
 ## Results so far
 
@@ -56,4 +63,5 @@ site, so `price_per_m2_pln` is the price range of the whole development. The Oll
 from 0.6.1 to 0.40.5 between the first qwen runs (v1) and the later ones. Almost all texts are
 Polish; the only English ones are market texts without an apartment.
 
-_The full report (error analysis, final choice) will be added in `REPORT.md`._
+The full table (all 12 configurations, dev and test side by side), the analysis of five errors and the
+final choice for production are in [`REPORT.md`](REPORT.md).

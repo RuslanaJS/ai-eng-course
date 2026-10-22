@@ -1,7 +1,6 @@
 # Report: structured extraction from dirty real-estate texts (HW1)
 
-> DRAFT. Numbers come from `results/` via `uv run python -m extractor.metrics --report`;
-> the analysis and the final choice are open for edits.
+Numbers come from the committed `results/` snapshot via `uv run python -m extractor.metrics --report`.
 
 ## Summary
 
