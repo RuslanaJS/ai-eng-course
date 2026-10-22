@@ -1,4 +1,4 @@
-.PHONY: setup run run-all smoke metrics test lint clean clean-results
+.PHONY: setup run run-all smoke metrics check-labels test lint clean clean-results
 
 # Like `npm install`: creates .venv and installs dependencies from pyproject.toml
 setup:
@@ -20,6 +20,10 @@ run-all: setup
 # One text through Anthropic (needs a key in .env): make smoke ID=005
 smoke: setup
 	uv run python -m extractor.smoke $(ID)
+
+# Every labeled value must be findable in its source text
+check-labels: setup
+	uv run python -m extractor.check_labels
 
 test: setup
 	uv run pytest
