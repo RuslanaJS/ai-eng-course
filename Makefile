@@ -1,4 +1,4 @@
-.PHONY: setup run run-all smoke metrics test lint clean
+.PHONY: setup run run-all smoke metrics test lint clean clean-results
 
 # Like `npm install`: creates .venv and installs dependencies from pyproject.toml
 setup:
@@ -27,9 +27,12 @@ test: setup
 lint: setup
 	uv run ruff check src tests
 
+# Caches only: results/ is a committed snapshot, remove it with `make clean-results`
 clean:
-	rm -rf results/* .pytest_cache .ruff_cache
-	touch results/.gitkeep
+	rm -rf .pytest_cache .ruff_cache
+
+clean-results:
+	rm -f results/*.jsonl
 
 # Metrics for all full runs in results/ vs the golden set
 metrics: setup
