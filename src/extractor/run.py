@@ -82,6 +82,8 @@ def run_corpus(
             "id": text_id,
             **meta,
             "params": result.params,
+            "temperature": result.params.get("temperature"),  # explicit, null when not set
+            "top_p": result.params.get("top_p"),
             "valid": result.valid,
             "status": result.status,
             "first_error": result.first_error,

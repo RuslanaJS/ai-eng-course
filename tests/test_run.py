@@ -40,6 +40,7 @@ def test_run_corpus_returns_one_serializable_row_per_text_with_metadata():
     assert rows[0]["valid"] and rows[0]["record"]["rooms"] == 2
     assert not rows[1]["valid"] and rows[1]["record"] is None and rows[1]["error"] == "boom"
     assert rows[0]["prompt_version"] == "extract_v1" and rows[0]["params"] == {"temperature": 0}
+    assert rows[0]["temperature"] == 0 and rows[0]["top_p"] is None  # logged explicitly
     assert rows[0]["status"] == "ok" and rows[0]["attempts"] == 1 and rows[0]["first_error"] is None
     json.dumps(rows)  # must be JSON-serializable
 
