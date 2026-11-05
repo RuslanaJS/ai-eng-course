@@ -12,6 +12,9 @@ __pycache__/
 # Claude Code personal settings (skills and CLAUDE.md are shared and committed)
 .claude/settings.local.json
 
+# Source texts are not redistributed (web page terms); keep your own local copies here
+data/texts/
+
 # Working notes (sources, candidates, drafts), not submitted
 WORKING_NOTES.md
 

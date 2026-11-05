@@ -20,6 +20,7 @@ with a local qwen2.5:3b (Ollama). Part of the AI Engineering course project, see
 - **Two labeled sets.** `data/golden` (dev) is used to find errors and write prompt rules; `data/golden_test` (held-out) is only for measuring. Do not tune on the test set; if you did look at it, say so in `prompts/CHANGELOG.md`.
 - **Prompts are append-only.** A new version is a new file `prompts/extract_vN.md`; results and the changelog refer to version names.
 - **Models.** Haiku 4.5 (`claude-haiku-4-5`), not 5.5: 5.5 rejects non-default temperature. The SDK has no `temperature` argument, it goes through `extra_body`.
+- **Source texts stay local.** `data/texts/` is gitignored because the terms of the source pages forbid redistribution. Do not commit them and do not re-download them by script; tests that read them skip when the folder is empty.
 - **Never commit** `.env`, `.claude/settings.local.json` or `WORKING_NOTES.md`. `results/*.jsonl` is a committed snapshot behind `REPORT.md`.
 - **Git.** Work in a branch and merge it into `main` fast-forward only (`git merge --ff-only`, no merge commits); do not push short-lived branches to the public remote. Keep commits logical. Moving a tag or force-pushing needs the user's explicit OK and a backup tag first.
 

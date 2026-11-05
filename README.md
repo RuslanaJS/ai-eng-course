@@ -18,6 +18,12 @@ make test                # unit tests (no network)
 
 The local Ollama runs take about 15-20 minutes each, so `make run-all` takes over an hour the first time.
 
+**The source texts are not in the repository.** The 33 texts in `data/texts/` come from public web pages
+whose terms do not allow redistribution, so they were removed from the repository and its history. The
+labeled sets in `data/golden*` and the URL of every text in `data/sources.csv` stay. `make run`,
+`make smoke` and `make check-labels` need the files `data/texts/NNN.txt` on disk; without them the tests
+that read the texts are skipped.
+
 ## How it works
 
 ```
@@ -36,7 +42,7 @@ data/texts/NNN.txt  --prompt (prompts/extract_vN.md)-->  model  -->  JSON
 - `src/extractor/metrics.py`: field accuracy, valid answers, hallucinations, latency p50/p95, cost per 1000 documents.
 - `prompts/`: prompt versions and `CHANGELOG.md` (what changed and why, with measured effects).
 - `configs/`: models (price, timeout, retries) and sampling.
-- `data/`: `texts/` (33 texts), `golden/` (10 labeled texts, development set), `golden_test/`
+- `data/`: `texts/` (33 texts, local only), `golden/` (10 labeled texts, development set), `golden_test/`
   (8 labeled texts, held-out test set), `sources.csv` (URL and date of every text).
 - `results/`: committed snapshot of the 12 runs behind `REPORT.md` (JSON Lines, one row per text: model, prompt version, sampling, status, latency, tokens, raw and parsed answer). `make run-all` skips configurations that already have a file; run `uv run python -m extractor.matrix --force` to redo them (about 0.2 USD per Haiku run, 15-20 minutes per Ollama run).
 

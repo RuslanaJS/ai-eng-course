@@ -9,6 +9,7 @@ from extractor.check_labels import (
     is_negative_control,
 )
 from extractor.run import ROOT
+from tests.texts import needs_texts
 
 TEXT = """Mieszkanie na sprzedaż 3 pokoje o powierzchni 57,36 m² numer 9
 Piętro
@@ -63,6 +64,7 @@ def test_check_folder_on_a_temp_folder(tmp_path):
     assert total > 0 and problems == ["labels/001: rooms equal the title"]
 
 
+@needs_texts
 def test_real_labels_match_their_texts():
     for name in ("golden", "golden_test"):
         _, problems = check_folder(ROOT / "data" / name, ROOT / "data" / "texts")

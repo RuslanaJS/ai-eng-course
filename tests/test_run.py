@@ -5,6 +5,7 @@ import json
 from extractor.providers.base import Result
 from extractor.run import cost_usd, load_config, merge_rows, read_texts, run_corpus
 from extractor.schema import OfferRecord
+from tests.texts import needs_texts
 
 
 class FakeProvider:
@@ -64,10 +65,14 @@ def test_cost_usd():
     )
 
 
-def test_corpus_and_configs_are_loadable():
+@needs_texts
+def test_corpus_is_loadable():
     texts = read_texts()
     assert len(texts) == 33 and texts[0][0] == "001"
     assert [i for i, _ in read_texts(ids=["031", "005"])] == ["005", "031"]
+
+
+def test_configs_are_loadable():
     cfg = load_config("models.yaml")["anthropic_haiku"]
     assert cfg["model"] == "claude-haiku-4-5" and cfg["timeout_s"] == 60 and cfg["max_retries"] == 3
     assert set(load_config("sampling.yaml")) >= {"t0", "t07"}
