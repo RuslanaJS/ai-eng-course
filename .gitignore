@@ -9,6 +9,10 @@ __pycache__/
 # Secrets
 .env
 
+# Downloaded source documents and embedding caches (the manifest and open-licence chunks are committed)
+data/raw/
+data/cache/
+
 # Claude Code personal settings (skills and CLAUDE.md are shared and committed)
 .claude/settings.local.json
 
