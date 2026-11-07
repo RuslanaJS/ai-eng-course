@@ -1,0 +1,332 @@
+{
+ "pipeline_version": "ingest-v2",
+ "dataset_version": "c20de4b495ca7617",
+ "as_of": "2026-11-07",
+ "chunks": 4246,
+ "committed": 522,
+ "local_only": 3724,
+ "texts_shared_between_documents": 151,
+ "near_duplicates": [
+  [
+   "D002",
+   "D003",
+   0.98
+  ],
+  [
+   "D001",
+   "D002",
+   0.94
+  ],
+  [
+   "D001",
+   "D003",
+   0.93
+  ]
+ ],
+ "documents": [
+  {
+   "id": "D001",
+   "title": "Act on acquiring real estate by foreigners, consolidated text 2017 (Dz.U. 2017 poz. 2278)",
+   "status": "current",
+   "blocks": 20,
+   "chunks": 30,
+   "tokens": 7223,
+   "duplicates_dropped": 0,
+   "pii_masked": 0,
+   "kinds": {
+    "article": 30
+   },
+   "commit_text": "yes"
+  },
+  {
+   "id": "D002",
+   "title": "Act on acquiring real estate by foreigners, consolidated text 2016 (Dz.U. 2016 poz. 1061)",
+   "status": "superseded",
+   "blocks": 21,
+   "chunks": 31,
+   "tokens": 7401,
+   "duplicates_dropped": 0,
+   "pii_masked": 0,
+   "kinds": {
+    "article": 31
+   },
+   "commit_text": "yes"
+  },
+  {
+   "id": "D003",
+   "title": "Act on acquiring real estate by foreigners, consolidated text 2014 (Dz.U. 2014 poz. 1380)",
+   "status": "superseded",
+   "blocks": 21,
+   "chunks": 32,
+   "tokens": 7312,
+   "duplicates_dropped": 0,
+   "pii_masked": 0,
+   "kinds": {
+    "article": 32
+   },
+   "commit_text": "yes"
+  },
+  {
+   "id": "D004",
+   "title": "Act of 17 July 2026 amending the act on acquiring real estate by foreigners and the Notary Act (Dz.U. 2026 poz. 1099)",
+   "status": "upcoming",
+   "blocks": 5,
+   "chunks": 8,
+   "tokens": 1948,
+   "duplicates_dropped": 0,
+   "pii_masked": 0,
+   "kinds": {
+    "article": 8
+   },
+   "commit_text": "yes"
+  },
+  {
+   "id": "D005",
+   "title": "Act of 20 May 2021 on protection of rights of a buyer of a dwelling and the Developer Guarantee Fund (Dz.U. 2021 poz. 1177)",
+   "status": "superseded",
+   "blocks": 81,
+   "chunks": 147,
+   "tokens": 46866,
+   "duplicates_dropped": 1,
+   "pii_masked": 0,
+   "kinds": {
+    "article": 147
+   },
+   "commit_text": "yes"
+  },
+  {
+   "id": "D006",
+   "title": "Act on protection of rights of a buyer of a dwelling, consolidated text 2024 (Dz.U. 2024 poz. 695)",
+   "status": "superseded",
+   "blocks": 67,
+   "chunks": 116,
+   "tokens": 37252,
+   "duplicates_dropped": 0,
+   "pii_masked": 0,
+   "kinds": {
+    "article": 116
+   },
+   "commit_text": "yes"
+  },
+  {
+   "id": "D007",
+   "title": "Act on protection of rights of a buyer of a dwelling, consolidated text 2026 (Dz.U. 2026 poz. 880)",
+   "status": "current",
+   "blocks": 88,
+   "chunks": 151,
+   "tokens": 49027,
+   "duplicates_dropped": 0,
+   "pii_masked": 0,
+   "kinds": {
+    "article": 151
+   },
+   "commit_text": "yes"
+  },
+  {
+   "id": "D008",
+   "title": "Act of 21 May 2025 amending the act on protection of buyers (Dz.U. 2025 poz. 758)",
+   "status": "current",
+   "blocks": 4,
+   "chunks": 7,
+   "tokens": 1911,
+   "duplicates_dropped": 0,
+   "pii_masked": 0,
+   "kinds": {
+    "article": 7
+   },
+   "commit_text": "yes"
+  },
+  {
+   "id": "D009",
+   "title": "NBP quarterly information on housing prices, II 2026",
+   "status": "current",
+   "blocks": 169,
+   "chunks": 143,
+   "tokens": 48285,
+   "duplicates_dropped": 3,
+   "pii_masked": 0,
+   "kinds": {
+    "paragraph": 106,
+    "table": 25,
+    "figure": 12
+   },
+   "commit_text": "pending"
+  },
+  {
+   "id": "D010",
+   "title": "NBP quarterly information on housing prices, I 2026",
+   "status": "superseded",
+   "blocks": 178,
+   "chunks": 162,
+   "tokens": 54067,
+   "duplicates_dropped": 3,
+   "pii_masked": 0,
+   "kinds": {
+    "paragraph": 129,
+    "table": 21,
+    "figure": 12
+   },
+   "commit_text": "pending"
+  },
+  {
+   "id": "D011",
+   "title": "NBP quarterly information on housing prices, IV 2025",
+   "status": "superseded",
+   "blocks": 150,
+   "chunks": 147,
+   "tokens": 50472,
+   "duplicates_dropped": 4,
+   "pii_masked": 0,
+   "kinds": {
+    "paragraph": 117,
+    "table": 28,
+    "figure": 2
+   },
+   "commit_text": "pending"
+  },
+  {
+   "id": "D012",
+   "title": "NBP quarterly information on housing prices, III 2025",
+   "status": "superseded",
+   "blocks": 177,
+   "chunks": 145,
+   "tokens": 47031,
+   "duplicates_dropped": 2,
+   "pii_masked": 0,
+   "kinds": {
+    "paragraph": 103,
+    "table": 26,
+    "figure": 16
+   },
+   "commit_text": "pending"
+  },
+  {
+   "id": "D013",
+   "title": "NBP quarterly information on housing prices, II 2025",
+   "status": "superseded",
+   "blocks": 181,
+   "chunks": 144,
+   "tokens": 47515,
+   "duplicates_dropped": 1,
+   "pii_masked": 0,
+   "kinds": {
+    "paragraph": 106,
+    "table": 23,
+    "figure": 15
+   },
+   "commit_text": "pending"
+  },
+  {
+   "id": "D014",
+   "title": "NBP quarterly information on housing prices, I 2025",
+   "status": "superseded",
+   "blocks": 175,
+   "chunks": 131,
+   "tokens": 47139,
+   "duplicates_dropped": 1,
+   "pii_masked": 0,
+   "kinds": {
+    "paragraph": 88,
+    "table": 19,
+    "figure": 24
+   },
+   "commit_text": "pending"
+  },
+  {
+   "id": "D015",
+   "title": "NBP quarterly information on housing prices, IV 2024",
+   "status": "superseded",
+   "blocks": 120,
+   "chunks": 104,
+   "tokens": 36439,
+   "duplicates_dropped": 1,
+   "pii_masked": 0,
+   "kinds": {
+    "paragraph": 76,
+    "table": 17,
+    "figure": 11
+   },
+   "commit_text": "pending"
+  },
+  {
+   "id": "D016",
+   "title": "NBP quarterly information on housing prices, III 2024",
+   "status": "superseded",
+   "blocks": 157,
+   "chunks": 137,
+   "tokens": 47093,
+   "duplicates_dropped": 0,
+   "pii_masked": 0,
+   "kinds": {
+    "paragraph": 106,
+    "table": 21,
+    "figure": 10
+   },
+   "commit_text": "pending"
+  },
+  {
+   "id": "D017",
+   "title": "NBP annual report on the residential and commercial real estate market, 2022",
+   "status": "superseded",
+   "blocks": 1330,
+   "chunks": 1931,
+   "tokens": 771243,
+   "duplicates_dropped": 15,
+   "pii_masked": 0,
+   "kinds": {
+    "paragraph": 1707,
+    "figure": 17,
+    "table": 207
+   },
+   "commit_text": "pending"
+  },
+  {
+   "id": "D018",
+   "title": "NBP annual report on the residential and commercial real estate market, 2023",
+   "status": "current",
+   "blocks": 301,
+   "chunks": 289,
+   "tokens": 113524,
+   "duplicates_dropped": 0,
+   "pii_masked": 0,
+   "kinds": {
+    "paragraph": 281,
+    "figure": 6,
+    "table": 2
+   },
+   "commit_text": "pending"
+  },
+  {
+   "id": "D019",
+   "title": "NBP information on home prices and the housing and commercial real estate market in Poland, 2023 Q1",
+   "status": "current",
+   "blocks": 195,
+   "chunks": 135,
+   "tokens": 50585,
+   "duplicates_dropped": 0,
+   "pii_masked": 0,
+   "kinds": {
+    "paragraph": 114,
+    "table": 13,
+    "figure": 8
+   },
+   "commit_text": "pending"
+  },
+  {
+   "id": "D020",
+   "title": "NBP annual report on the real estate market, 2018 (English)",
+   "status": "current",
+   "blocks": 268,
+   "chunks": 256,
+   "tokens": 97391,
+   "duplicates_dropped": 0,
+   "pii_masked": 0,
+   "kinds": {
+    "paragraph": 244,
+    "figure": 6,
+    "table": 6
+   },
+   "commit_text": "pending"
+  }
+ ]
+}

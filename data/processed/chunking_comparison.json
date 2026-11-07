@@ -1,0 +1,102 @@
+{
+ "D001": {
+  "title": "Act on acquiring real estate by foreigners, consolidated text 2017 (Dz.U. 2017 poz. 2278)",
+  "structural": {
+   "chunks": 30,
+   "avg_tokens": 241,
+   "max_tokens": 450,
+   "mid_sentence_starts_pct": 0,
+   "tables_and_articles_cut": 5,
+   "mixed_section_chunks_pct": 0
+  },
+  "fixed": {
+   "chunks": 19,
+   "avg_tokens": 445,
+   "max_tokens": 450,
+   "mid_sentence_starts_pct": 84,
+   "tables_and_articles_cut": 10,
+   "mixed_section_chunks_pct": 0
+  },
+  "tables_and_articles": 20
+ },
+ "D007": {
+  "title": "Act on protection of rights of a buyer of a dwelling, consolidated text 2026 (Dz.U. 2026 poz. 880)",
+  "structural": {
+   "chunks": 151,
+   "avg_tokens": 325,
+   "max_tokens": 661,
+   "mid_sentence_starts_pct": 0,
+   "tables_and_articles_cut": 22,
+   "mixed_section_chunks_pct": 0
+  },
+  "fixed": {
+   "chunks": 129,
+   "avg_tokens": 448,
+   "max_tokens": 450,
+   "mid_sentence_starts_pct": 98,
+   "tables_and_articles_cut": 53,
+   "mixed_section_chunks_pct": 9
+  },
+  "tables_and_articles": 88
+ },
+ "D009": {
+  "title": "NBP quarterly information on housing prices, II 2026",
+  "structural": {
+   "chunks": 146,
+   "avg_tokens": 332,
+   "max_tokens": 488,
+   "mid_sentence_starts_pct": 0,
+   "tables_and_articles_cut": 5,
+   "mixed_section_chunks_pct": 0
+  },
+  "fixed": {
+   "chunks": 126,
+   "avg_tokens": 449,
+   "max_tokens": 450,
+   "mid_sentence_starts_pct": 94,
+   "tables_and_articles_cut": 9,
+   "mixed_section_chunks_pct": 6
+  },
+  "tables_and_articles": 17
+ },
+ "D018": {
+  "title": "NBP annual report on the residential and commercial real estate market, 2023",
+  "structural": {
+   "chunks": 289,
+   "avg_tokens": 393,
+   "max_tokens": 546,
+   "mid_sentence_starts_pct": 0,
+   "tables_and_articles_cut": 0,
+   "mixed_section_chunks_pct": 0
+  },
+  "fixed": {
+   "chunks": 298,
+   "avg_tokens": 449,
+   "max_tokens": 450,
+   "mid_sentence_starts_pct": 98,
+   "tables_and_articles_cut": 0,
+   "mixed_section_chunks_pct": 3
+  },
+  "tables_and_articles": 2
+ },
+ "D019": {
+  "title": "NBP information on home prices and the housing and commercial real estate market in Poland, 2023 Q1",
+  "structural": {
+   "chunks": 135,
+   "avg_tokens": 375,
+   "max_tokens": 679,
+   "mid_sentence_starts_pct": 0,
+   "tables_and_articles_cut": 4,
+   "mixed_section_chunks_pct": 0
+  },
+  "fixed": {
+   "chunks": 132,
+   "avg_tokens": 449,
+   "max_tokens": 450,
+   "mid_sentence_starts_pct": 99,
+   "tables_and_articles_cut": 7,
+   "mixed_section_chunks_pct": 5
+  },
+  "tables_and_articles": 7
+ }
+}
