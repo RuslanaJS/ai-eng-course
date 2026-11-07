@@ -401,6 +401,7 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "anthropic" },
+    { name = "certifi" },
     { name = "google-genai" },
     { name = "ollama" },
     { name = "pydantic" },
@@ -417,6 +418,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "anthropic", specifier = ">=0.40" },
+    { name = "certifi", specifier = ">=2026.7.22" },
     { name = "google-genai", specifier = ">=2.34.0" },
     { name = "ollama", specifier = ">=0.4" },
     { name = "pydantic", specifier = ">=2.7" },

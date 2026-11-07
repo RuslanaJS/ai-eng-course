@@ -1,4 +1,4 @@
-.PHONY: setup run run-all smoke metrics check-labels test lint clean clean-results
+.PHONY: setup run run-all smoke metrics check-labels test lint clean clean-results fetch
 
 # Like `npm install`: creates .venv and installs dependencies from pyproject.toml
 setup:
@@ -24,6 +24,11 @@ smoke: setup
 # Every labeled value must be findable in its source text
 check-labels: setup
 	uv run python -m extractor.check_labels
+
+# HW2: download the open-licence corpus documents and record their provenance (data/fetch_log.jsonl).
+# Preview first: make fetch ARGS=--dry-run
+fetch: setup
+	uv run python scripts/fetch_corpus.py $(ARGS)
 
 test: setup
 	uv run pytest
