@@ -1,4 +1,4 @@
-.PHONY: setup run run-all smoke metrics check-labels test lint clean clean-results fetch
+.PHONY: setup run run-all smoke metrics check-labels test lint clean clean-results fetch ingest check-ingest
 
 # Like `npm install`: creates .venv and installs dependencies from pyproject.toml
 setup:
@@ -29,6 +29,14 @@ check-labels: setup
 # Preview first: make fetch ARGS=--dry-run
 fetch: setup
 	uv run python scripts/fetch_corpus.py $(ARGS)
+
+# HW2: turn the downloaded documents into chunks (data/processed/chunks.jsonl), about 3 minutes
+ingest: setup
+	uv run python -m propdoc.ingest.build $(ARGS)
+
+# Rules the real chunks must satisfy (headers, noise, sizes, versions); run after make ingest
+check-ingest: setup
+	uv run python -m propdoc.ingest.check
 
 test: setup
 	uv run pytest
