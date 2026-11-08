@@ -42,61 +42,61 @@
  "D009": {
   "title": "NBP quarterly information on housing prices, II 2026",
   "structural": {
-   "chunks": 146,
-   "avg_tokens": 332,
-   "max_tokens": 488,
+   "chunks": 153,
+   "avg_tokens": 312,
+   "max_tokens": 518,
    "mid_sentence_starts_pct": 0,
-   "tables_and_articles_cut": 5,
+   "tables_and_articles_cut": 6,
    "mixed_section_chunks_pct": 0
   },
   "fixed": {
-   "chunks": 126,
-   "avg_tokens": 449,
+   "chunks": 124,
+   "avg_tokens": 450,
    "max_tokens": 450,
-   "mid_sentence_starts_pct": 94,
-   "tables_and_articles_cut": 9,
-   "mixed_section_chunks_pct": 6
+   "mid_sentence_starts_pct": 97,
+   "tables_and_articles_cut": 12,
+   "mixed_section_chunks_pct": 7
   },
-  "tables_and_articles": 17
+  "tables_and_articles": 29
  },
  "D018": {
   "title": "NBP annual report on the residential and commercial real estate market, 2023",
   "structural": {
-   "chunks": 289,
-   "avg_tokens": 393,
+   "chunks": 287,
+   "avg_tokens": 389,
    "max_tokens": 546,
    "mid_sentence_starts_pct": 0,
    "tables_and_articles_cut": 0,
    "mixed_section_chunks_pct": 0
   },
   "fixed": {
-   "chunks": 298,
+   "chunks": 293,
    "avg_tokens": 449,
    "max_tokens": 450,
    "mid_sentence_starts_pct": 98,
    "tables_and_articles_cut": 0,
-   "mixed_section_chunks_pct": 3
+   "mixed_section_chunks_pct": 4
   },
   "tables_and_articles": 2
  },
  "D019": {
   "title": "NBP information on home prices and the housing and commercial real estate market in Poland, 2023 Q1",
   "structural": {
-   "chunks": 135,
-   "avg_tokens": 375,
+   "chunks": 146,
+   "avg_tokens": 338,
    "max_tokens": 679,
    "mid_sentence_starts_pct": 0,
-   "tables_and_articles_cut": 4,
+   "tables_and_articles_cut": 3,
    "mixed_section_chunks_pct": 0
   },
   "fixed": {
-   "chunks": 132,
+   "chunks": 129,
    "avg_tokens": 449,
    "max_tokens": 450,
-   "mid_sentence_starts_pct": 99,
+   "mid_sentence_starts_pct": 98,
    "tables_and_articles_cut": 7,
-   "mixed_section_chunks_pct": 5
+   "mixed_section_chunks_pct": 6
   },
-  "tables_and_articles": 7
+  "tables_and_articles": 22
  }
 }

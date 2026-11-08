@@ -6,18 +6,18 @@
 {"event": "ingested", "id": "D006", "chunks": 116, "status": "superseded", "duplicates_dropped": 0, "pii_masked": 0}
 {"event": "ingested", "id": "D007", "chunks": 151, "status": "current", "duplicates_dropped": 0, "pii_masked": 0}
 {"event": "ingested", "id": "D008", "chunks": 7, "status": "current", "duplicates_dropped": 0, "pii_masked": 0}
-{"event": "ingested", "id": "D009", "chunks": 143, "status": "current", "duplicates_dropped": 3, "pii_masked": 0}
-{"event": "ingested", "id": "D010", "chunks": 162, "status": "superseded", "duplicates_dropped": 3, "pii_masked": 0}
-{"event": "ingested", "id": "D011", "chunks": 147, "status": "superseded", "duplicates_dropped": 4, "pii_masked": 0}
-{"event": "ingested", "id": "D012", "chunks": 145, "status": "superseded", "duplicates_dropped": 2, "pii_masked": 0}
-{"event": "ingested", "id": "D013", "chunks": 144, "status": "superseded", "duplicates_dropped": 1, "pii_masked": 0}
-{"event": "ingested", "id": "D014", "chunks": 131, "status": "superseded", "duplicates_dropped": 1, "pii_masked": 0}
-{"event": "ingested", "id": "D015", "chunks": 104, "status": "superseded", "duplicates_dropped": 1, "pii_masked": 0}
-{"event": "ingested", "id": "D016", "chunks": 137, "status": "superseded", "duplicates_dropped": 0, "pii_masked": 0}
-{"event": "ingested", "id": "D017", "chunks": 1931, "status": "superseded", "duplicates_dropped": 15, "pii_masked": 0}
-{"event": "ingested", "id": "D018", "chunks": 289, "status": "current", "duplicates_dropped": 0, "pii_masked": 0}
-{"event": "ingested", "id": "D019", "chunks": 135, "status": "current", "duplicates_dropped": 0, "pii_masked": 0}
-{"event": "ingested", "id": "D020", "chunks": 256, "status": "current", "duplicates_dropped": 0, "pii_masked": 0}
+{"event": "ingested", "id": "D009", "chunks": 148, "status": "current", "duplicates_dropped": 5, "pii_masked": 0}
+{"event": "ingested", "id": "D010", "chunks": 170, "status": "superseded", "duplicates_dropped": 4, "pii_masked": 0}
+{"event": "ingested", "id": "D011", "chunks": 155, "status": "superseded", "duplicates_dropped": 4, "pii_masked": 0}
+{"event": "ingested", "id": "D012", "chunks": 139, "status": "superseded", "duplicates_dropped": 4, "pii_masked": 0}
+{"event": "ingested", "id": "D013", "chunks": 138, "status": "superseded", "duplicates_dropped": 4, "pii_masked": 0}
+{"event": "ingested", "id": "D014", "chunks": 131, "status": "superseded", "duplicates_dropped": 4, "pii_masked": 0}
+{"event": "ingested", "id": "D015", "chunks": 109, "status": "superseded", "duplicates_dropped": 4, "pii_masked": 0}
+{"event": "ingested", "id": "D016", "chunks": 128, "status": "superseded", "duplicates_dropped": 0, "pii_masked": 0}
+{"event": "ingested", "id": "D017", "chunks": 1893, "status": "superseded", "duplicates_dropped": 15, "pii_masked": 0}
+{"event": "ingested", "id": "D018", "chunks": 287, "status": "current", "duplicates_dropped": 0, "pii_masked": 0}
+{"event": "ingested", "id": "D019", "chunks": 146, "status": "superseded", "duplicates_dropped": 0, "pii_masked": 0}
+{"event": "ingested", "id": "D020", "chunks": 238, "status": "superseded", "duplicates_dropped": 0, "pii_masked": 0}
 {"event": "near_duplicate", "ids": ["D002", "D003"], "jaccard": 0.98, "decision": "kept both, statuses superseded and superseded: old versions stay searchable and are filtered out by status"}
 {"event": "near_duplicate", "ids": ["D001", "D002"], "jaccard": 0.94, "decision": "kept both, statuses current and superseded: old versions stay searchable and are filtered out by status"}
 {"event": "near_duplicate", "ids": ["D001", "D003"], "jaccard": 0.93, "decision": "kept both, statuses current and superseded: old versions stay searchable and are filtered out by status"}

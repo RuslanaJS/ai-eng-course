@@ -1,11 +1,11 @@
 {
  "pipeline_version": "ingest-v2",
  "dataset_version": "c20de4b495ca7617",
- "as_of": "2026-11-07",
- "chunks": 4246,
+ "as_of": "2026-11-08",
+ "chunks": 4204,
  "committed": 522,
- "local_only": 3724,
- "texts_shared_between_documents": 151,
+ "local_only": 3682,
+ "texts_shared_between_documents": 198,
  "near_duplicates": [
   [
    "D002",
@@ -140,15 +140,15 @@
    "id": "D009",
    "title": "NBP quarterly information on housing prices, II 2026",
    "status": "current",
-   "blocks": 169,
-   "chunks": 143,
-   "tokens": 48285,
-   "duplicates_dropped": 3,
+   "blocks": 125,
+   "chunks": 148,
+   "tokens": 47468,
+   "duplicates_dropped": 5,
    "pii_masked": 0,
    "kinds": {
-    "paragraph": 106,
-    "table": 25,
-    "figure": 12
+    "paragraph": 105,
+    "table": 35,
+    "figure": 8
    },
    "commit_text": "pending"
   },
@@ -156,15 +156,15 @@
    "id": "D010",
    "title": "NBP quarterly information on housing prices, I 2026",
    "status": "superseded",
-   "blocks": 178,
-   "chunks": 162,
-   "tokens": 54067,
-   "duplicates_dropped": 3,
+   "blocks": 144,
+   "chunks": 170,
+   "tokens": 52742,
+   "duplicates_dropped": 4,
    "pii_masked": 0,
    "kinds": {
-    "paragraph": 129,
-    "table": 21,
-    "figure": 12
+    "paragraph": 133,
+    "table": 29,
+    "figure": 8
    },
    "commit_text": "pending"
   },
@@ -172,15 +172,14 @@
    "id": "D011",
    "title": "NBP quarterly information on housing prices, IV 2025",
    "status": "superseded",
-   "blocks": 150,
-   "chunks": 147,
-   "tokens": 50472,
+   "blocks": 121,
+   "chunks": 155,
+   "tokens": 49890,
    "duplicates_dropped": 4,
    "pii_masked": 0,
    "kinds": {
-    "paragraph": 117,
-    "table": 28,
-    "figure": 2
+    "paragraph": 122,
+    "table": 33
    },
    "commit_text": "pending"
   },
@@ -188,15 +187,15 @@
    "id": "D012",
    "title": "NBP quarterly information on housing prices, III 2025",
    "status": "superseded",
-   "blocks": 177,
-   "chunks": 145,
-   "tokens": 47031,
-   "duplicates_dropped": 2,
+   "blocks": 123,
+   "chunks": 139,
+   "tokens": 43188,
+   "duplicates_dropped": 4,
    "pii_masked": 0,
    "kinds": {
-    "paragraph": 103,
-    "table": 26,
-    "figure": 16
+    "paragraph": 96,
+    "table": 35,
+    "figure": 8
    },
    "commit_text": "pending"
   },
@@ -204,15 +203,15 @@
    "id": "D013",
    "title": "NBP quarterly information on housing prices, II 2025",
    "status": "superseded",
-   "blocks": 181,
-   "chunks": 144,
-   "tokens": 47515,
-   "duplicates_dropped": 1,
+   "blocks": 133,
+   "chunks": 138,
+   "tokens": 43274,
+   "duplicates_dropped": 4,
    "pii_masked": 0,
    "kinds": {
-    "paragraph": 106,
-    "table": 23,
-    "figure": 15
+    "paragraph": 104,
+    "table": 30,
+    "figure": 4
    },
    "commit_text": "pending"
   },
@@ -220,15 +219,15 @@
    "id": "D014",
    "title": "NBP quarterly information on housing prices, I 2025",
    "status": "superseded",
-   "blocks": 175,
+   "blocks": 125,
    "chunks": 131,
-   "tokens": 47139,
-   "duplicates_dropped": 1,
+   "tokens": 43384,
+   "duplicates_dropped": 4,
    "pii_masked": 0,
    "kinds": {
-    "paragraph": 88,
-    "table": 19,
-    "figure": 24
+    "paragraph": 87,
+    "table": 28,
+    "figure": 16
    },
    "commit_text": "pending"
   },
@@ -236,15 +235,15 @@
    "id": "D015",
    "title": "NBP quarterly information on housing prices, IV 2024",
    "status": "superseded",
-   "blocks": 120,
-   "chunks": 104,
-   "tokens": 36439,
-   "duplicates_dropped": 1,
+   "blocks": 101,
+   "chunks": 109,
+   "tokens": 33473,
+   "duplicates_dropped": 4,
    "pii_masked": 0,
    "kinds": {
-    "paragraph": 76,
-    "table": 17,
-    "figure": 11
+    "paragraph": 71,
+    "table": 29,
+    "figure": 9
    },
    "commit_text": "pending"
   },
@@ -252,15 +251,15 @@
    "id": "D016",
    "title": "NBP quarterly information on housing prices, III 2024",
    "status": "superseded",
-   "blocks": 157,
-   "chunks": 137,
-   "tokens": 47093,
+   "blocks": 115,
+   "chunks": 128,
+   "tokens": 43728,
    "duplicates_dropped": 0,
    "pii_masked": 0,
    "kinds": {
-    "paragraph": 106,
-    "table": 21,
-    "figure": 10
+    "paragraph": 98,
+    "table": 26,
+    "figure": 4
    },
    "commit_text": "pending"
   },
@@ -268,15 +267,14 @@
    "id": "D017",
    "title": "NBP annual report on the residential and commercial real estate market, 2022",
    "status": "superseded",
-   "blocks": 1330,
-   "chunks": 1931,
-   "tokens": 771243,
+   "blocks": 588,
+   "chunks": 1893,
+   "tokens": 767739,
    "duplicates_dropped": 15,
    "pii_masked": 0,
    "kinds": {
-    "paragraph": 1707,
-    "figure": 17,
-    "table": 207
+    "paragraph": 1730,
+    "table": 163
    },
    "commit_text": "pending"
   },
@@ -284,14 +282,14 @@
    "id": "D018",
    "title": "NBP annual report on the residential and commercial real estate market, 2023",
    "status": "current",
-   "blocks": 301,
-   "chunks": 289,
-   "tokens": 113524,
+   "blocks": 130,
+   "chunks": 287,
+   "tokens": 111614,
    "duplicates_dropped": 0,
    "pii_masked": 0,
    "kinds": {
-    "paragraph": 281,
-    "figure": 6,
+    "paragraph": 283,
+    "figure": 2,
     "table": 2
    },
    "commit_text": "pending"
@@ -299,32 +297,30 @@
   {
    "id": "D019",
    "title": "NBP information on home prices and the housing and commercial real estate market in Poland, 2023 Q1",
-   "status": "current",
-   "blocks": 195,
-   "chunks": 135,
-   "tokens": 50585,
+   "status": "superseded",
+   "blocks": 154,
+   "chunks": 146,
+   "tokens": 49376,
    "duplicates_dropped": 0,
    "pii_masked": 0,
    "kinds": {
-    "paragraph": 114,
-    "table": 13,
-    "figure": 8
+    "paragraph": 118,
+    "table": 28
    },
    "commit_text": "pending"
   },
   {
    "id": "D020",
    "title": "NBP annual report on the real estate market, 2018 (English)",
-   "status": "current",
-   "blocks": 268,
-   "chunks": 256,
-   "tokens": 97391,
+   "status": "superseded",
+   "blocks": 105,
+   "chunks": 238,
+   "tokens": 91427,
    "duplicates_dropped": 0,
    "pii_masked": 0,
    "kinds": {
-    "paragraph": 244,
-    "figure": 6,
-    "table": 6
+    "paragraph": 233,
+    "table": 5
    },
    "commit_text": "pending"
   }

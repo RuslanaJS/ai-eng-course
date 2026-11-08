@@ -1,0 +1,163 @@
+[
+ {
+  "id": "r01",
+  "question": "Czy cudzoziemiec na pobycie czasowym albo bez żadnego pobytu w Polsce może kupić mieszkanie bez zezwolenia?",
+  "kind": "residence",
+  "lang": "pl",
+  "docs": ["D001"],
+  "quotes": ["Nie wymaga uzyskania zezwolenia, z zastrzeżeniem ust. 3: 1) nabycie samodzielnego lokalu mieszkalnego"],
+  "history": false,
+  "verified": true
+ },
+ {
+  "id": "r02",
+  "question": "Can a foreigner without a residence permit in Poland buy an apartment without any special authorisation?",
+  "kind": "cross-language",
+  "lang": "en",
+  "docs": ["D001"],
+  "quotes": ["Nie wymaga uzyskania zezwolenia, z zastrzeżeniem ust. 3: 1) nabycie samodzielnego lokalu mieszkalnego"],
+  "history": false,
+  "verified": true
+ },
+ {
+  "id": "r03",
+  "question": "Jaka jest maksymalna opłata rezerwacyjna za zarezerwowanie mieszkania u dewelopera?",
+  "kind": "paraphrase",
+  "lang": "pl",
+  "docs": ["D007"],
+  "quotes": ["Wysokość opłaty rezerwacyjnej nie może przekraczać 1 %"],
+  "history": false,
+  "verified": true
+ },
+ {
+  "id": "r04",
+  "question": "Czym jest zamknięty mieszkaniowy rachunek powierniczy?",
+  "kind": "paraphrase",
+  "lang": "pl",
+  "docs": ["D007"],
+  "quotes": ["zamknięty mieszkaniowy rachunek powierniczy – należący do dewelopera rachunek powierniczy"],
+  "history": false,
+  "verified": true
+ },
+ {
+  "id": "r05",
+  "question": "Czym jest otwarty mieszkaniowy rachunek powierniczy?",
+  "kind": "similar definition",
+  "lang": "pl",
+  "docs": ["D007"],
+  "quotes": ["otwarty mieszkaniowy rachunek powierniczy – należący do dewelopera rachunek powierniczy"],
+  "history": false,
+  "verified": true
+ },
+ {
+  "id": "r06",
+  "question": "Jakie dokumenty deweloper musi udostępnić do wglądu osobie zainteresowanej zakupem mieszkania?",
+  "kind": "documents",
+  "lang": "pl",
+  "docs": ["D007"],
+  "quotes": ["aktualnym stanem księgi wieczystej prowadzonej dla nieruchomości"],
+  "history": false,
+  "verified": true
+ },
+ {
+  "id": "r07",
+  "question": "Czy mieszkanie położone w strefie nadgranicznej też można kupić bez zezwolenia?",
+  "kind": "exception",
+  "lang": "pl",
+  "docs": ["D001"],
+  "quotes": ["Zwolnień, o których mowa w ust. 1, nie stosuje się do nieruchomości położonych w strefie nadgranicznej"],
+  "history": false,
+  "verified": true
+ },
+ {
+  "id": "r08",
+  "question": "Co musi dołączyć cudzoziemiec do wniosku o zezwolenie na zakup nieruchomości?",
+  "kind": "documents",
+  "lang": "pl",
+  "docs": ["D001"],
+  "quotes": ["jest obowiązany dołączyć dokumenty potwierdzające okoliczności wskazane we wniosku"],
+  "history": false,
+  "verified": true
+ },
+ {
+  "id": "r09",
+  "question": "Czy cudzoziemiec, który od 5 lat mieszka w Polsce na pobycie stałym, potrzebuje zezwolenia na zakup nieruchomości?",
+  "kind": "residence",
+  "lang": "pl",
+  "docs": ["D001"],
+  "quotes": ["zamieszkującego w Rzeczypospolitej Polskiej co najmniej 5 lat od udzielenia mu zezwolenia na pobyt stały"],
+  "history": false,
+  "verified": true
+ },
+ {
+  "id": "r10",
+  "question": "Co może zrobić nabywca, jeśli cena mieszkania na stronie dewelopera różni się od ceny oferowanej przy zawarciu umowy?",
+  "kind": "price rule",
+  "lang": "pl",
+  "docs": ["D007", "D008"],
+  "quotes": ["W przypadku rozbieżności pomiędzy ceną podaną w sposób określony w ust. 1 a ceną oferowaną przy zawarciu umowy, nabywca ma prawo żądania zawarcia umowy po cenie dla niego najkorzystniejszej"],
+  "history": false,
+  "verified": true
+ },
+ {
+  "id": "r11",
+  "question": "Czy ceny nowych mieszkań w Warszawie rosną szybciej niż w innych dużych miastach?",
+  "kind": "trend",
+  "lang": "pl",
+  "docs": ["D009"],
+  "quotes": ["ceny ofertowe były wyższe niż przed rokiem o 4% w 10M, 1,4% w 6M oraz 6,9% w Warszawie", "wzrosły, zarówno w Warszawie, jak i 6M o odpowiednio 1,9% oraz 1,5%", "osiągając 2,2% w 10M, 2,3% w 6M oraz 3,6% w Warszawie"],
+  "history": false,
+  "verified": true
+ },
+ {
+  "id": "r12",
+  "question": "Czy ceny nowych mieszkań w największych miastach Polski rosną, czy spadają?",
+  "kind": "trend",
+  "lang": "pl",
+  "docs": ["D009"],
+  "quotes": ["nominalne ceny transakcyjne mieszkań na rynku pierwotnym (RPT) wzrosły, zarówno w Warszawie, jak i 6M", "nominalne ceny ofertowe mieszkań na rynku pierwotnym (RPO) utrzymywały dodatnią dynamikę we wszystkich analizowanych grupach miast", "ceny pozostawały na względnie stabilnych poziomach"],
+  "history": false,
+  "verified": true
+ },
+ {
+  "id": "r13",
+  "question": "Jaka jest obecnie tendencja cen mieszkań z rynku wtórnego w największych miastach?",
+  "kind": "trend",
+  "lang": "pl",
+  "docs": ["D009"],
+  "quotes": ["w grupie 10M dynamika wyniosła 1,6%, a w 6M ceny spadły o 0,6%", "Na rynku wtórnym nominalne ceny ofertowe (RWO) również odnotowały niewielki wzrost", "ceny pozostawały na względnie stabilnych poziomach"],
+  "history": false,
+  "verified": true
+ },
+ {
+  "id": "r14",
+  "question": "Are prices of new apartments in Poland's biggest cities going up or down?",
+  "kind": "trend",
+  "lang": "en",
+  "docs": ["D009"],
+  "quotes": ["nominalne ceny transakcyjne mieszkań na rynku pierwotnym (RPT) wzrosły, zarówno w Warszawie, jak i 6M", "nominalne ceny ofertowe mieszkań na rynku pierwotnym (RPO) utrzymywały dodatnią dynamikę we wszystkich analizowanych grupach miast", "ceny pozostawały na względnie stabilnych poziomach"],
+  "history": false,
+  "verified": true
+ },
+ {
+  "id": "r15",
+  "question": "Czy pod koniec 2025 roku ceny nowych mieszkań w Warszawie rosły, czy spadały?",
+  "kind": "trend",
+  "lang": "pl",
+  "docs": ["D011"],
+  "quotes": ["oraz w Warszawie o 1,8%, natomiast w 6M spadły o 0,3%"],
+  "history": true,
+  "filters": {"effective_from": "2025-10-01", "effective_to": "2025-12-31"},
+  "verified": true
+ },
+ {
+  "id": "r16",
+  "question": "Gdzie jako otwarte dane publikowane są informacje o cenach mieszkań, które przekazują deweloperzy?",
+  "kind": "open data",
+  "lang": "pl",
+  "docs": ["D007", "D008"],
+  "quotes": ["publikuje dane, o których mowa w ust. 1 i 2, na portalu danych"],
+  "history": false,
+  "verified": true
+ }
+]
