@@ -24,6 +24,9 @@ CAPTION = re.compile(rf"^({CAPTION_WORDS})\s+\d+", re.IGNORECASE)
 CAPTION_ANYWHERE = re.compile(rf"\b({CAPTION_WORDS})\s+\d+", re.IGNORECASE)
 SOURCE = re.compile(r"^(Źródło|Source)\b", re.IGNORECASE)
 NOTE = re.compile(r"^(Uwaga|Uwagi|Note|Notes)\b", re.IGNORECASE)
+SOURCE_ANYWHERE = re.compile(r"\b(Źródło|Source)\b")
+NOTE_ANYWHERE = re.compile(r"\b(Uwaga|Uwagi|Note|Notes)\b")
+WORD_GAP = 4  # points between two characters that start a new word
 HEADING = re.compile(r"^\d+(\.\d+)*\.?\s+[A-ZĄĆĘŁŃÓŚŹŻ]")
 BULLET = re.compile(r"^([▪•]|o(?=\s+[A-ZĄĆĘŁŃÓŚŹŻ])|[-–](?=\s))\s*")
 ARTICLE = re.compile(r"^Art\.\s*(\d+[a-z]*)\.")
@@ -107,32 +110,67 @@ def _footnote_rule_top(page):
     return min(tops) if tops else None
 
 
-def _lines_of(page, number, keep_footnotes=True):
-    out = []
-    cut = None if keep_footnotes else _footnote_rule_top(page)
-    for line in page.filter(_visible).extract_text_lines(x_tolerance=4, return_chars=True):
-        if cut is not None and line["top"] >= cut:
+def _chars_text(chars):
+    """Text of some characters of a line, with a space where the gap between two of them is wide."""
+    out, previous = [], None
+    for c in sorted(chars, key=lambda c: c["x0"]):
+        if c["text"].isspace():
             continue
-        chars = [c for c in line["chars"] if not c["text"].isspace()]
-        bold = bool(chars) and all("bold" in c["fontname"].lower() for c in chars)
-        size = median(c["size"] for c in chars) if chars else 0.0
-        out.append(Line(normalize(line["text"]), number, bold, size))
+        if previous is not None and c["x0"] - previous["x1"] > WORD_GAP:
+            out.append(" ")
+        out.append(c["text"])
+        previous = c
+    return "".join(out)
+
+
+def split_caption_pairs(raw_lines, middle):
+    """Two charts side by side have their captions interleaved line by line, from the line that starts
+    with two captions to the line with two source notes. Only these lines are cut in the middle and read
+    as two columns; a table across the page is left alone."""
+    out, left, right, state = [], [], [], None  # state: None, "caption" or "notes"
+
+    def close():
+        nonlocal left, right, state
+        out.extend(left + right)
+        left, right, state = [], [], None
+
+    for line in raw_lines:
+        text = line["text"]
+        if state is None and CAPTION.match(text) and len(CAPTION_ANYWHERE.findall(text)) >= 2:
+            state = "caption"
+        elif state == "notes" and len(NOTE_ANYWHERE.findall(text)) < 2:
+            close()
+        if state is None:
+            out.append(line)
+            continue
+        halves = ([c for c in line["chars"] if c["x0"] < middle], [c for c in line["chars"] if c["x0"] >= middle])
+        for half, side in zip(halves, (left, right), strict=True):
+            if half:
+                side.append({"text": _chars_text(half), "chars": half, "top": line["top"]})
+        if state == "caption" and len(SOURCE_ANYWHERE.findall(text)) >= 2:
+            state = "notes"
+    close()
     return out
 
 
+def _to_line(line, number):
+    chars = [c for c in line["chars"] if not c["text"].isspace()]
+    bold = bool(chars) and all("bold" in c["fontname"].lower() for c in chars)
+    size = median(c["size"] for c in chars) if chars else 0.0
+    return Line(normalize(line["text"]), number, bold, size)
+
+
+def _lines_of(page, number, keep_footnotes=True):
+    cut = None if keep_footnotes else _footnote_rule_top(page)
+    raw = [ln for ln in page.filter(_visible).extract_text_lines(x_tolerance=4, return_chars=True)
+           if cut is None or ln["top"] < cut]
+    return [_to_line(ln, number) for ln in split_caption_pairs(raw, page.width / 2)]
+
+
 def pdf_lines(path, keep_footnotes=True):
-    """Text lines of every page. Pages with two captions side by side are read column by column."""
-    pages = []
+    """Text lines of every page; the interleaved captions of two charts side by side are read by column."""
     with pdfplumber.open(path) as pdf:
-        for number, page in enumerate(pdf.pages, 1):
-            lines = _lines_of(page, number, keep_footnotes)
-            if any(len(CAPTION_ANYWHERE.findall(line.text)) >= 2 for line in lines):
-                half = page.width / 2
-                left = page.crop((0, 0, half, page.height))
-                right = page.crop((half, 0, page.width, page.height))
-                lines = _lines_of(left, number) + _lines_of(right, number)
-            pages.append(lines)
-    return pages
+        return [_lines_of(page, number, keep_footnotes) for number, page in enumerate(pdf.pages, 1)]
 
 
 def drop_page_furniture(pages):

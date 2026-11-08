@@ -5,6 +5,8 @@ python -m propdoc.ingest.build   (or: make ingest)
   data/processed/chunks_local.jsonl  chunks of all other documents, kept out of git
   data/processed/ingest_report.json  per-document counts, near-duplicate pairs, version statuses
   data/processed/audit.jsonl         what happened to every document and why
+--strategy fixed writes only chunks_fixed_local.jsonl: the naive fixed-size baseline (no sections), for the
+retrieval comparison.
 One broken file does not stop the run: it gets the status "error" and the run exits with code 1.
 """
 
@@ -14,7 +16,7 @@ import json
 from collections import Counter
 from datetime import date
 
-from .chunk import structural_chunks
+from .chunk import fixed_chunks, structural_chunks
 from .clean import mask_pii
 from .dedup import (
     assign_status,
@@ -25,7 +27,7 @@ from .dedup import (
 )
 from .fetch import MANIFEST, RAW_DIR, ROOT, read_manifest
 from .loaders import load_law_html, load_law_pdf, load_report_pdf
-from .model import approx_tokens
+from .model import Chunk, approx_tokens
 
 PROCESSED = ROOT / "data" / "processed"
 PIPELINE_VERSION = "ingest-v2"
@@ -41,6 +43,13 @@ def load_document(row, raw_dir):
     if row["format"] == "pdf":
         return load_report_pdf(path, row["id"], row["title"])
     return None
+
+
+def split(blocks, strategy):
+    if strategy == "structural":
+        return structural_chunks(blocks)
+    chunks = fixed_chunks(blocks)[0]  # the baseline knows nothing about sections or labels
+    return [Chunk(c.text, "", "", c.page_start, c.page_end, c.kind) for c in chunks]
 
 
 def dataset_version(rows):
@@ -89,6 +98,7 @@ def write_jsonl(path, records):
 def main(argv=None, manifest=MANIFEST, raw_dir=RAW_DIR, out_dir=PROCESSED):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--ids", nargs="+", help="only these ids; nothing is written then")
+    parser.add_argument("--strategy", choices=("structural", "fixed"), default="structural")
     parser.add_argument("--as-of", default=date.today().isoformat(),
                         help="date for the version status (current, superseded, upcoming)")
     args = parser.parse_args(argv)
@@ -118,7 +128,7 @@ def main(argv=None, manifest=MANIFEST, raw_dir=RAW_DIR, out_dir=PROCESSED):
                                "note": document.note})
                 print(f"{row['id']}  {document.status}: {document.note}")
                 continue
-            chunks, dropped = drop_duplicate_chunks(structural_chunks(document.blocks))
+            chunks, dropped = drop_duplicate_chunks(split(document.blocks, args.strategy))
             masked, records = 0, []
             for i, chunk in enumerate(chunks):
                 text, n = mask_pii(chunk.text)
@@ -153,6 +163,11 @@ def main(argv=None, manifest=MANIFEST, raw_dir=RAW_DIR, out_dir=PROCESSED):
                       "decision": decision})
         print(f"near duplicate: {first} ~ {second} (jaccard {score}), {decision}")
 
+    if args.strategy == "fixed":
+        if not args.ids:
+            out_dir.mkdir(parents=True, exist_ok=True)
+            write_jsonl(out_dir / "chunks_fixed_local.jsonl", committed + local)
+        return 1 if failed else 0
     hashes = Counter(r["chunk_hash"] for r in committed + local)
     shared = sum(n > 1 for n in hashes.values())
     print(f"total {len(committed) + len(local)} chunks; {shared} texts occur in more than one document")

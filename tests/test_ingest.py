@@ -32,6 +32,7 @@ from propdoc.ingest.loaders import (
     load_law_html,
     needs_ocr,
     report_blocks,
+    split_caption_pairs,
 )
 from propdoc.ingest.model import Block, Chunk, approx_tokens
 
@@ -141,6 +142,43 @@ def test_a_caption_without_a_source_line_does_not_swallow_the_document():
     page = [Line("Tabela 1 Bez źródła", 1)] + [Line(f"wiersz {i}", 1) for i in range(60)]
     blocks = report_blocks([page])
     assert blocks[0].kind == "table" and len(blocks[0].text.split("\n")) <= 42
+
+
+def word_chars(text, x, size=9.5):
+    """Characters of a text starting at x: 4 points per letter, 6 points between words."""
+    chars = []
+    for word in text.split(" "):
+        for letter in word:
+            chars.append({"text": letter, "x0": x, "x1": x + 4, "size": size, "fontname": "Arial"})
+            x += 4
+        x += 6
+    return chars
+
+
+def raw_line(left, right, top):
+    chars = word_chars(left, 50) + (word_chars(right, 320) if right else [])
+    return {"text": left + (f" {right}" if right else ""), "chars": chars, "top": top}
+
+
+def test_two_captions_side_by_side_are_read_by_column_but_a_wide_table_is_not_cut():
+    raw = [
+        raw_line("Wykres 7 Indeks cen", "Wykres 8 Indeks cen RW", 10),
+        raw_line("mkw. mieszkania na RP", "mkw. mieszkania na RW", 22),
+        raw_line("Źródło: NBP, GUS", "Źródło: NBP, GUS", 34),
+        raw_line("Uwaga: dane wstępne", "Uwaga: dane za rok", 46),
+        raw_line("Tabela 3 Wypłaty kredytów w całej szerokości strony", "", 70),
+        {"text": "II 2025 23 268 8 116 5 690", "chars": word_chars("II 2025 23 268 8 116 5 690", 60), "top": 82},
+    ]
+    texts = [line["text"] for line in split_caption_pairs(raw, 297)]
+    assert texts == [
+        "Wykres 7 Indeks cen", "mkw. mieszkania na RP", "Źródło: NBP, GUS", "Uwaga: dane wstępne",
+        "Wykres 8 Indeks cen RW", "mkw. mieszkania na RW", "Źródło: NBP, GUS", "Uwaga: dane za rok",
+        "Tabela 3 Wypłaty kredytów w całej szerokości strony", "II 2025 23 268 8 116 5 690"]
+
+
+def test_a_sentence_that_mentions_two_charts_is_not_split():
+    raw = [raw_line("Zob. wykres 7 oraz wykres 8 w dalszej części tekstu", "", 10)]
+    assert [line["text"] for line in split_caption_pairs(raw, 297)] == [raw[0]["text"]]
 
 
 def test_law_pdf_blocks_chapters_footnotes_and_annex():
@@ -308,6 +346,17 @@ def test_build_splits_chunks_by_commit_permission_and_dry_ids_write_nothing(tmp_
     assert [p[:2] for p in report["near_duplicates"]] == [["D001", "D002"]]
     audit = read_lines(out / "audit.jsonl")
     assert {e["event"] for e in audit} == {"ingested", "near_duplicate"}
+
+
+def test_fixed_strategy_writes_only_the_baseline_file_without_sections(tmp_path):
+    raw, out, manifest = tmp_path / "raw", tmp_path / "out", tmp_path / "manifest.csv"
+    raw.mkdir()
+    (raw / "D001.html").write_text(LAW_HTML, encoding="utf-8")
+    manifest.write_text(HEADER + manifest_row("D001", "Law A"), encoding="utf-8")
+    assert build.main(["--strategy", "fixed"], manifest, raw, out) == 0
+    rows = read_lines(out / "chunks_fixed_local.jsonl")
+    assert rows and all(r["section"] == "" and r["label"] == "" for r in rows)
+    assert not (out / "chunks.jsonl").exists() and not (out / "ingest_report.json").exists()
 
 
 def test_one_broken_file_does_not_stop_the_run(tmp_path):

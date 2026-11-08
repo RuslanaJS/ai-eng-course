@@ -13,6 +13,7 @@ __pycache__/
 data/raw/
 data/cache/
 data/processed/chunks_local.jsonl
+data/processed/chunks_fixed_local.jsonl
 
 # Claude Code personal settings (skills and CLAUDE.md are shared and committed)
 .claude/settings.local.json
