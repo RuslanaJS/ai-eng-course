@@ -6,8 +6,8 @@ import anthropic
 import httpx2
 import pytest
 
-from extractor.prompts import load_prompt
-from extractor.providers.anthropic_provider import AnthropicProvider
+from propdoc.extraction.prompts import load_prompt
+from propdoc.extraction.providers.anthropic_provider import AnthropicProvider
 
 GOOD = (
     '{"project_name": "Portowa Zabłocie", "developer": null, '

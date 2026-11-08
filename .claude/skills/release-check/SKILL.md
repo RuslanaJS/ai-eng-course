@@ -10,7 +10,7 @@ A reviewer clones the repo with none of your local files (`.env`, `results`, `.v
 ## 1. Local state
 
 - `git status` is clean, `make lint` and `make test` pass, `make check-labels` reports 0 mismatches.
-- `REPORT.md` and `README.md` numbers equal `uv run python -m extractor.metrics --report` for the committed `results/` snapshot.
+- `REPORT.md` and `README.md` numbers equal `uv run python -m propdoc.extraction.metrics --report` for the committed `results/` snapshot.
 - No secret in any commit: `git grep -n -E "sk-ant-[A-Za-z0-9_-]{20,}" $(git rev-list --all)` returns nothing (the `sk-ant-...` placeholder in `.env.example` is fine).
 
 ## 2. Fresh clone

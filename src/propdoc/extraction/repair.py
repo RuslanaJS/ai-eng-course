@@ -7,7 +7,7 @@ validation error. If that second answer is also invalid the text is marked "fail
 
 from typing import Any
 
-from extractor.providers.base import Provider, Result
+from propdoc.extraction.providers.base import Provider, Result
 
 MAX_RAW_CHARS = 4000
 

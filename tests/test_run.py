@@ -2,9 +2,9 @@
 
 import json
 
-from extractor.providers.base import Result
-from extractor.run import cost_usd, load_config, merge_rows, read_texts, run_corpus
-from extractor.schema import OfferRecord
+from propdoc.extraction.providers.base import Result
+from propdoc.extraction.run import cost_usd, load_config, merge_rows, read_texts, run_corpus
+from propdoc.extraction.schema import OfferRecord
 from tests.texts import needs_texts
 
 

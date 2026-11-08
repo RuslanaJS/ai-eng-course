@@ -2,13 +2,13 @@
 
 import json
 
-from extractor.check_labels import (
+from propdoc.extraction.check_labels import (
     check_folder,
     check_label,
     fmt,
     is_negative_control,
 )
-from extractor.run import ROOT
+from propdoc.extraction.run import ROOT
 from tests.texts import needs_texts
 
 TEXT = """Mieszkanie na sprzedaż 3 pokoje o powierzchni 57,36 m² numer 9

@@ -1,16 +1,16 @@
 """Quick check: run one text through the provider and print the result.
 
-uv run python -m extractor.smoke 005 [model_key]   # model_key from configs/models.yaml
+uv run python -m propdoc.extraction.smoke 005 [model_key]   # model_key from configs/models.yaml
 """
 
 import json
 import sys
 from pathlib import Path
 
-from extractor.prompts import load_prompt
-from extractor.run import PROVIDERS, load_config
+from propdoc.extraction.prompts import load_prompt
+from propdoc.extraction.run import PROVIDERS, load_config
 
-TEXTS = Path(__file__).resolve().parents[2] / "data" / "texts"
+TEXTS = Path(__file__).resolve().parents[3] / "data" / "texts"
 
 
 def main() -> None:

@@ -1,6 +1,6 @@
 """Check labels against their source texts: every labeled value must be findable in the text.
 
-    uv run python -m extractor.check_labels            # dev and test sets, exit code 1 on mismatch
+    uv run python -m propdoc.extraction.check_labels            # dev and test sets, exit code 1 on mismatch
 
 This does not prove that a label is the right choice where the text is ambiguous (those
 decisions are listed in data/golden/LABELING.md), only that nothing was mistyped or invented.
@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from extractor.run import ROOT
+from propdoc.extraction.run import ROOT
 
 FINISH_WORDS = {"developer_standard": "standard deweloperski", "turnkey": "pod klucz"}
 PARKING_WORDS = {"underground": "podziemne", "surface": "naziemne", "both": "naziemne"}

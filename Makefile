@@ -1,4 +1,4 @@
-.PHONY: setup run run-all smoke metrics check-labels test lint clean clean-results fetch ingest check-ingest
+.PHONY: setup run run-all smoke metrics check-labels test lint clean clean-results fetch ingest check-ingest embed eval-retrieval search
 
 # Like `npm install`: creates .venv and installs dependencies from pyproject.toml
 setup:
@@ -7,23 +7,23 @@ setup:
 # Full pipeline for the recommended configuration: extract all texts with Haiku (prompt v2, T=0),
 # validate, save to results/, print metrics. About 2 minutes and 0.2 USD (needs a key in .env).
 run: setup
-	uv run python -m extractor.run
-	uv run python -m extractor.metrics
+	uv run python -m propdoc.extraction.run
+	uv run python -m propdoc.extraction.metrics
 
 # Every model x prompt version x sampling, skipping configurations that already have results.
 # The local Ollama runs take about 15-20 minutes each.
 run-all: setup
-	uv run python -m extractor.matrix
-	uv run python -m extractor.metrics --set dev
-	uv run python -m extractor.metrics --set test
+	uv run python -m propdoc.extraction.matrix
+	uv run python -m propdoc.extraction.metrics --set dev
+	uv run python -m propdoc.extraction.metrics --set test
 
 # One text through Anthropic (needs a key in .env): make smoke ID=005
 smoke: setup
-	uv run python -m extractor.smoke $(ID)
+	uv run python -m propdoc.extraction.smoke $(ID)
 
 # Every labeled value must be findable in its source text
 check-labels: setup
-	uv run python -m extractor.check_labels
+	uv run python -m propdoc.extraction.check_labels
 
 # HW2: download the open-licence corpus documents and record their provenance (data/fetch_log.jsonl).
 # Preview first: make fetch ARGS=--dry-run
@@ -37,6 +37,18 @@ ingest: setup
 # Rules the real chunks must satisfy (headers, noise, sizes, versions); run after make ingest
 check-ingest: setup
 	uv run python -m propdoc.ingest.check
+
+# HW2 step 2: embed all chunks with the local model and with Gemini (cached by text hash, a re-run costs nothing)
+embed: setup
+	uv run python -m propdoc.retrieval.embed $(ARGS)
+
+# recall@5 and MRR of every search configuration on evals/retrieval_questions.json
+eval-retrieval: setup
+	uv run python -m propdoc.evaluation.retrieval $(ARGS)
+
+# One query through a search configuration: make search Q="Czy cudzoziemiec potrzebuje zezwolenia?"
+search: setup
+	uv run python -m propdoc.retrieval.search "$(Q)" $(ARGS)
 
 test: setup
 	uv run pytest
@@ -53,4 +65,4 @@ clean-results:
 
 # Metrics for all full runs in results/ vs the golden set
 metrics: setup
-	uv run python -m extractor.metrics
+	uv run python -m propdoc.extraction.metrics

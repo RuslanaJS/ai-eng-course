@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
 
-from extractor.schema import Finish, OfferRecord, Parking, PriceRange
+from propdoc.extraction.schema import Finish, OfferRecord, Parking, PriceRange
 
 
 def test_empty_record_is_all_null():

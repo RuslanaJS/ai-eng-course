@@ -2,7 +2,7 @@
 
 import pytest
 
-from extractor.metrics import (
+from propdoc.extraction.metrics import (
     FIELDS,
     amenities_f1,
     compute_metrics,

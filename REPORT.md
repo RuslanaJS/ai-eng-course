@@ -1,6 +1,6 @@
 # Report: structured extraction from dirty real-estate texts (HW1)
 
-Numbers come from the committed `results/` snapshot via `uv run python -m extractor.metrics --report`.
+Numbers come from the committed `results/` snapshot via `uv run python -m propdoc.extraction.metrics --report`.
 
 ## Summary
 
@@ -15,7 +15,7 @@ from the prompt, so it was not adopted. Recommended for production: **Haiku 4.5,
 
 - **Task.** One record per apartment (project name, developer, address, completion date, area,
   rooms, floor, price per m2 as a range, finish, parking, amenities); fields not in the text must be
-  `null`. Schema: `src/extractor/schema.py`.
+  `null`. Schema: `src/propdoc/extraction/schema.py`.
 - **Data.** 33 texts: 29 apartment pages from rynekpierwotny.pl (the apartment's own price is hidden
   there, so the price is the range of its development) and 4 market texts without an apartment.
   `data/golden/` (10 texts) is the development set; `data/golden_test/` (8 texts, 3 of them
@@ -140,5 +140,5 @@ cp .env.example .env            # add ANTHROPIC_API_KEY
 make test                       # unit tests, no network
 make run                        # Haiku, prompt v2, T=0, then the metrics table
 make run-all                    # all 12 configurations (Ollama runs take 15-20 minutes each)
-uv run python -m extractor.metrics --report   # the table above
+uv run python -m propdoc.extraction.metrics --report   # the table above
 ```

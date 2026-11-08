@@ -11,8 +11,8 @@ import anthropic
 from dotenv import load_dotenv
 from pydantic import ValidationError
 
-from extractor.providers.base import Result
-from extractor.schema import OfferRecord
+from propdoc.extraction.providers.base import Result
+from propdoc.extraction.schema import OfferRecord
 
 SAMPLING_KEYS = ("temperature", "top_p", "top_k")
 

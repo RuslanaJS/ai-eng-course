@@ -1,7 +1,7 @@
 """Run one model + prompt version + sampling config over every text and save JSONL results.
 
-    uv run python -m extractor.run                       # defaults: anthropic_haiku, extract_v2, t0
-    uv run python -m extractor.run --sampling t07 --limit 5
+    uv run python -m propdoc.extraction.run                       # defaults: anthropic_haiku, extract_v2, t0
+    uv run python -m propdoc.extraction.run --sampling t07 --limit 5
 
 Each output line logs the model, prompt version and sampling parameters next to the result.
 """
@@ -14,13 +14,13 @@ from typing import Any
 
 import yaml
 
-from extractor.prompts import load_prompt
-from extractor.providers.anthropic_provider import AnthropicProvider
-from extractor.providers.base import Provider
-from extractor.providers.ollama_provider import OllamaProvider
-from extractor.repair import extract_with_repair
+from propdoc.extraction.prompts import load_prompt
+from propdoc.extraction.providers.anthropic_provider import AnthropicProvider
+from propdoc.extraction.providers.base import Provider
+from propdoc.extraction.providers.ollama_provider import OllamaProvider
+from propdoc.extraction.repair import extract_with_repair
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[3]
 PROVIDERS: dict[str, Callable[..., Provider]] = {
     "anthropic": AnthropicProvider,
     "ollama": OllamaProvider,

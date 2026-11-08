@@ -35,16 +35,30 @@ data/texts/NNN.txt  --prompt (prompts/extract_vN.md)-->  model  -->  JSON
    results/<model>__<prompt>__<sampling>.jsonl  -->  metrics.py vs data/golden*/
 ```
 
-- `src/extractor/schema.py`: the record (single source of truth for fields, types, enums).
-- `src/extractor/providers/`: one interface (`Provider.extract`), two implementations
+- `src/propdoc/extraction/schema.py`: the record (single source of truth for fields, types, enums).
+- `src/propdoc/extraction/providers/`: one interface (`Provider.extract`), two implementations
   (Anthropic with structured output, Ollama with a JSON-schema `format`); timeout and retry in both.
-- `src/extractor/run.py`, `matrix.py`: runners. `repair.py`: validation with one correction attempt.
-- `src/extractor/metrics.py`: field accuracy, valid answers, hallucinations, latency p50/p95, cost per 1000 documents.
+- `src/propdoc/extraction/run.py`, `matrix.py`: runners. `repair.py`: validation with one correction attempt.
+- `src/propdoc/extraction/metrics.py`: field accuracy, valid answers, hallucinations, latency p50/p95, cost per 1000 documents.
 - `prompts/`: prompt versions and `CHANGELOG.md` (what changed and why, with measured effects).
 - `configs/`: models (price, timeout, retries) and sampling.
 - `data/`: `texts/` (33 texts, local only), `golden/` (10 labeled texts, development set), `golden_test/`
   (8 labeled texts, held-out test set), `sources.csv` (URL and date of every text).
-- `results/`: committed snapshot of the 12 runs behind `REPORT.md` (JSON Lines, one row per text: model, prompt version, sampling, status, latency, tokens, raw and parsed answer). `make run-all` skips configurations that already have a file; run `uv run python -m extractor.matrix --force` to redo them (about 0.2 USD per Haiku run, 15-20 minutes per Ollama run).
+- `results/`: committed snapshot of the 12 runs behind `REPORT.md` (JSON Lines, one row per text: model, prompt version, sampling, status, latency, tokens, raw and parsed answer). `make run-all` skips configurations that already have a file; run `uv run python -m propdoc.extraction.matrix --force` to redo them (about 0.2 USD per Haiku run, 15-20 minutes per Ollama run).
+
+## Project structure (RAG, stage 2)
+
+All code is one package, `src/propdoc/`, one folder per component:
+
+- `extraction/`: the record extractor (above).
+- `ingest/`: fetch, load, clean, chunk and deduplicate the corpus (`make ingest`, `make check-ingest`).
+- `retrieval/`: embeddings, BM25 and vector indexes, hybrid search, reranking (`make embed`, `make search`).
+- `evaluation/`: retrieval metrics, recall@5 and MRR (`make eval-retrieval`).
+
+Data and test sets live outside `src/`:
+
+- `data/manifest.csv`: the 31 corpus documents with source and date; `data/processed/`: chunks and ingestion reports.
+- `evals/retrieval_questions.json`: the reviewed test questions with labelled quotes; `evals/runs/`: measured results.
 
 ## Working with Claude Code
 

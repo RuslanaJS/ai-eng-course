@@ -9,7 +9,7 @@ with a local qwen2.5:3b (Ollama). Part of the AI Engineering course project, see
 - `make test` unit tests (no network), `make lint` ruff.
 - `make run` Haiku, prompt v2, T=0 on all texts, then metrics (about 0.2 USD, needs `ANTHROPIC_API_KEY` in `.env`).
 - `make run-all` every model x prompt x sampling, skips configurations that already have results.
-- `make metrics` dev-set table, `uv run python -m extractor.metrics --set test|--report`.
+- `make metrics` dev-set table, `uv run python -m propdoc.extraction.metrics --set test|--report`.
 - `make check-labels` every labeled value must be findable in its source text.
 
 ## Rules of the repo

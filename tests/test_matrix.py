@@ -1,7 +1,7 @@
 """Tests for the matrix runner planning (no model calls)."""
 
-from extractor import matrix
-from extractor.run import ROOT, output_path
+from propdoc.extraction import matrix
+from propdoc.extraction.run import ROOT, output_path
 
 
 def test_output_path_naming():

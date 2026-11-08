@@ -1,8 +1,8 @@
 """Tests for validation with one correction attempt (fake provider, no network)."""
 
-from extractor.providers.base import Result
-from extractor.repair import extract_with_repair
-from extractor.schema import OfferRecord
+from propdoc.extraction.providers.base import Result
+from propdoc.extraction.repair import extract_with_repair
+from propdoc.extraction.schema import OfferRecord
 
 
 def good(**kw):

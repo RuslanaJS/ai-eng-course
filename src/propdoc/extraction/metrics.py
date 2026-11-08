@@ -1,7 +1,7 @@
 """Metrics for extraction runs: field accuracy vs the golden set, validity, latency, cost.
 
-    uv run python -m extractor.metrics                 # one row per results/*.jsonl run
-    uv run python -m extractor.metrics results/x.jsonl # one specific run, with per-field detail
+    uv run python -m propdoc.extraction.metrics                 # one row per results/*.jsonl run
+    uv run python -m propdoc.extraction.metrics results/x.jsonl # one specific run, with per-field detail
 
 Accuracy is measured only on texts that have a golden label (data/golden/NNN.json).
 An invalid model answer counts as wrong for every field of that text.
@@ -13,7 +13,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-from extractor.run import ROOT, cost_usd, load_config
+from propdoc.extraction.run import ROOT, cost_usd, load_config
 
 # (field name, path inside the record). Amenities are scored separately (soft match).
 FIELDS: list[tuple[str, tuple[str, ...]]] = [

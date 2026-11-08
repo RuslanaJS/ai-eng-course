@@ -17,13 +17,13 @@ The result is one file `results/<model>__<prompt>__<sampling>.jsonl` (one row pe
 ## Commands
 
 - `make run` default configuration (Haiku, prompt v2, T=0) plus the metrics table.
-- `uv run python -m extractor.run --model <key> --prompt <extract_vN> --sampling <t0|t07>`: keys are in `configs/models.yaml` and `configs/sampling.yaml`.
+- `uv run python -m propdoc.extraction.run --model <key> --prompt <extract_vN> --sampling <t0|t07>`: keys are in `configs/models.yaml` and `configs/sampling.yaml`.
 - `--ids 031,032` runs only those texts and merges them into the normal file. `--limit N` writes a separate `__firstN` file, so a quick check never overwrites a full run.
-- `make run-all` or `uv run python -m extractor.matrix [--models ... --prompts ... --samplings ... --force]` runs the whole matrix and skips configurations that already have results.
+- `make run-all` or `uv run python -m propdoc.extraction.matrix [--models ... --prompts ... --samplings ... --force]` runs the whole matrix and skips configurations that already have results.
 
 ## After running
 
-1. `make metrics` (dev), `uv run python -m extractor.metrics --set test`, and `--report` for the combined table used in `REPORT.md`.
+1. `make metrics` (dev), `uv run python -m propdoc.extraction.metrics --set test`, and `--report` for the combined table used in `REPORT.md`.
 2. Read the `WARNING` lines: they mean a labeled text has no result in that file (an interrupted or partial run), so the numbers are not comparable.
 3. `results/` is a committed snapshot. If you rerun a configuration, the file changes: commit the new results separately and update the numbers in `README.md` and `REPORT.md`, otherwise the report no longer matches the data.
 

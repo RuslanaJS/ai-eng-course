@@ -18,7 +18,7 @@ The goal is a prompt whose gain holds on texts it was not written for. The label
 
 ## Procedure
 
-1. Run the current version (see the `run-experiment` skill) and list wrong fields per model on dev: `uv run python -m extractor.metrics --set dev` and compare each result file with the labels. Group errors by cause.
+1. Run the current version (see the `run-experiment` skill) and list wrong fields per model on dev: `uv run python -m propdoc.extraction.metrics --set dev` and compare each result file with the labels. Group errors by cause.
 2. Write the new file with only the rules the errors justify.
 3. Run both models, both samplings. Check dev and test, valid answers, hallucinations on the negative texts.
 4. Add a section to `prompts/CHANGELOG.md`: rules with the error each fixes and counts, measured effect (before/after table for each model), the decision (adopt, keep as experiment, drop) and caveats.

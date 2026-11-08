@@ -2,7 +2,7 @@
 
 import pytest
 
-from extractor.run import ROOT
+from propdoc.extraction.run import ROOT
 
 needs_texts = pytest.mark.skipif(
     not any((ROOT / "data" / "texts").glob("*.txt")),

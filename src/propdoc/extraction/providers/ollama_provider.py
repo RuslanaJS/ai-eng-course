@@ -13,8 +13,8 @@ import ollama
 from dotenv import load_dotenv
 from pydantic import ValidationError
 
-from extractor.providers.base import Result
-from extractor.schema import OfferRecord
+from propdoc.extraction.providers.base import Result
+from propdoc.extraction.schema import OfferRecord
 
 SAMPLING_KEYS = ("temperature", "top_p", "top_k", "seed")
 RETRYABLE_STATUS = {408, 429, 500, 502, 503, 504}

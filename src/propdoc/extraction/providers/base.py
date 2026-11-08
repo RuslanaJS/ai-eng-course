@@ -7,7 +7,7 @@ required attributes and methods, no inheritance needed.
 from dataclasses import dataclass, field
 from typing import Any, Protocol
 
-from extractor.schema import OfferRecord
+from propdoc.extraction.schema import OfferRecord
 
 
 @dataclass

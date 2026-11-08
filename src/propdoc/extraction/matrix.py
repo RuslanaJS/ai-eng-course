@@ -1,7 +1,7 @@
 """Run the whole matrix: every model x prompt version x sampling config.
 
-    uv run python -m extractor.matrix                    # skips configurations that already have results
-    uv run python -m extractor.matrix --models anthropic_haiku --force
+    uv run python -m propdoc.extraction.matrix                    # skips configurations that already have results
+    uv run python -m propdoc.extraction.matrix --models anthropic_haiku --force
 
 Local (Ollama) configurations are slow: about 15-20 minutes each on a laptop.
 """
@@ -9,8 +9,8 @@ Local (Ollama) configurations are slow: about 15-20 minutes each on a laptop.
 import argparse
 import itertools
 
-from extractor import run
-from extractor.run import ROOT, load_config, output_path
+from propdoc.extraction import run
+from propdoc.extraction.run import ROOT, load_config, output_path
 
 
 def prompt_versions() -> list[str]:

@@ -6,9 +6,9 @@ import httpx
 import ollama
 import pytest
 
-import extractor.providers.ollama_provider as mod
-from extractor.providers.ollama_provider import OllamaProvider, inline_refs
-from extractor.schema import OfferRecord
+import propdoc.extraction.providers.ollama_provider as mod
+from propdoc.extraction.providers.ollama_provider import OllamaProvider, inline_refs
+from propdoc.extraction.schema import OfferRecord
 
 GOOD = (
     '{"project_name": "Portowa", "developer": null, '
