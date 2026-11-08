@@ -14,12 +14,11 @@ import time
 import unicodedata
 
 from ..ingest.fetch import ROOT
-from ..retrieval.search import K, make_configs
+from ..retrieval.search import DEFAULT_FILTER, K, make_configs
 from ..retrieval.store import load_chunks
 
 QUESTIONS = ROOT / "evals" / "retrieval_questions.json"
 RUNS = ROOT / "evals" / "runs"
-DEFAULT_FILTER = {"status": ["current", "upcoming"]}
 
 
 def norm(text):

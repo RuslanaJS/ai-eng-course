@@ -1,4 +1,4 @@
-.PHONY: setup run run-all smoke metrics check-labels test lint clean clean-results fetch ingest check-ingest embed eval-retrieval search
+.PHONY: setup run run-all smoke metrics check-labels test lint clean clean-results fetch ingest check-ingest embed eval-retrieval search ask
 
 # Like `npm install`: creates .venv and installs dependencies from pyproject.toml
 setup:
@@ -49,6 +49,10 @@ eval-retrieval: setup
 # One query through a search configuration: make search Q="Czy cudzoziemiec potrzebuje zezwolenia?"
 search: setup
 	uv run python -m propdoc.retrieval.search "$(Q)" $(ARGS)
+
+# A cited answer: make ask Q="Czy cudzoziemiec potrzebuje zezwolenia na zakup mieszkania?" (needs ANTHROPIC_API_KEY)
+ask: setup
+	uv run python -m propdoc.answering.ask "$(Q)" $(ARGS)
 
 test: setup
 	uv run pytest

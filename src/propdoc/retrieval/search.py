@@ -22,6 +22,7 @@ CANDIDATES = 10  # hybrid candidates that the reranker reads: 10 beat 20 on MRR 
 RRF_K = 60
 RERANK_MODEL = "BAAI/bge-reranker-v2-m3-int8"  # multilingual, 0.57 GB
 STEM = 6  # BM25 variant: cut every word to its first 6 letters, a cheap stand-in for Polish stemming
+DEFAULT_FILTER = {"status": ["current", "upcoming"]}  # superseded versions only on request
 LIST_FIELDS = ("status", "doc_type", "lang", "series", "doc_id")  # filters: field -> allowed values
 
 
@@ -148,7 +149,7 @@ def make_configs(chunks, embedder_names=("bge-m3", "gemini"), rerank=True):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("query")
-    parser.add_argument("--config", default="hybrid+rerank[gemini-768]")
+    parser.add_argument("--config", default="hybrid+rerank[gemini]")
     parser.add_argument("--status", nargs="*", help="only these version statuses, e.g. current upcoming")
     parser.add_argument("--doc-type", nargs="*")
     parser.add_argument("--lang", nargs="*")
