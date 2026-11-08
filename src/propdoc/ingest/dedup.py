@@ -6,6 +6,7 @@ different quarters of a report repeat text, and an answer must be able to cite t
 
 import hashlib
 import re
+from datetime import date
 
 from .clean import normalize
 
@@ -63,9 +64,20 @@ def near_duplicates(texts, threshold=0.8):
     return sorted(pairs, key=lambda p: -p[2])
 
 
+OUTDATED_DAYS = 366  # a market report this much older than the newest report no longer describes the market
+
+
+def days_between(later, earlier):
+    return (date.fromisoformat(later) - date.fromisoformat(earlier)).days
+
+
 def assign_status(rows, as_of):
     """Version status by series: the newest edition released by `as_of` is current, older ones
-    are superseded, a later one is upcoming. A document without series or date is current."""
+    are superseded, a later one is upcoming. A document without series or date is current.
+
+    Reports of different series (quarterly and annual) are not versions of each other, but an annual
+    report that ends more than a year before the newest report is `outdated`: it still answers
+    questions about its own year, but not "what are prices doing now"."""
     series = {}
     for row in rows:
         if row.get("series") and row.get("effective"):
@@ -79,4 +91,11 @@ def assign_status(rows, as_of):
                 status[row["id"]] = "upcoming"
             elif row["id"] != newest:
                 status[row["id"]] = "superseded"
+    reports = [r for r in rows if r.get("doc_type") == "report" and status[r["id"]] == "current"
+               and r.get("effective")]
+    if reports:
+        newest = max(r["effective"] for r in reports)
+        for row in reports:
+            if days_between(newest, row["effective"]) > OUTDATED_DAYS:
+                status[row["id"]] = "outdated"
     return status

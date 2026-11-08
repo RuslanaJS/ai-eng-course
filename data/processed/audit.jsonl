@@ -15,7 +15,7 @@
 {"event": "ingested", "id": "D015", "chunks": 109, "status": "superseded", "duplicates_dropped": 4, "pii_masked": 0}
 {"event": "ingested", "id": "D016", "chunks": 128, "status": "superseded", "duplicates_dropped": 0, "pii_masked": 0}
 {"event": "ingested", "id": "D017", "chunks": 1893, "status": "superseded", "duplicates_dropped": 15, "pii_masked": 0}
-{"event": "ingested", "id": "D018", "chunks": 287, "status": "current", "duplicates_dropped": 0, "pii_masked": 0}
+{"event": "ingested", "id": "D018", "chunks": 287, "status": "outdated", "duplicates_dropped": 0, "pii_masked": 0}
 {"event": "ingested", "id": "D019", "chunks": 146, "status": "superseded", "duplicates_dropped": 0, "pii_masked": 0}
 {"event": "ingested", "id": "D020", "chunks": 238, "status": "superseded", "duplicates_dropped": 0, "pii_masked": 0}
 {"event": "near_duplicate", "ids": ["D002", "D003"], "jaccard": 0.98, "decision": "kept both, statuses superseded and superseded: old versions stay searchable and are filtered out by status"}

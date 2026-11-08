@@ -100,7 +100,7 @@ def main(argv=None, manifest=MANIFEST, raw_dir=RAW_DIR, out_dir=PROCESSED):
     parser.add_argument("--ids", nargs="+", help="only these ids; nothing is written then")
     parser.add_argument("--strategy", choices=("structural", "fixed"), default="structural")
     parser.add_argument("--as-of", default=date.today().isoformat(),
-                        help="date for the version status (current, superseded, upcoming)")
+                        help="date for the version status (current, superseded, upcoming, outdated)")
     args = parser.parse_args(argv)
 
     _, rows = read_manifest(manifest)

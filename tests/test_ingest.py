@@ -308,6 +308,17 @@ def test_assign_status_marks_the_newest_released_edition_current():
     assert assign_status(rows, "2026-11-20")["D3"] == "current"
 
 
+def test_an_annual_report_much_older_than_the_newest_report_is_outdated():
+    rows = [
+        {"id": "Q", "doc_type": "report", "series": "quarterly", "effective": "2026-06-30"},
+        {"id": "A", "doc_type": "report", "series": "annual", "effective": "2023-12-31"},
+        {"id": "B", "doc_type": "report", "series": "annual2", "effective": "2026-03-31"},
+        {"id": "L", "doc_type": "law", "series": "act", "effective": "2017-01-01"},
+    ]
+    assert assign_status(rows, "2026-11-07") == {
+        "Q": "current", "A": "outdated", "B": "current", "L": "current"}
+
+
 # --- the whole pipeline ---
 
 HEADER = ("id,title,publisher,doc_type,lang,period_or_version,format,url,url_status,license_status,"

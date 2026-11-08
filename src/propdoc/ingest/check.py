@@ -29,7 +29,7 @@ MUST_CONTAIN = {  # a few sentences that prove the right text arrived, per docum
     "D007": ["Ustawa wchodzi w życie"],
     "D009": ["Tabela 2", "Warszawa 1,9%"],
 }
-STATUSES = {"current", "superseded", "upcoming"}
+STATUSES = {"current", "superseded", "upcoming", "outdated"}
 SIZE_SLACK = 60  # tokens above MAX_TOKENS tolerated by the approximate counter
 REAL_TOKEN_LIMIT = 1100
 
