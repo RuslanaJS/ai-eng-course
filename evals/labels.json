@@ -1,0 +1,324 @@
+[
+ {
+  "id": "q01",
+  "repeat": 0,
+  "prompt": "rag_answer_v1",
+  "model": "claude-haiku-4-5",
+  "found": true,
+  "answer": "Nie, cudzoziemiec na pobycie czasowym nie może kupić mieszkania bez zezwolenia. Wyjątek od wymogu zezwolenia dotyczy nabycia samodzielnego lokalu mieszkalnego, ale wymaga to, aby cudzoziemiec zamieszkiwał w Polsce co najmniej 5 lat od udzielenia mu zezwolenia na pobyt stały lub zezwolenia na pobyt rezydenta długoterminowego Unii Europejskiej [3]. Cudzoziemiec bez żadnego pobytu w Polsce również wymaga zezwolenia [2].",
+  "citations": [
+   {
+    "n": 2,
+    "chunk_id": "D001#0"
+   },
+   {
+    "n": 3,
+    "chunk_id": "D001#22"
+   }
+  ],
+  "correct": false,
+  "grounded": false,
+  "note": "",
+  "labeled_by": "Ruslana"
+ },
+ {
+  "id": "q04",
+  "repeat": 0,
+  "prompt": "rag_answer_v1",
+  "model": "claude-haiku-4-5",
+  "found": true,
+  "answer": "Zamknięty mieszkaniowy rachunek powierniczy to rachunek powierniczy należący do dewelopera, służący gromadzeniu środków pieniężnych wpłacanych przez nabywcę na cele określone w umowie deweloperskiej, z którego wypłata zdeponowanych środków następuje jednorazowo, po przeniesieniu na nabywcę każdego z praw wynikających z tych umów [1]. Deweloper, który rozpoczyna sprzedaż, ma obowiązek zawarcia umowy zamkniętego mieszkaniowego rachunku powierniczego dla danego przedsięwzięcia deweloperskiego [2].",
+  "citations": [
+   {
+    "n": 1,
+    "chunk_id": "D007#13"
+   },
+   {
+    "n": 2,
+    "chunk_id": "D007#17"
+   }
+  ],
+  "correct": true,
+  "grounded": false,
+  "note": "",
+  "labeled_by": "Ruslana",
+  "revised": "grounded: True -> False after reviewing the judge's disagreement (2026-11-12)"
+ },
+ {
+  "id": "q05",
+  "repeat": 0,
+  "prompt": "rag_answer_v1",
+  "model": "claude-haiku-4-5",
+  "found": true,
+  "answer": "Otwarty mieszkaniowy rachunek powierniczy to rachunek powierniczy należący do dewelopera, prowadzony przez bank lub spółdzielczą kasę oszczędnościowo-kredytową, służący gromadzeniu środków pieniężnych wpłacanych przez nabywcę na cele określone w umowie deweloperskiej, z którego wypłata zdeponowanych środków następuje zgodnie z harmonogramem przedsięwzięcia deweloperskiego lub zadania inwestycyjnego [1]. Deweloper dysponuje środkami wypłacanymi z otwartego mieszkaniowego rachunku powierniczego w celu finansowania lub refinansowania przedsięwzięcia deweloperskiego lub zadania inwestycyjnego, dla którego jest prowadzony ten rachunek [4].",
+  "citations": [
+   {
+    "n": 1,
+    "chunk_id": "D007#12"
+   },
+   {
+    "n": 4,
+    "chunk_id": "D007#23"
+   }
+  ],
+  "correct": true,
+  "grounded": true,
+  "note": "",
+  "labeled_by": "Ruslana"
+ },
+ {
+  "id": "q10",
+  "repeat": 0,
+  "prompt": "rag_answer_v1",
+  "model": "claude-haiku-4-5",
+  "found": true,
+  "answer": "Jeśli cena podana na stronie dewelopera różni się od ceny oferowanej przy zawarciu umowy, nabywca ma prawo żądania zawarcia umowy po cenie dla niego najkorzystniejszej [1][2].",
+  "citations": [
+   {
+    "n": 1,
+    "chunk_id": "D007#38"
+   },
+   {
+    "n": 2,
+    "chunk_id": "D008#3"
+   }
+  ],
+  "correct": true,
+  "grounded": true,
+  "note": "",
+  "labeled_by": "Ruslana"
+ },
+ {
+  "id": "q12",
+  "repeat": 0,
+  "prompt": "rag_answer_v1",
+  "model": "claude-haiku-4-5",
+  "found": true,
+  "answer": "W II kwartale 2026 r. nominalne ceny ofertowe mieszkań na rynku pierwotnym utrzymywały dodatnią dynamikę we wszystkich analizowanych grupach miast. W ujęciu kwartalnym wzrost cen wyniósł 1,1% w grupie 10 miast, 1% w 6 miastach oraz 2,4% w Warszawie [2]. W ujęciu rocznym ceny ofertowe były wyższe niż przed rokiem o 4% w 10 miastach, 1,4% w 6 miastach oraz 6,9% w Warszawie [2]. Po korekcie o inflację oraz wzrost wynagrodzeń roczne dynamiki cen pozostawały ujemne, co wskazuje na spadek realnej wartości mieszkań [2].",
+  "citations": [
+   {
+    "n": 2,
+    "chunk_id": "D009#7"
+   }
+  ],
+  "correct": true,
+  "grounded": false,
+  "note": "",
+  "labeled_by": "Ruslana",
+  "revised": "grounded: True -> False after reviewing the judge's disagreement (2026-11-12)"
+ },
+ {
+  "id": "q13",
+  "repeat": 0,
+  "prompt": "rag_answer_v1",
+  "model": "claude-haiku-4-5",
+  "found": true,
+  "answer": "Na rynku wtórnym w II kwartale 2026 r. tendencja cen była zróżnicowana w zależności od grupy miast. W Warszawie odnotowano dodatnią dynamikę cen wynoszącą 1,2% w ujęciu kwartalnym i 1,3% w ujęciu rocznym, w grupie 10 miast dynamika wyniosła 1,6% kwartalnie i 2,6% rocznie, a w grupie 6 miast ceny spadły o 0,6% kwartalnie, przy wzroście 0,3% rocznie [1]. Ogólnie tempo wzrostu cen transakcyjnych pozostawało na niskim i stabilnym poziomie, a po skorygowaniu o inflację i wzrost wynagrodzeń większość wskaźników cen miała ujemną dynamikę realną [5].",
+  "citations": [
+   {
+    "n": 1,
+    "chunk_id": "D009#7"
+   },
+   {
+    "n": 5,
+    "chunk_id": "D009#5"
+   }
+  ],
+  "correct": true,
+  "grounded": true,
+  "note": "",
+  "labeled_by": "Ruslana"
+ },
+ {
+  "id": "q14",
+  "repeat": 0,
+  "prompt": "rag_answer_v1",
+  "model": "claude-haiku-4-5",
+  "found": true,
+  "answer": "On the primary market, nominal offer prices of new apartments showed positive dynamics in all analyzed city groups in Q2 2026, with quarterly growth of 2.4% in Warsaw, 1% in the 6 largest cities, and 1.1% in the 10 largest cities [4]. However, on the secondary market, prices fell by 0.6% quarterly in the 6 largest cities, while Warsaw saw a 1.2% increase and the 10 largest cities a 1.6% increase [4]. When adjusted for inflation and wage growth, annual price dynamics remained negative across all analyzed cities, indicating a real decline in apartment values [4].",
+  "citations": [
+   {
+    "n": 4,
+    "chunk_id": "D009#7"
+   }
+  ],
+  "correct": true,
+  "grounded": false,
+  "note": "",
+  "labeled_by": "Ruslana",
+  "revised": "grounded: True -> False after reviewing the judge's disagreement (2026-11-12)"
+ },
+ {
+  "id": "q16",
+  "repeat": 0,
+  "prompt": "rag_answer_v1",
+  "model": "claude-haiku-4-5",
+  "found": true,
+  "answer": "Informacje o cenach mieszkań przekazywane przez deweloperów publikowane są na portalu danych w rozumieniu ustawy o otwartych danych i ponownym wykorzystywaniu informacji sektora publicznego [1][3]. Minister właściwy do spraw informatyzacji publikuje te dane, które są danymi o wysokiej wartości [1][3].",
+  "citations": [
+   {
+    "n": 1,
+    "chunk_id": "D007#39"
+   },
+   {
+    "n": 3,
+    "chunk_id": "D008#4"
+   }
+  ],
+  "correct": true,
+  "grounded": true,
+  "note": "",
+  "labeled_by": "Ruslana"
+ },
+ {
+  "id": "q19",
+  "repeat": 0,
+  "prompt": "rag_answer_v1",
+  "model": "claude-haiku-4-5",
+  "found": true,
+  "answer": "The maximum area of property that a foreigner can acquire with a permit to meet their own housing needs is 0.5 ha [1].",
+  "citations": [
+   {
+    "n": 1,
+    "chunk_id": "D001#4"
+   }
+  ],
+  "correct": true,
+  "grounded": true,
+  "note": "",
+  "labeled_by": "Ruslana"
+ },
+ {
+  "id": "q21",
+  "repeat": 0,
+  "prompt": "rag_answer_v1",
+  "model": "claude-haiku-4-5",
+  "found": true,
+  "answer": "Jako cudzoziemiec spoza UE potrzebujesz zezwolenia na nabycie nieruchomości, chyba że nabywasz samodzielny lokal mieszkalny [1]. Twoje wpłaty dokonywane na rzecz dewelopera są chronione poprzez mieszkaniowy rachunek powierniczy - otwarty lub zamknięty - który deweloper ma obowiązek zawrzeć dla danego przedsięwzięcia deweloperskiego [4][5]. Bank lub kasa prowadzące ten rachunek ewidencjonują wpłaty odrębnie dla każdego nabywcy i na żądanie podają szczegółowe informacje o wpłatach i wypłatach [5].",
+  "citations": [
+   {
+    "n": 1,
+    "chunk_id": "D001#22"
+   },
+   {
+    "n": 4,
+    "chunk_id": "D007#16"
+   },
+   {
+    "n": 5,
+    "chunk_id": "D007#17"
+   }
+  ],
+  "correct": false,
+  "grounded": true,
+  "note": "",
+  "labeled_by": "Ruslana",
+  "revised": "grounded: False -> True after reviewing the judge's disagreement (2026-11-12)"
+ },
+ {
+  "id": "q22",
+  "repeat": 0,
+  "prompt": "rag_answer_v1",
+  "model": "claude-haiku-4-5",
+  "found": true,
+  "answer": "An open escrow account (otwarty mieszkaniowy rachunek powierniczy) allows the developer to use the funds deposited by the buyer to finance or refinance the development project [3]. A closed escrow account (zamknięty mieszkaniowy rachunek powierniczy) keeps the deposited funds locked until the rights from the purchase agreement are transferred to the buyer, at which point the funds are released in a single payment [4]. Additionally, with a closed account, the bank releases funds to the developer only after receiving a notarial deed confirming the transfer of rights to the buyer free from encumbrances [5].",
+  "citations": [
+   {
+    "n": 3,
+    "chunk_id": "D007#23"
+   },
+   {
+    "n": 4,
+    "chunk_id": "D007#13"
+   },
+   {
+    "n": 5,
+    "chunk_id": "D007#25"
+   }
+  ],
+  "correct": true,
+  "grounded": true,
+  "note": "",
+  "labeled_by": "Ruslana"
+ },
+ {
+  "id": "q23",
+  "repeat": 0,
+  "prompt": "rag_answer_v1",
+  "model": "claude-haiku-4-5",
+  "found": true,
+  "answer": "W I kwartale 2026 roku ceny mieszkań wykazywały umiarkowaną dynamikę wzrostową. Na rynku pierwotnym ceny ofertowe wzrosły kwartalnie o 0,6% w grupie 10 miast, 1,1% w 6 miastach oraz 1,8% w Warszawie [1]. Na rynku wtórnym wzrost był słabszy: 0,9% w grupie 10 miast, 1,7% w 6 miastach oraz 0,1% w Warszawie [1]. W ujęciu rocznym ceny ofertowe były wyższe niż przed rokiem o 4,5% w grupie 10 miast, 1,5% w 6 miastach oraz 6,5% w Warszawie na rynku pierwotnym [1]. Średnie ceny transakcyjne mieszkań wyniosły w Warszawie 17 159 zł/mkw., w 6 miastach 13 345 zł/mkw. i w pozostałych 7 miastach 10 755 zł/mkw. [3].",
+  "citations": [
+   {
+    "n": 1,
+    "chunk_id": "D010#8"
+   },
+   {
+    "n": 3,
+    "chunk_id": "D010#92"
+   }
+  ],
+  "correct": true,
+  "grounded": true,
+  "note": "",
+  "labeled_by": "Ruslana"
+ },
+ {
+  "id": "q24",
+  "repeat": 0,
+  "prompt": "rag_answer_v1",
+  "model": "claude-haiku-4-5",
+  "found": true,
+  "answer": "Tak, według nowelizacji z 2026 roku notariusz pobiera od stron czynności notarialnej opłatę za umieszczenie elektronicznych wypisów, kopii lub odpisów dokumentów w Centralnym Repozytorium Elektronicznych Wypisów Aktów Notarialnych [2]. Wysokość tej opłaty oraz sposób jej uiszczania określi Minister właściwy do spraw wewnętrznych w drodze rozporządzenia [2].",
+  "citations": [
+   {
+    "n": 2,
+    "chunk_id": "D004#1"
+   }
+  ],
+  "correct": true,
+  "grounded": true,
+  "note": "",
+  "labeled_by": "Ruslana"
+ },
+ {
+  "id": "q29",
+  "repeat": 0,
+  "prompt": "rag_answer_v1",
+  "model": "claude-haiku-4-5",
+  "found": true,
+  "answer": "Nie, zezwolenie na pobyt czasowy generalnie nie zwalnia cudzoziemca z obowiązku uzyskania zezwolenia na zakup nieruchomości. Jednak zezwolenie na pobyt czasowy może być uznane za okoliczność potwierdzającą więzi cudzoziemca z Rzecząpospolitą Polską, ale tylko z wyłączeniem określonych typów zezwoleń [1]. Zwolnienie z obowiązku uzyskania zezwolenia przysługuje dopiero cudzoziemcowi zamieszkującemu w Polsce co najmniej 5 lat od udzielenia mu zezwolenia na pobyt stały lub rezydenta długoterminowego Unii Europejskiej [2].",
+  "citations": [
+   {
+    "n": 1,
+    "chunk_id": "D001#3"
+   },
+   {
+    "n": 2,
+    "chunk_id": "D001#22"
+   }
+  ],
+  "correct": true,
+  "grounded": true,
+  "note": "",
+  "labeled_by": "Ruslana"
+ },
+ {
+  "id": "q09",
+  "repeat": 0,
+  "prompt": "rag_answer_v1",
+  "model": "claude-haiku-4-5",
+  "found": true,
+  "answer": "Nie, cudzoziemiec zamieszkujący w Rzeczypospolitej Polskiej co najmniej 5 lat od udzielenia mu zezwolenia na pobyt stały lub zezwolenia na pobyt rezydenta długoterminowego Unii Europejskiej nie wymaga uzyskania zezwolenia na nabycie nieruchomości [1].",
+  "citations": [
+   {
+    "n": 1,
+    "chunk_id": "D001#22"
+   }
+  ],
+  "correct": true,
+  "grounded": true,
+  "note": "",
+  "labeled_by": "Ruslana"
+ }
+]

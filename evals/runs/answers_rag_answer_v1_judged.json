@@ -1,0 +1,2180 @@
+{
+ "judge": "claude-opus-5-5",
+ "prompts": [
+  "judge_correct_v1",
+  "judge_grounded_v1"
+ ],
+ "judge_correct": 0.862,
+ "grounded": 0.375,
+ "incorrect": [
+  "q01",
+  "q02",
+  "q07",
+  "q23"
+ ],
+ "not_grounded": [
+  "q01",
+  "q02",
+  "q04",
+  "q05",
+  "q08",
+  "q10",
+  "q12",
+  "q14",
+  "q15",
+  "q16",
+  "q19",
+  "q21",
+  "q23",
+  "q24",
+  "q29"
+ ],
+ "cost_usd": 0.53,
+ "verdicts": [
+  {
+   "id": "q01",
+   "repeat": 0,
+   "correct": false,
+   "grounded": false,
+   "by": "judge",
+   "reason": "Według wzorca nabycie samodzielnego lokalu mieszkalnego nie wymaga zezwolenia niezależnie od pobytu. Odpowiedź twierdzi odwrotnie, ponieważ błędnie łączy to zwolnienie z 5-letnim pobytem stałym.",
+   "claims": [
+    {
+     "claim": "A foreigner on a temporary stay cannot buy an apartment without a permit.",
+     "supported": false
+    },
+    {
+     "claim": "There is an exception from the permit requirement for acquiring an independent residential unit.",
+     "supported": true
+    },
+    {
+     "claim": "The residential-unit exception requires the foreigner to have lived in Poland at least 5 years since receiving a permanent residence or EU long-term resident permit.",
+     "supported": false
+    },
+    {
+     "claim": "A foreigner with no stay in Poland also needs a permit to buy an apartment.",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q02",
+   "repeat": 0,
+   "correct": false,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer says 'No' and ties the apartment exemption to 5 years of residence after a permanent residence permit. The reference says buying an apartment needs no permit regardless of residence, with exceptions only for the border zone and agricultural land, so the key fact is contradicted.",
+   "claims": [
+    {
+     "claim": "The rule comes from the Act on acquiring real estate by foreigners",
+     "supported": false
+    },
+    {
+     "claim": "Acquisition of real estate by a foreigner requires authorization",
+     "supported": true
+    },
+    {
+     "claim": "A foreigner needs no authorization to acquire an independent residential apartment only if they have resided in Poland at least 5 years since a permanent residence or EU long-term resident permit",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q03",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer gives the same limit as the reference: the reservation fee may not exceed 1% of the price stated in the information prospectus. Naming single-family houses as well as flats is an extra detail that does not contradict the reference.",
+   "claims": [
+    {
+     "claim": "Opłata rezerwacyjna nie może przekraczać 1% ceny lokalu mieszkalnego albo domu jednorodzinnego określonej w prospekcie informacyjnym.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q04",
+   "repeat": 0,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference. It is a developer's escrow account for the buyer's payments, paid out in a single instalment after each right under the contract is transferred to the buyer. The extra detail does not contradict the reference.",
+   "claims": [
+    {
+     "claim": "Zamknięty mieszkaniowy rachunek powierniczy to rachunek powierniczy należący do dewelopera.",
+     "supported": true
+    },
+    {
+     "claim": "Służy gromadzeniu środków wpłacanych przez nabywcę na cele określone w umowie deweloperskiej.",
+     "supported": true
+    },
+    {
+     "claim": "Wypłata zdeponowanych środków następuje jednorazowo, po przeniesieniu na nabywcę każdego z praw wynikających z umów.",
+     "supported": true
+    },
+    {
+     "claim": "Deweloper rozpoczynający sprzedaż ma obowiązek zawarcia umowy zamkniętego mieszkaniowego rachunku powierniczego dla danego przedsięwzięcia deweloperskiego.",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q05",
+   "repeat": 0,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference. It describes a developer's trust account into which the buyer pays money, with payouts made according to the schedule of the development project. The extra details about the bank or cooperative savings bank and the use of the funds do not contradict the reference.",
+   "claims": [
+    {
+     "claim": "Otwarty mieszkaniowy rachunek powierniczy to rachunek powierniczy należący do dewelopera.",
+     "supported": true
+    },
+    {
+     "claim": "Rachunek ten jest prowadzony przez bank lub spółdzielczą kasę oszczędnościowo-kredytową.",
+     "supported": false
+    },
+    {
+     "claim": "Służy gromadzeniu środków pieniężnych wpłacanych przez nabywcę na cele określone w umowie deweloperskiej.",
+     "supported": true
+    },
+    {
+     "claim": "Wypłata zdeponowanych środków następuje zgodnie z harmonogramem przedsięwzięcia deweloperskiego lub zadania inwestycyjnego.",
+     "supported": true
+    },
+    {
+     "claim": "Deweloper dysponuje środkami wypłacanymi z rachunku w celu finansowania lub refinansowania przedsięwzięcia deweloperskiego lub zadania inwestycyjnego, dla którego prowadzony jest rachunek.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q06",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer names all four documents in the reference: the land register entry, the KRS extract or CEIDG certificate, the building permit or construction notification, and the financial statements for the last two years. The extra documents it adds do not contradict the reference.",
+   "claims": [
+    {
+     "claim": "Deweloper musi udostępnić do wglądu w lokalu przedsiębiorstwa aktualny stan księgi wieczystej nieruchomości",
+     "supported": true
+    },
+    {
+     "claim": "Aktualny odpis z KRS lub zaświadczenie o wpisie do CEIDG",
+     "supported": true
+    },
+    {
+     "claim": "Pozwolenie na budowę lub zgłoszenie budowy",
+     "supported": true
+    },
+    {
+     "claim": "Sprawozdanie finansowe za ostatnie dwa lata lub za ostatni rok przy krótszej działalności",
+     "supported": true
+    },
+    {
+     "claim": "Projekt budowlany",
+     "supported": true
+    },
+    {
+     "claim": "Decyzja o pozwoleniu na użytkowanie budynku lub zawiadomienie o zakończeniu budowy",
+     "supported": true
+    },
+    {
+     "claim": "Zaświadczenie o samodzielności lokalu",
+     "supported": true
+    },
+    {
+     "claim": "Akt ustanowienia odrębnej własności lokalu",
+     "supported": true
+    },
+    {
+     "claim": "Dokument potwierdzający zgodę lub zobowiązanie do jej udzielenia",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q07",
+   "repeat": 0,
+   "correct": false,
+   "grounded": null,
+   "by": "rule"
+  },
+  {
+   "id": "q08",
+   "repeat": 0,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference: documents confirming the circumstances stated in the application and the ties to Poland, plus other documents that allow the correctness of the acquisition to be established. The added note about the ministerial regulation does not contradict it.",
+   "claims": [
+    {
+     "claim": "A foreigner applying for a permit must attach documents confirming the circumstances stated in the application.",
+     "supported": true
+    },
+    {
+     "claim": "The foreigner must attach documents confirming circumstances concerning ties with the Republic of Poland.",
+     "supported": false
+    },
+    {
+     "claim": "The foreigner must also attach other documents allowing the correctness of the property acquisition to be established.",
+     "supported": true
+    },
+    {
+     "claim": "The minister responsible for internal affairs specifies the types of these documents by regulation.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q09",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer matches the reference: no permit is needed after 5 years of residence from the grant of a permanent residence or EU long-term resident permit. It omits the art. 8 ust. 3 caveat, but the question does not describe a case where that caveat would apply, and the reference itself only cites it without detail.",
+   "claims": [
+    {
+     "claim": "Cudzoziemiec zamieszkujący w RP co najmniej 5 lat od udzielenia zezwolenia na pobyt stały lub rezydenta długoterminowego UE nie wymaga zezwolenia na nabycie nieruchomości",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q10",
+   "repeat": 0,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference: when the prices differ, the buyer has the right to demand that the contract be concluded at the price most favourable to them.",
+   "claims": [
+    {
+     "claim": "The price in question is the one published on the developer's website.",
+     "supported": false
+    },
+    {
+     "claim": "If the stated price differs from the price offered at contract conclusion, the buyer may demand the contract at the price most favourable to them.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q11",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer matches the reference. It says prices in Warsaw rose faster and gives the same figures: quarterly 2.4% vs 1.1% and 1%, annually 6.9% vs 4% and 1.4%.",
+   "claims": [
+    {
+     "claim": "W II kw. 2026 ceny na rynku pierwotnym w Warszawie rosły szybciej niż w innych grupach miast",
+     "supported": true
+    },
+    {
+     "claim": "Kwartalny wzrost cen w Warszawie wyniósł 2,4%",
+     "supported": true
+    },
+    {
+     "claim": "Kwartalny wzrost cen w grupie 10M wyniósł 1,1%",
+     "supported": true
+    },
+    {
+     "claim": "Kwartalny wzrost cen w grupie 6M wyniósł 1%",
+     "supported": true
+    },
+    {
+     "claim": "Rocznie ceny ofertowe w Warszawie były wyższe o 6,9%",
+     "supported": true
+    },
+    {
+     "claim": "Rocznie ceny ofertowe w 10M były wyższe o 4%",
+     "supported": true
+    },
+    {
+     "claim": "Rocznie ceny ofertowe w 6M były wyższe o 1,4%",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q12",
+   "repeat": 0,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer says nominal offer prices rose slightly and that prices adjusted for inflation and wages fell in real terms. This matches the reference; the extra percentage figures do not contradict it.",
+   "claims": [
+    {
+     "claim": "In Q2 2026, nominal offer prices on the primary market kept positive dynamics in all analysed city groups.",
+     "supported": true
+    },
+    {
+     "claim": "Quarterly price growth was 1.1% in the 10-city group.",
+     "supported": true
+    },
+    {
+     "claim": "Quarterly price growth was 1% in the 6 cities.",
+     "supported": true
+    },
+    {
+     "claim": "Quarterly price growth was 2.4% in Warsaw.",
+     "supported": true
+    },
+    {
+     "claim": "Annually, offer prices were 4% higher in the 10 cities.",
+     "supported": true
+    },
+    {
+     "claim": "Annually, offer prices were 1.4% higher in the 6 cities.",
+     "supported": true
+    },
+    {
+     "claim": "Annually, offer prices were 6.9% higher in Warsaw.",
+     "supported": true
+    },
+    {
+     "claim": "After adjusting for inflation and wage growth, annual primary-market price dynamics remained negative.",
+     "supported": false
+    },
+    {
+     "claim": "This indicates a fall in the real value of dwellings on the primary market.",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q13",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer matches the reference. It says secondary-market price changes differ by city, with a slight quarterly drop in the group of 6 cities, that growth stayed low and stable, and that prices are falling in real terms. It does not mention asking prices rising slightly in nominal terms, but that omission does not change the key fact.",
+   "claims": [
+    {
+     "claim": "In Q2 2026 the secondary-market price trend varied by city group.",
+     "supported": true
+    },
+    {
+     "claim": "Warsaw saw positive price growth of 1.2% quarter on quarter.",
+     "supported": true
+    },
+    {
+     "claim": "Warsaw prices rose 1.3% year on year.",
+     "supported": true
+    },
+    {
+     "claim": "In the 10-city group prices rose 1.6% quarter on quarter and 2.6% year on year.",
+     "supported": true
+    },
+    {
+     "claim": "In the 6-city group prices fell 0.6% quarter on quarter and rose 0.3% year on year.",
+     "supported": true
+    },
+    {
+     "claim": "Transaction prices grew at a low and stable pace.",
+     "supported": true
+    },
+    {
+     "claim": "After adjusting for inflation and wage growth, most housing price indicators showed negative real growth.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q14",
+   "repeat": 0,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference on the key fact: nominal offer prices of new apartments edged up slightly, while prices fell in real terms after adjusting for inflation and wages. The added secondary-market figures do not contradict the reference.",
+   "claims": [
+    {
+     "claim": "Nominal offer prices on the primary market showed positive dynamics in all analyzed city groups in Q2 2026.",
+     "supported": true
+    },
+    {
+     "claim": "Quarterly primary-market offer price growth was 2.4% in Warsaw, 1% in 6M and 1.1% in 10M.",
+     "supported": true
+    },
+    {
+     "claim": "The 6M and 10M groups are the 6 largest and 10 largest cities.",
+     "supported": false
+    },
+    {
+     "claim": "On the secondary market, prices fell 0.6% quarterly in 6M.",
+     "supported": true
+    },
+    {
+     "claim": "On the secondary market, Warsaw prices rose 1.2% and 10M prices rose 1.6% quarterly.",
+     "supported": true
+    },
+    {
+     "claim": "Adjusted for inflation and wage growth, annual price dynamics remained negative in all analyzed cities.",
+     "supported": true
+    },
+    {
+     "claim": "This indicates a real decline in apartment values.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q15",
+   "repeat": 0,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer gives the same key figures as the reference: a 1.8% quarterly rise in transaction prices and only 0.2% year on year. Its 'mixed trends' framing still shows nominal growth. The extra details on offer prices and real declines do not contradict the reference.",
+   "claims": [
+    {
+     "claim": "At the end of 2025, prices of new flats in Warsaw showed mixed tendencies",
+     "supported": true
+    },
+    {
+     "claim": "Nominal transaction prices on Warsaw's primary market rose 1.8% quarter on quarter",
+     "supported": true
+    },
+    {
+     "claim": "The annual dynamics of these transaction prices were minimal (0.2%)",
+     "supported": true
+    },
+    {
+     "claim": "Offer prices of new flats in Warsaw rose 2.2% quarter on quarter",
+     "supported": true
+    },
+    {
+     "claim": "Offer prices of new flats in Warsaw rose 5.7% year on year",
+     "supported": true
+    },
+    {
+     "claim": "This indicates that developers' high price expectations persist",
+     "supported": true
+    },
+    {
+     "claim": "After adjusting for inflation and wage growth, the real price dynamics (in the context of offer prices) were negative",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q16",
+   "repeat": 0,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer gives the same key fact as the reference: the data is published on the open data portal by the minister responsible for digitalisation (informatyzacja). Leaving out the once-a-day frequency is fine, because the question asks only where the data is published.",
+   "claims": [
+    {
+     "claim": "Informacje przekazywane przez podmioty obowiązane są publikowane na portalu danych w rozumieniu ustawy o otwartych danych i ponownym wykorzystywaniu informacji sektora publicznego",
+     "supported": true
+    },
+    {
+     "claim": "Te informacje dotyczą cen mieszkań przekazywanych przez deweloperów",
+     "supported": false
+    },
+    {
+     "claim": "Minister właściwy do spraw informatyzacji publikuje te dane",
+     "supported": true
+    },
+    {
+     "claim": "Te dane są danymi o wysokiej wartości",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q17",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer gives the key condition that matches the reference: 2 years of residence after the permanent or long-term EU resident permit, with the property held as statutory joint property of the spouses. The added 5-year exemption is an extra fact from the law and does not contradict the reference.",
+   "claims": [
+    {
+     "claim": "A foreigner married to a Polish citizen needs a permit to buy a house unless certain conditions are met.",
+     "supported": true
+    },
+    {
+     "claim": "No permit is required if the foreigner has lived in Poland at least 5 years since receiving a permanent residence or EU long-term resident permit.",
+     "supported": true
+    },
+    {
+     "claim": "A foreigner who is the spouse of a Polish citizen and has lived in Poland at least 2 years since receiving a permanent residence or EU long-term resident permit may acquire property forming the spouses' statutory joint property without a permit.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q18",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer says yes, a permit is required, because the exemptions do not apply to agricultural land over 1 ha. This matches the reference's key fact; leaving out the agricultural-system rules does not change the answer.",
+   "claims": [
+    {
+     "claim": "A foreigner needs a permit to buy agricultural land of more than one hectare.",
+     "supported": true
+    },
+    {
+     "claim": "Acquisition of real estate by a foreigner requires permission.",
+     "supported": true
+    },
+    {
+     "claim": "Exemptions from the permit requirement do not apply to agricultural land exceeding 1 ha.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q19",
+   "repeat": 0,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer states 0.5 ha, which matches the reference.",
+   "claims": [
+    {
+     "claim": "The maximum area of property a foreigner can acquire to meet their own needs is 0.5 ha.",
+     "supported": true
+    },
+    {
+     "claim": "The 0.5 ha limit specifically concerns housing needs.",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q20",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer says yes: the developer must keep its own website showing the price per m² of usable floor area for each unit and must update it with the date of change. This matches the reference; leaving out that previous prices are kept does not change the key fact.",
+   "claims": [
+    {
+     "claim": "Deweloper ma obowiązek prowadzenia własnej strony internetowej.",
+     "supported": true
+    },
+    {
+     "claim": "Na stronie udostępnia cenę m² powierzchni użytkowej każdego z oferowanych lokali mieszkalnych lub domów jednorodzinnych oraz całej nieruchomości lub jej części, będących przedmiotem umowy.",
+     "supported": true
+    },
+    {
+     "claim": "Informacje te muszą być dostępne od dnia rozpoczęcia sprzedaży.",
+     "supported": true
+    },
+    {
+     "claim": "W przypadku zmian cen deweloper jest obowiązany uaktualniać informacje z podaniem daty zmiany.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q21",
+   "repeat": 0,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "Odpowiedź poprawnie wskazuje, że przy zakupie samodzielnego lokalu mieszkalnego zezwolenie nie jest potrzebne. Poprawnie opisuje też ochronę wpłat przez mieszkaniowy rachunek powierniczy, otwarty lub zamknięty. Brak wzmianki o wyjątkach (strefa nadgraniczna) to pominięty szczegół, który nie zmienia odpowiedzi w opisanej sytuacji.",
+   "claims": [
+    {
+     "claim": "As a non-EU foreigner you need a permit to acquire real estate",
+     "supported": false
+    },
+    {
+     "claim": "Acquiring an independent residential unit does not require a permit",
+     "supported": true
+    },
+    {
+     "claim": "Payments to the developer are protected through a residential trust account, open or closed",
+     "supported": true
+    },
+    {
+     "claim": "The developer must conclude a residential trust account agreement for the given development project",
+     "supported": true
+    },
+    {
+     "claim": "The bank or credit union running the account records payments separately for each buyer",
+     "supported": true
+    },
+    {
+     "claim": "On request, the bank or credit union provides detailed information on payments and withdrawals",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q22",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer correctly states that a closed account releases funds in a single payment only after the rights are transferred to the buyer. It describes an open account as making funds available to the developer to finance the project during construction. That conveys the essential contrast without contradicting the reference, though it does not explicitly mention staged releases tied to the construction schedule.",
+   "claims": [
+    {
+     "claim": "An open escrow account allows the developer to use the funds to finance or refinance the development project",
+     "supported": true
+    },
+    {
+     "claim": "A closed escrow account keeps deposited funds until the rights from the agreement are transferred to the buyer",
+     "supported": true
+    },
+    {
+     "claim": "Funds from a closed account are released in a single payment",
+     "supported": true
+    },
+    {
+     "claim": "With a closed account, the bank releases funds to the developer only after receiving a notarial deed of the transfer of rights to the buyer free from encumbrances",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q23",
+   "repeat": 0,
+   "correct": false,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The reference says Q1 2026 prices across the 16 cities stayed stable, amid weak demand and many unsold developer flats. The answer instead describes moderate price growth, which contradicts that key fact, and it omits the demand and supply context.",
+   "claims": [
+    {
+     "claim": "In Q1 2026 housing prices showed moderate upward dynamics",
+     "supported": true
+    },
+    {
+     "claim": "Primary market offer prices rose quarterly by 0.6% in 10 cities, 1.1% in 6 cities and 1.8% in Warsaw",
+     "supported": true
+    },
+    {
+     "claim": "Secondary market growth was weaker than on the primary market",
+     "supported": false
+    },
+    {
+     "claim": "Secondary market offer prices rose quarterly by 0.9% in 10 cities, 1.7% in 6 cities and 0.1% in Warsaw",
+     "supported": true
+    },
+    {
+     "claim": "Primary market offer prices were higher year on year by 4.5% in 10 cities, 1.5% in 6 cities and 6.5% in Warsaw",
+     "supported": true
+    },
+    {
+     "claim": "Average transaction prices were 17,159 PLN/sqm in Warsaw, 13,345 PLN/sqm in 6 cities and 10,755 PLN/sqm in the remaining 7 cities",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q24",
+   "repeat": 0,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference: under the amendment, the notary charges the parties a fee for placing electronic extracts and copies in the Central Repository, with the amount set by ministerial regulation. It omits that the provisions are not yet in force, but the question asks only what the amendment provides.",
+   "claims": [
+    {
+     "claim": "The rule comes from a 2026 amendment",
+     "supported": false
+    },
+    {
+     "claim": "The notary charges the parties to the notarial act a fee for placing electronic extracts, copies or duplicates of documents in the Repository",
+     "supported": true
+    },
+    {
+     "claim": "The Repository is the Centralne Repozytorium Elektronicznych Wypisów Aktów Notarialnych",
+     "supported": false
+    },
+    {
+     "claim": "The minister responsible for internal affairs will set the amount and payment method of the fee by regulation",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q25",
+   "repeat": 0,
+   "correct": true,
+   "grounded": null,
+   "by": "rule"
+  },
+  {
+   "id": "q26",
+   "repeat": 0,
+   "correct": true,
+   "grounded": null,
+   "by": "rule"
+  },
+  {
+   "id": "q27",
+   "repeat": 0,
+   "correct": true,
+   "grounded": null,
+   "by": "rule"
+  },
+  {
+   "id": "q28",
+   "repeat": 0,
+   "correct": true,
+   "grounded": null,
+   "by": "rule"
+  },
+  {
+   "id": "q29",
+   "repeat": 0,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer correctly says no. It also correctly states that the exemption requires 5 years of residence after a permanent residence or EU long-term resident permit. It matches the reference that temporary residence only supports ties to Poland in the permit application. The 'generalnie' qualifier and the omission of the spouse exemption do not contradict the reference.",
+   "claims": [
+    {
+     "claim": "A temporary residence permit generally does not exempt a foreigner from needing a permit to buy real estate",
+     "supported": false
+    },
+    {
+     "claim": "A temporary residence permit can be a circumstance confirming the foreigner's ties with Poland",
+     "supported": true
+    },
+    {
+     "claim": "Certain types of temporary residence permits are excluded from counting as such a circumstance",
+     "supported": true
+    },
+    {
+     "claim": "The exemption applies to a foreigner residing in Poland at least 5 years since being granted a permanent residence or EU long-term resident permit",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q01",
+   "repeat": 1,
+   "correct": false,
+   "grounded": false,
+   "by": "judge",
+   "reason": "Według wzorca nabycie samodzielnego lokalu mieszkalnego nie wymaga zezwolenia niezależnie od pobytu. Odpowiedź twierdzi odwrotnie, ponieważ błędnie łączy to zwolnienie z 5-letnim pobytem stałym.",
+   "claims": [
+    {
+     "claim": "A foreigner on a temporary stay cannot buy an apartment without a permit.",
+     "supported": false
+    },
+    {
+     "claim": "There is an exception from the permit requirement for acquiring an independent residential unit.",
+     "supported": true
+    },
+    {
+     "claim": "The residential-unit exception requires the foreigner to have lived in Poland at least 5 years since receiving a permanent residence or EU long-term resident permit.",
+     "supported": false
+    },
+    {
+     "claim": "A foreigner with no stay in Poland also needs a permit to buy an apartment.",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q02",
+   "repeat": 1,
+   "correct": false,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer says 'No' and ties the apartment exemption to 5 years of residence after a permanent residence permit. The reference says buying an apartment needs no permit regardless of residence, with exceptions only for the border zone and agricultural land, so the key fact is contradicted.",
+   "claims": [
+    {
+     "claim": "The rule comes from the Act on acquiring real estate by foreigners",
+     "supported": false
+    },
+    {
+     "claim": "Acquisition of real estate by a foreigner requires authorization",
+     "supported": true
+    },
+    {
+     "claim": "A foreigner needs no authorization to acquire an independent residential apartment only if they have resided in Poland at least 5 years since a permanent residence or EU long-term resident permit",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q03",
+   "repeat": 1,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer gives the same limit as the reference: the reservation fee may not exceed 1% of the price stated in the information prospectus. Naming single-family houses as well as flats is an extra detail that does not contradict the reference.",
+   "claims": [
+    {
+     "claim": "Opłata rezerwacyjna nie może przekraczać 1% ceny lokalu mieszkalnego albo domu jednorodzinnego określonej w prospekcie informacyjnym.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q04",
+   "repeat": 1,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference. It is a developer's escrow account for the buyer's payments, paid out in a single instalment after each right under the contract is transferred to the buyer. The extra detail does not contradict the reference.",
+   "claims": [
+    {
+     "claim": "Zamknięty mieszkaniowy rachunek powierniczy to rachunek powierniczy należący do dewelopera.",
+     "supported": true
+    },
+    {
+     "claim": "Służy gromadzeniu środków wpłacanych przez nabywcę na cele określone w umowie deweloperskiej.",
+     "supported": true
+    },
+    {
+     "claim": "Wypłata zdeponowanych środków następuje jednorazowo, po przeniesieniu na nabywcę każdego z praw wynikających z umów.",
+     "supported": true
+    },
+    {
+     "claim": "Deweloper rozpoczynający sprzedaż ma obowiązek zawarcia umowy zamkniętego mieszkaniowego rachunku powierniczego dla danego przedsięwzięcia deweloperskiego.",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q05",
+   "repeat": 1,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference. It describes a developer's trust account into which the buyer pays money, with payouts made according to the schedule of the development project. The extra details about the bank or cooperative savings bank and the use of the funds do not contradict the reference.",
+   "claims": [
+    {
+     "claim": "Otwarty mieszkaniowy rachunek powierniczy to rachunek powierniczy należący do dewelopera.",
+     "supported": true
+    },
+    {
+     "claim": "Rachunek ten jest prowadzony przez bank lub spółdzielczą kasę oszczędnościowo-kredytową.",
+     "supported": false
+    },
+    {
+     "claim": "Służy gromadzeniu środków pieniężnych wpłacanych przez nabywcę na cele określone w umowie deweloperskiej.",
+     "supported": true
+    },
+    {
+     "claim": "Wypłata zdeponowanych środków następuje zgodnie z harmonogramem przedsięwzięcia deweloperskiego lub zadania inwestycyjnego.",
+     "supported": true
+    },
+    {
+     "claim": "Deweloper dysponuje środkami wypłacanymi z rachunku w celu finansowania lub refinansowania przedsięwzięcia deweloperskiego lub zadania inwestycyjnego, dla którego prowadzony jest rachunek.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q06",
+   "repeat": 1,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer names all four documents in the reference: the land register entry, the KRS extract or CEIDG certificate, the building permit or construction notification, and the financial statements for the last two years. The extra documents it adds do not contradict the reference.",
+   "claims": [
+    {
+     "claim": "Deweloper musi udostępnić do wglądu w lokalu przedsiębiorstwa aktualny stan księgi wieczystej nieruchomości",
+     "supported": true
+    },
+    {
+     "claim": "Aktualny odpis z KRS lub zaświadczenie o wpisie do CEIDG",
+     "supported": true
+    },
+    {
+     "claim": "Pozwolenie na budowę lub zgłoszenie budowy",
+     "supported": true
+    },
+    {
+     "claim": "Sprawozdanie finansowe za ostatnie dwa lata lub za ostatni rok przy krótszej działalności",
+     "supported": true
+    },
+    {
+     "claim": "Projekt budowlany",
+     "supported": true
+    },
+    {
+     "claim": "Decyzja o pozwoleniu na użytkowanie budynku lub zawiadomienie o zakończeniu budowy",
+     "supported": true
+    },
+    {
+     "claim": "Zaświadczenie o samodzielności lokalu",
+     "supported": true
+    },
+    {
+     "claim": "Akt ustanowienia odrębnej własności lokalu",
+     "supported": true
+    },
+    {
+     "claim": "Dokument potwierdzający zgodę lub zobowiązanie do jej udzielenia",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q07",
+   "repeat": 1,
+   "correct": false,
+   "grounded": null,
+   "by": "rule"
+  },
+  {
+   "id": "q08",
+   "repeat": 1,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference: documents confirming the circumstances stated in the application and the ties to Poland, plus other documents that allow the correctness of the acquisition to be established. The added note about the ministerial regulation does not contradict it.",
+   "claims": [
+    {
+     "claim": "A foreigner applying for a permit must attach documents confirming the circumstances stated in the application.",
+     "supported": true
+    },
+    {
+     "claim": "The foreigner must attach documents confirming circumstances concerning ties with the Republic of Poland.",
+     "supported": false
+    },
+    {
+     "claim": "The foreigner must also attach other documents allowing the correctness of the property acquisition to be established.",
+     "supported": true
+    },
+    {
+     "claim": "The minister responsible for internal affairs specifies the types of these documents by regulation.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q09",
+   "repeat": 1,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer matches the reference: no permit is needed after 5 years of residence from the grant of a permanent residence or EU long-term resident permit. It omits the art. 8 ust. 3 caveat, but the question does not describe a case where that caveat would apply, and the reference itself only cites it without detail.",
+   "claims": [
+    {
+     "claim": "Cudzoziemiec zamieszkujący w RP co najmniej 5 lat od udzielenia zezwolenia na pobyt stały lub rezydenta długoterminowego UE nie wymaga zezwolenia na nabycie nieruchomości",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q10",
+   "repeat": 1,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference: when the prices differ, the buyer has the right to demand that the contract be concluded at the price most favourable to them.",
+   "claims": [
+    {
+     "claim": "The price in question is the one published on the developer's website.",
+     "supported": false
+    },
+    {
+     "claim": "If the stated price differs from the price offered at contract conclusion, the buyer may demand the contract at the price most favourable to them.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q11",
+   "repeat": 1,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer matches the reference. It says prices in Warsaw rose faster and gives the same figures: quarterly 2.4% vs 1.1% and 1%, annually 6.9% vs 4% and 1.4%.",
+   "claims": [
+    {
+     "claim": "W II kw. 2026 ceny na rynku pierwotnym w Warszawie rosły szybciej niż w innych grupach miast",
+     "supported": true
+    },
+    {
+     "claim": "Kwartalny wzrost cen w Warszawie wyniósł 2,4%",
+     "supported": true
+    },
+    {
+     "claim": "Kwartalny wzrost cen w grupie 10M wyniósł 1,1%",
+     "supported": true
+    },
+    {
+     "claim": "Kwartalny wzrost cen w grupie 6M wyniósł 1%",
+     "supported": true
+    },
+    {
+     "claim": "Rocznie ceny ofertowe w Warszawie były wyższe o 6,9%",
+     "supported": true
+    },
+    {
+     "claim": "Rocznie ceny ofertowe w 10M były wyższe o 4%",
+     "supported": true
+    },
+    {
+     "claim": "Rocznie ceny ofertowe w 6M były wyższe o 1,4%",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q12",
+   "repeat": 1,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer says nominal offer prices rose slightly and that prices adjusted for inflation and wages fell in real terms. This matches the reference; the extra percentage figures do not contradict it.",
+   "claims": [
+    {
+     "claim": "In Q2 2026, nominal offer prices on the primary market kept positive dynamics in all analysed city groups.",
+     "supported": true
+    },
+    {
+     "claim": "Quarterly price growth was 1.1% in the 10-city group.",
+     "supported": true
+    },
+    {
+     "claim": "Quarterly price growth was 1% in the 6 cities.",
+     "supported": true
+    },
+    {
+     "claim": "Quarterly price growth was 2.4% in Warsaw.",
+     "supported": true
+    },
+    {
+     "claim": "Annually, offer prices were 4% higher in the 10 cities.",
+     "supported": true
+    },
+    {
+     "claim": "Annually, offer prices were 1.4% higher in the 6 cities.",
+     "supported": true
+    },
+    {
+     "claim": "Annually, offer prices were 6.9% higher in Warsaw.",
+     "supported": true
+    },
+    {
+     "claim": "After adjusting for inflation and wage growth, annual primary-market price dynamics remained negative.",
+     "supported": false
+    },
+    {
+     "claim": "This indicates a fall in the real value of dwellings on the primary market.",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q13",
+   "repeat": 1,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer matches the reference. It says secondary-market price changes differ by city, with a slight quarterly drop in the group of 6 cities, that growth stayed low and stable, and that prices are falling in real terms. It does not mention asking prices rising slightly in nominal terms, but that omission does not change the key fact.",
+   "claims": [
+    {
+     "claim": "In Q2 2026 the secondary-market price trend varied by city group.",
+     "supported": true
+    },
+    {
+     "claim": "Warsaw saw positive price growth of 1.2% quarter on quarter.",
+     "supported": true
+    },
+    {
+     "claim": "Warsaw prices rose 1.3% year on year.",
+     "supported": true
+    },
+    {
+     "claim": "In the 10-city group prices rose 1.6% quarter on quarter and 2.6% year on year.",
+     "supported": true
+    },
+    {
+     "claim": "In the 6-city group prices fell 0.6% quarter on quarter and rose 0.3% year on year.",
+     "supported": true
+    },
+    {
+     "claim": "Transaction prices grew at a low and stable pace.",
+     "supported": true
+    },
+    {
+     "claim": "After adjusting for inflation and wage growth, most housing price indicators showed negative real growth.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q14",
+   "repeat": 1,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference on the key fact: nominal offer prices of new apartments edged up slightly, while prices fell in real terms after adjusting for inflation and wages. The added secondary-market figures do not contradict the reference.",
+   "claims": [
+    {
+     "claim": "Nominal offer prices on the primary market showed positive dynamics in all analyzed city groups in Q2 2026.",
+     "supported": true
+    },
+    {
+     "claim": "Quarterly primary-market offer price growth was 2.4% in Warsaw, 1% in 6M and 1.1% in 10M.",
+     "supported": true
+    },
+    {
+     "claim": "The 6M and 10M groups are the 6 largest and 10 largest cities.",
+     "supported": false
+    },
+    {
+     "claim": "On the secondary market, prices fell 0.6% quarterly in 6M.",
+     "supported": true
+    },
+    {
+     "claim": "On the secondary market, Warsaw prices rose 1.2% and 10M prices rose 1.6% quarterly.",
+     "supported": true
+    },
+    {
+     "claim": "Adjusted for inflation and wage growth, annual price dynamics remained negative in all analyzed cities.",
+     "supported": true
+    },
+    {
+     "claim": "This indicates a real decline in apartment values.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q15",
+   "repeat": 1,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer gives the same key figures as the reference: a 1.8% quarterly rise in transaction prices and only 0.2% year on year. Its 'mixed trends' framing still shows nominal growth. The extra details on offer prices and real declines do not contradict the reference.",
+   "claims": [
+    {
+     "claim": "At the end of 2025, prices of new flats in Warsaw showed mixed tendencies",
+     "supported": true
+    },
+    {
+     "claim": "Nominal transaction prices on Warsaw's primary market rose 1.8% quarter on quarter",
+     "supported": true
+    },
+    {
+     "claim": "The annual dynamics of these transaction prices were minimal (0.2%)",
+     "supported": true
+    },
+    {
+     "claim": "Offer prices of new flats in Warsaw rose 2.2% quarter on quarter",
+     "supported": true
+    },
+    {
+     "claim": "Offer prices of new flats in Warsaw rose 5.7% year on year",
+     "supported": true
+    },
+    {
+     "claim": "This indicates that developers' high price expectations persist",
+     "supported": true
+    },
+    {
+     "claim": "After adjusting for inflation and wage growth, the real price dynamics (in the context of offer prices) were negative",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q16",
+   "repeat": 1,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer gives the same key fact as the reference: the data is published on the open data portal by the minister responsible for digitalisation (informatyzacja). Leaving out the once-a-day frequency is fine, because the question asks only where the data is published.",
+   "claims": [
+    {
+     "claim": "Informacje przekazywane przez podmioty obowiązane są publikowane na portalu danych w rozumieniu ustawy o otwartych danych i ponownym wykorzystywaniu informacji sektora publicznego",
+     "supported": true
+    },
+    {
+     "claim": "Te informacje dotyczą cen mieszkań przekazywanych przez deweloperów",
+     "supported": false
+    },
+    {
+     "claim": "Minister właściwy do spraw informatyzacji publikuje te dane",
+     "supported": true
+    },
+    {
+     "claim": "Te dane są danymi o wysokiej wartości",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q17",
+   "repeat": 1,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer gives the key condition that matches the reference: 2 years of residence after the permanent or long-term EU resident permit, with the property held as statutory joint property of the spouses. The added 5-year exemption is an extra fact from the law and does not contradict the reference.",
+   "claims": [
+    {
+     "claim": "A foreigner married to a Polish citizen needs a permit to buy a house unless certain conditions are met.",
+     "supported": true
+    },
+    {
+     "claim": "No permit is required if the foreigner has lived in Poland at least 5 years since receiving a permanent residence or EU long-term resident permit.",
+     "supported": true
+    },
+    {
+     "claim": "A foreigner who is the spouse of a Polish citizen and has lived in Poland at least 2 years since receiving a permanent residence or EU long-term resident permit may acquire property forming the spouses' statutory joint property without a permit.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q18",
+   "repeat": 1,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer says yes, a permit is required, because the exemptions do not apply to agricultural land over 1 ha. This matches the reference's key fact; leaving out the agricultural-system rules does not change the answer.",
+   "claims": [
+    {
+     "claim": "A foreigner needs a permit to buy agricultural land of more than one hectare.",
+     "supported": true
+    },
+    {
+     "claim": "Acquisition of real estate by a foreigner requires permission.",
+     "supported": true
+    },
+    {
+     "claim": "Exemptions from the permit requirement do not apply to agricultural land exceeding 1 ha.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q19",
+   "repeat": 1,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer states 0.5 ha, which matches the reference.",
+   "claims": [
+    {
+     "claim": "The maximum area of property a foreigner can acquire to meet their own needs is 0.5 ha.",
+     "supported": true
+    },
+    {
+     "claim": "The 0.5 ha limit specifically concerns housing needs.",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q20",
+   "repeat": 1,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer says yes: the developer must keep its own website showing the price per m² of usable floor area for each unit and must update it with the date of change. This matches the reference; leaving out that previous prices are kept does not change the key fact.",
+   "claims": [
+    {
+     "claim": "Deweloper ma obowiązek prowadzenia własnej strony internetowej.",
+     "supported": true
+    },
+    {
+     "claim": "Na stronie udostępnia cenę m² powierzchni użytkowej każdego z oferowanych lokali mieszkalnych lub domów jednorodzinnych oraz całej nieruchomości lub jej części, będących przedmiotem umowy.",
+     "supported": true
+    },
+    {
+     "claim": "Informacje te muszą być dostępne od dnia rozpoczęcia sprzedaży.",
+     "supported": true
+    },
+    {
+     "claim": "W przypadku zmian cen deweloper jest obowiązany uaktualniać informacje z podaniem daty zmiany.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q21",
+   "repeat": 1,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "Odpowiedź poprawnie wskazuje, że przy zakupie samodzielnego lokalu mieszkalnego zezwolenie nie jest potrzebne. Poprawnie opisuje też ochronę wpłat przez mieszkaniowy rachunek powierniczy, otwarty lub zamknięty. Brak wzmianki o wyjątkach (strefa nadgraniczna) to pominięty szczegół, który nie zmienia odpowiedzi w opisanej sytuacji.",
+   "claims": [
+    {
+     "claim": "As a non-EU foreigner you need a permit to acquire real estate",
+     "supported": false
+    },
+    {
+     "claim": "Acquiring an independent residential unit does not require a permit",
+     "supported": true
+    },
+    {
+     "claim": "Payments to the developer are protected through a residential trust account, open or closed",
+     "supported": true
+    },
+    {
+     "claim": "The developer must conclude a residential trust account agreement for the given development project",
+     "supported": true
+    },
+    {
+     "claim": "The bank or credit union running the account records payments separately for each buyer",
+     "supported": true
+    },
+    {
+     "claim": "On request, the bank or credit union provides detailed information on payments and withdrawals",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q22",
+   "repeat": 1,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer correctly states that a closed account releases funds in a single payment only after the rights are transferred to the buyer. It describes an open account as making funds available to the developer to finance the project during construction. That conveys the essential contrast without contradicting the reference, though it does not explicitly mention staged releases tied to the construction schedule.",
+   "claims": [
+    {
+     "claim": "An open escrow account allows the developer to use the funds to finance or refinance the development project",
+     "supported": true
+    },
+    {
+     "claim": "A closed escrow account keeps deposited funds until the rights from the agreement are transferred to the buyer",
+     "supported": true
+    },
+    {
+     "claim": "Funds from a closed account are released in a single payment",
+     "supported": true
+    },
+    {
+     "claim": "With a closed account, the bank releases funds to the developer only after receiving a notarial deed of the transfer of rights to the buyer free from encumbrances",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q23",
+   "repeat": 1,
+   "correct": false,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The reference says Q1 2026 prices across the 16 cities stayed stable, amid weak demand and many unsold developer flats. The answer instead describes moderate price growth, which contradicts that key fact, and it omits the demand and supply context.",
+   "claims": [
+    {
+     "claim": "In Q1 2026 housing prices showed moderate upward dynamics",
+     "supported": true
+    },
+    {
+     "claim": "Primary market offer prices rose quarterly by 0.6% in 10 cities, 1.1% in 6 cities and 1.8% in Warsaw",
+     "supported": true
+    },
+    {
+     "claim": "Secondary market growth was weaker than on the primary market",
+     "supported": false
+    },
+    {
+     "claim": "Secondary market offer prices rose quarterly by 0.9% in 10 cities, 1.7% in 6 cities and 0.1% in Warsaw",
+     "supported": true
+    },
+    {
+     "claim": "Primary market offer prices were higher year on year by 4.5% in 10 cities, 1.5% in 6 cities and 6.5% in Warsaw",
+     "supported": true
+    },
+    {
+     "claim": "Average transaction prices were 17,159 PLN/sqm in Warsaw, 13,345 PLN/sqm in 6 cities and 10,755 PLN/sqm in the remaining 7 cities",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q24",
+   "repeat": 1,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference: under the amendment, the notary charges the parties a fee for placing electronic extracts and copies in the Central Repository, with the amount set by ministerial regulation. It omits that the provisions are not yet in force, but the question asks only what the amendment provides.",
+   "claims": [
+    {
+     "claim": "The rule comes from a 2026 amendment",
+     "supported": false
+    },
+    {
+     "claim": "The notary charges the parties to the notarial act a fee for placing electronic extracts, copies or duplicates of documents in the Repository",
+     "supported": true
+    },
+    {
+     "claim": "The Repository is the Centralne Repozytorium Elektronicznych Wypisów Aktów Notarialnych",
+     "supported": false
+    },
+    {
+     "claim": "The minister responsible for internal affairs will set the amount and payment method of the fee by regulation",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q25",
+   "repeat": 1,
+   "correct": true,
+   "grounded": null,
+   "by": "rule"
+  },
+  {
+   "id": "q26",
+   "repeat": 1,
+   "correct": true,
+   "grounded": null,
+   "by": "rule"
+  },
+  {
+   "id": "q27",
+   "repeat": 1,
+   "correct": true,
+   "grounded": null,
+   "by": "rule"
+  },
+  {
+   "id": "q28",
+   "repeat": 1,
+   "correct": true,
+   "grounded": null,
+   "by": "rule"
+  },
+  {
+   "id": "q29",
+   "repeat": 1,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer correctly says no. It also correctly states that the exemption requires 5 years of residence after a permanent residence or EU long-term resident permit. It matches the reference that temporary residence only supports ties to Poland in the permit application. The 'generalnie' qualifier and the omission of the spouse exemption do not contradict the reference.",
+   "claims": [
+    {
+     "claim": "A temporary residence permit generally does not exempt a foreigner from needing a permit to buy real estate",
+     "supported": false
+    },
+    {
+     "claim": "A temporary residence permit can be a circumstance confirming the foreigner's ties with Poland",
+     "supported": true
+    },
+    {
+     "claim": "Certain types of temporary residence permits are excluded from counting as such a circumstance",
+     "supported": true
+    },
+    {
+     "claim": "The exemption applies to a foreigner residing in Poland at least 5 years since being granted a permanent residence or EU long-term resident permit",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q01",
+   "repeat": 2,
+   "correct": false,
+   "grounded": false,
+   "by": "judge",
+   "reason": "Według wzorca nabycie samodzielnego lokalu mieszkalnego nie wymaga zezwolenia niezależnie od pobytu. Odpowiedź twierdzi odwrotnie, ponieważ błędnie łączy to zwolnienie z 5-letnim pobytem stałym.",
+   "claims": [
+    {
+     "claim": "A foreigner on a temporary stay cannot buy an apartment without a permit.",
+     "supported": false
+    },
+    {
+     "claim": "There is an exception from the permit requirement for acquiring an independent residential unit.",
+     "supported": true
+    },
+    {
+     "claim": "The residential-unit exception requires the foreigner to have lived in Poland at least 5 years since receiving a permanent residence or EU long-term resident permit.",
+     "supported": false
+    },
+    {
+     "claim": "A foreigner with no stay in Poland also needs a permit to buy an apartment.",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q02",
+   "repeat": 2,
+   "correct": false,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer says 'No' and ties the apartment exemption to 5 years of residence after a permanent residence permit. The reference says buying an apartment needs no permit regardless of residence, with exceptions only for the border zone and agricultural land, so the key fact is contradicted.",
+   "claims": [
+    {
+     "claim": "The rule comes from the Act on acquiring real estate by foreigners",
+     "supported": false
+    },
+    {
+     "claim": "Acquisition of real estate by a foreigner requires authorization",
+     "supported": true
+    },
+    {
+     "claim": "A foreigner needs no authorization to acquire an independent residential apartment only if they have resided in Poland at least 5 years since a permanent residence or EU long-term resident permit",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q03",
+   "repeat": 2,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer gives the same limit as the reference: the reservation fee may not exceed 1% of the price stated in the information prospectus. Naming single-family houses as well as flats is an extra detail that does not contradict the reference.",
+   "claims": [
+    {
+     "claim": "Opłata rezerwacyjna nie może przekraczać 1% ceny lokalu mieszkalnego albo domu jednorodzinnego określonej w prospekcie informacyjnym.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q04",
+   "repeat": 2,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference. It is a developer's escrow account for the buyer's payments, paid out in a single instalment after each right under the contract is transferred to the buyer. The extra detail does not contradict the reference.",
+   "claims": [
+    {
+     "claim": "Zamknięty mieszkaniowy rachunek powierniczy to rachunek powierniczy należący do dewelopera.",
+     "supported": true
+    },
+    {
+     "claim": "Służy gromadzeniu środków wpłacanych przez nabywcę na cele określone w umowie deweloperskiej.",
+     "supported": true
+    },
+    {
+     "claim": "Wypłata zdeponowanych środków następuje jednorazowo, po przeniesieniu na nabywcę każdego z praw wynikających z umów.",
+     "supported": true
+    },
+    {
+     "claim": "Deweloper rozpoczynający sprzedaż ma obowiązek zawarcia umowy zamkniętego mieszkaniowego rachunku powierniczego dla danego przedsięwzięcia deweloperskiego.",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q05",
+   "repeat": 2,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference. It describes a developer's trust account into which the buyer pays money, with payouts made according to the schedule of the development project. The extra details about the bank or cooperative savings bank and the use of the funds do not contradict the reference.",
+   "claims": [
+    {
+     "claim": "Otwarty mieszkaniowy rachunek powierniczy to rachunek powierniczy należący do dewelopera.",
+     "supported": true
+    },
+    {
+     "claim": "Rachunek ten jest prowadzony przez bank lub spółdzielczą kasę oszczędnościowo-kredytową.",
+     "supported": false
+    },
+    {
+     "claim": "Służy gromadzeniu środków pieniężnych wpłacanych przez nabywcę na cele określone w umowie deweloperskiej.",
+     "supported": true
+    },
+    {
+     "claim": "Wypłata zdeponowanych środków następuje zgodnie z harmonogramem przedsięwzięcia deweloperskiego lub zadania inwestycyjnego.",
+     "supported": true
+    },
+    {
+     "claim": "Deweloper dysponuje środkami wypłacanymi z rachunku w celu finansowania lub refinansowania przedsięwzięcia deweloperskiego lub zadania inwestycyjnego, dla którego prowadzony jest rachunek.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q06",
+   "repeat": 2,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer names all four documents in the reference: the land register entry, the KRS extract or CEIDG certificate, the building permit or construction notification, and the financial statements for the last two years. The extra documents it adds do not contradict the reference.",
+   "claims": [
+    {
+     "claim": "Deweloper musi udostępnić do wglądu w lokalu przedsiębiorstwa aktualny stan księgi wieczystej nieruchomości",
+     "supported": true
+    },
+    {
+     "claim": "Aktualny odpis z KRS lub zaświadczenie o wpisie do CEIDG",
+     "supported": true
+    },
+    {
+     "claim": "Pozwolenie na budowę lub zgłoszenie budowy",
+     "supported": true
+    },
+    {
+     "claim": "Sprawozdanie finansowe za ostatnie dwa lata lub za ostatni rok przy krótszej działalności",
+     "supported": true
+    },
+    {
+     "claim": "Projekt budowlany",
+     "supported": true
+    },
+    {
+     "claim": "Decyzja o pozwoleniu na użytkowanie budynku lub zawiadomienie o zakończeniu budowy",
+     "supported": true
+    },
+    {
+     "claim": "Zaświadczenie o samodzielności lokalu",
+     "supported": true
+    },
+    {
+     "claim": "Akt ustanowienia odrębnej własności lokalu",
+     "supported": true
+    },
+    {
+     "claim": "Dokument potwierdzający zgodę lub zobowiązanie do jej udzielenia",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q07",
+   "repeat": 2,
+   "correct": false,
+   "grounded": null,
+   "by": "rule"
+  },
+  {
+   "id": "q08",
+   "repeat": 2,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference: documents confirming the circumstances stated in the application and the ties to Poland, plus other documents that allow the correctness of the acquisition to be established. The added note about the ministerial regulation does not contradict it.",
+   "claims": [
+    {
+     "claim": "A foreigner applying for a permit must attach documents confirming the circumstances stated in the application.",
+     "supported": true
+    },
+    {
+     "claim": "The foreigner must attach documents confirming circumstances concerning ties with the Republic of Poland.",
+     "supported": false
+    },
+    {
+     "claim": "The foreigner must also attach other documents allowing the correctness of the property acquisition to be established.",
+     "supported": true
+    },
+    {
+     "claim": "The minister responsible for internal affairs specifies the types of these documents by regulation.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q09",
+   "repeat": 2,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer matches the reference: no permit is needed after 5 years of residence from the grant of a permanent residence or EU long-term resident permit. It omits the art. 8 ust. 3 caveat, but the question does not describe a case where that caveat would apply, and the reference itself only cites it without detail.",
+   "claims": [
+    {
+     "claim": "Cudzoziemiec zamieszkujący w RP co najmniej 5 lat od udzielenia zezwolenia na pobyt stały lub rezydenta długoterminowego UE nie wymaga zezwolenia na nabycie nieruchomości",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q10",
+   "repeat": 2,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference: when the prices differ, the buyer has the right to demand that the contract be concluded at the price most favourable to them.",
+   "claims": [
+    {
+     "claim": "The price in question is the one published on the developer's website.",
+     "supported": false
+    },
+    {
+     "claim": "If the stated price differs from the price offered at contract conclusion, the buyer may demand the contract at the price most favourable to them.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q11",
+   "repeat": 2,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer matches the reference. It says prices in Warsaw rose faster and gives the same figures: quarterly 2.4% vs 1.1% and 1%, annually 6.9% vs 4% and 1.4%.",
+   "claims": [
+    {
+     "claim": "W II kw. 2026 ceny na rynku pierwotnym w Warszawie rosły szybciej niż w innych grupach miast",
+     "supported": true
+    },
+    {
+     "claim": "Kwartalny wzrost cen w Warszawie wyniósł 2,4%",
+     "supported": true
+    },
+    {
+     "claim": "Kwartalny wzrost cen w grupie 10M wyniósł 1,1%",
+     "supported": true
+    },
+    {
+     "claim": "Kwartalny wzrost cen w grupie 6M wyniósł 1%",
+     "supported": true
+    },
+    {
+     "claim": "Rocznie ceny ofertowe w Warszawie były wyższe o 6,9%",
+     "supported": true
+    },
+    {
+     "claim": "Rocznie ceny ofertowe w 10M były wyższe o 4%",
+     "supported": true
+    },
+    {
+     "claim": "Rocznie ceny ofertowe w 6M były wyższe o 1,4%",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q12",
+   "repeat": 2,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer says nominal offer prices rose slightly and that prices adjusted for inflation and wages fell in real terms. This matches the reference; the extra percentage figures do not contradict it.",
+   "claims": [
+    {
+     "claim": "In Q2 2026, nominal offer prices on the primary market kept positive dynamics in all analysed city groups.",
+     "supported": true
+    },
+    {
+     "claim": "Quarterly price growth was 1.1% in the 10-city group.",
+     "supported": true
+    },
+    {
+     "claim": "Quarterly price growth was 1% in the 6 cities.",
+     "supported": true
+    },
+    {
+     "claim": "Quarterly price growth was 2.4% in Warsaw.",
+     "supported": true
+    },
+    {
+     "claim": "Annually, offer prices were 4% higher in the 10 cities.",
+     "supported": true
+    },
+    {
+     "claim": "Annually, offer prices were 1.4% higher in the 6 cities.",
+     "supported": true
+    },
+    {
+     "claim": "Annually, offer prices were 6.9% higher in Warsaw.",
+     "supported": true
+    },
+    {
+     "claim": "After adjusting for inflation and wage growth, annual primary-market price dynamics remained negative.",
+     "supported": false
+    },
+    {
+     "claim": "This indicates a fall in the real value of dwellings on the primary market.",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q13",
+   "repeat": 2,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer matches the reference. It says secondary-market price changes differ by city, with a slight quarterly drop in the group of 6 cities, that growth stayed low and stable, and that prices are falling in real terms. It does not mention asking prices rising slightly in nominal terms, but that omission does not change the key fact.",
+   "claims": [
+    {
+     "claim": "In Q2 2026 the secondary-market price trend varied by city group.",
+     "supported": true
+    },
+    {
+     "claim": "Warsaw saw positive price growth of 1.2% quarter on quarter.",
+     "supported": true
+    },
+    {
+     "claim": "Warsaw prices rose 1.3% year on year.",
+     "supported": true
+    },
+    {
+     "claim": "In the 10-city group prices rose 1.6% quarter on quarter and 2.6% year on year.",
+     "supported": true
+    },
+    {
+     "claim": "In the 6-city group prices fell 0.6% quarter on quarter and rose 0.3% year on year.",
+     "supported": true
+    },
+    {
+     "claim": "Transaction prices grew at a low and stable pace.",
+     "supported": true
+    },
+    {
+     "claim": "After adjusting for inflation and wage growth, most housing price indicators showed negative real growth.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q14",
+   "repeat": 2,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference on the key fact: nominal offer prices of new apartments edged up slightly, while prices fell in real terms after adjusting for inflation and wages. The added secondary-market figures do not contradict the reference.",
+   "claims": [
+    {
+     "claim": "Nominal offer prices on the primary market showed positive dynamics in all analyzed city groups in Q2 2026.",
+     "supported": true
+    },
+    {
+     "claim": "Quarterly primary-market offer price growth was 2.4% in Warsaw, 1% in 6M and 1.1% in 10M.",
+     "supported": true
+    },
+    {
+     "claim": "The 6M and 10M groups are the 6 largest and 10 largest cities.",
+     "supported": false
+    },
+    {
+     "claim": "On the secondary market, prices fell 0.6% quarterly in 6M.",
+     "supported": true
+    },
+    {
+     "claim": "On the secondary market, Warsaw prices rose 1.2% and 10M prices rose 1.6% quarterly.",
+     "supported": true
+    },
+    {
+     "claim": "Adjusted for inflation and wage growth, annual price dynamics remained negative in all analyzed cities.",
+     "supported": true
+    },
+    {
+     "claim": "This indicates a real decline in apartment values.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q15",
+   "repeat": 2,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer gives the same key figures as the reference: a 1.8% quarterly rise in transaction prices and only 0.2% year on year. Its 'mixed trends' framing still shows nominal growth. The extra details on offer prices and real declines do not contradict the reference.",
+   "claims": [
+    {
+     "claim": "At the end of 2025, prices of new flats in Warsaw showed mixed tendencies",
+     "supported": true
+    },
+    {
+     "claim": "Nominal transaction prices on Warsaw's primary market rose 1.8% quarter on quarter",
+     "supported": true
+    },
+    {
+     "claim": "The annual dynamics of these transaction prices were minimal (0.2%)",
+     "supported": true
+    },
+    {
+     "claim": "Offer prices of new flats in Warsaw rose 2.2% quarter on quarter",
+     "supported": true
+    },
+    {
+     "claim": "Offer prices of new flats in Warsaw rose 5.7% year on year",
+     "supported": true
+    },
+    {
+     "claim": "This indicates that developers' high price expectations persist",
+     "supported": true
+    },
+    {
+     "claim": "After adjusting for inflation and wage growth, the real price dynamics (in the context of offer prices) were negative",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q16",
+   "repeat": 2,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer gives the same key fact as the reference: the data is published on the open data portal by the minister responsible for digitalisation (informatyzacja). Leaving out the once-a-day frequency is fine, because the question asks only where the data is published.",
+   "claims": [
+    {
+     "claim": "Informacje przekazywane przez podmioty obowiązane są publikowane na portalu danych w rozumieniu ustawy o otwartych danych i ponownym wykorzystywaniu informacji sektora publicznego",
+     "supported": true
+    },
+    {
+     "claim": "Te informacje dotyczą cen mieszkań przekazywanych przez deweloperów",
+     "supported": false
+    },
+    {
+     "claim": "Minister właściwy do spraw informatyzacji publikuje te dane",
+     "supported": true
+    },
+    {
+     "claim": "Te dane są danymi o wysokiej wartości",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q17",
+   "repeat": 2,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer gives the key condition that matches the reference: 2 years of residence after the permanent or long-term EU resident permit, with the property held as statutory joint property of the spouses. The added 5-year exemption is an extra fact from the law and does not contradict the reference.",
+   "claims": [
+    {
+     "claim": "A foreigner married to a Polish citizen needs a permit to buy a house unless certain conditions are met.",
+     "supported": true
+    },
+    {
+     "claim": "No permit is required if the foreigner has lived in Poland at least 5 years since receiving a permanent residence or EU long-term resident permit.",
+     "supported": true
+    },
+    {
+     "claim": "A foreigner who is the spouse of a Polish citizen and has lived in Poland at least 2 years since receiving a permanent residence or EU long-term resident permit may acquire property forming the spouses' statutory joint property without a permit.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q18",
+   "repeat": 2,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer says yes, a permit is required, because the exemptions do not apply to agricultural land over 1 ha. This matches the reference's key fact; leaving out the agricultural-system rules does not change the answer.",
+   "claims": [
+    {
+     "claim": "A foreigner needs a permit to buy agricultural land of more than one hectare.",
+     "supported": true
+    },
+    {
+     "claim": "Acquisition of real estate by a foreigner requires permission.",
+     "supported": true
+    },
+    {
+     "claim": "Exemptions from the permit requirement do not apply to agricultural land exceeding 1 ha.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q19",
+   "repeat": 2,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer states 0.5 ha, which matches the reference.",
+   "claims": [
+    {
+     "claim": "The maximum area of property a foreigner can acquire to meet their own needs is 0.5 ha.",
+     "supported": true
+    },
+    {
+     "claim": "The 0.5 ha limit specifically concerns housing needs.",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "id": "q20",
+   "repeat": 2,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer says yes: the developer must keep its own website showing the price per m² of usable floor area for each unit and must update it with the date of change. This matches the reference; leaving out that previous prices are kept does not change the key fact.",
+   "claims": [
+    {
+     "claim": "Deweloper ma obowiązek prowadzenia własnej strony internetowej.",
+     "supported": true
+    },
+    {
+     "claim": "Na stronie udostępnia cenę m² powierzchni użytkowej każdego z oferowanych lokali mieszkalnych lub domów jednorodzinnych oraz całej nieruchomości lub jej części, będących przedmiotem umowy.",
+     "supported": true
+    },
+    {
+     "claim": "Informacje te muszą być dostępne od dnia rozpoczęcia sprzedaży.",
+     "supported": true
+    },
+    {
+     "claim": "W przypadku zmian cen deweloper jest obowiązany uaktualniać informacje z podaniem daty zmiany.",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q21",
+   "repeat": 2,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "Odpowiedź poprawnie wskazuje, że przy zakupie samodzielnego lokalu mieszkalnego zezwolenie nie jest potrzebne. Poprawnie opisuje też ochronę wpłat przez mieszkaniowy rachunek powierniczy, otwarty lub zamknięty. Brak wzmianki o wyjątkach (strefa nadgraniczna) to pominięty szczegół, który nie zmienia odpowiedzi w opisanej sytuacji.",
+   "claims": [
+    {
+     "claim": "As a non-EU foreigner you need a permit to acquire real estate",
+     "supported": false
+    },
+    {
+     "claim": "Acquiring an independent residential unit does not require a permit",
+     "supported": true
+    },
+    {
+     "claim": "Payments to the developer are protected through a residential trust account, open or closed",
+     "supported": true
+    },
+    {
+     "claim": "The developer must conclude a residential trust account agreement for the given development project",
+     "supported": true
+    },
+    {
+     "claim": "The bank or credit union running the account records payments separately for each buyer",
+     "supported": true
+    },
+    {
+     "claim": "On request, the bank or credit union provides detailed information on payments and withdrawals",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q22",
+   "repeat": 2,
+   "correct": true,
+   "grounded": true,
+   "by": "judge",
+   "reason": "The answer correctly states that a closed account releases funds in a single payment only after the rights are transferred to the buyer. It describes an open account as making funds available to the developer to finance the project during construction. That conveys the essential contrast without contradicting the reference, though it does not explicitly mention staged releases tied to the construction schedule.",
+   "claims": [
+    {
+     "claim": "An open escrow account allows the developer to use the funds to finance or refinance the development project",
+     "supported": true
+    },
+    {
+     "claim": "A closed escrow account keeps deposited funds until the rights from the agreement are transferred to the buyer",
+     "supported": true
+    },
+    {
+     "claim": "Funds from a closed account are released in a single payment",
+     "supported": true
+    },
+    {
+     "claim": "With a closed account, the bank releases funds to the developer only after receiving a notarial deed of the transfer of rights to the buyer free from encumbrances",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q23",
+   "repeat": 2,
+   "correct": false,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The reference says Q1 2026 prices across the 16 cities stayed stable, amid weak demand and many unsold developer flats. The answer instead describes moderate price growth, which contradicts that key fact, and it omits the demand and supply context.",
+   "claims": [
+    {
+     "claim": "In Q1 2026 housing prices showed moderate upward dynamics",
+     "supported": true
+    },
+    {
+     "claim": "Primary market offer prices rose quarterly by 0.6% in 10 cities, 1.1% in 6 cities and 1.8% in Warsaw",
+     "supported": true
+    },
+    {
+     "claim": "Secondary market growth was weaker than on the primary market",
+     "supported": false
+    },
+    {
+     "claim": "Secondary market offer prices rose quarterly by 0.9% in 10 cities, 1.7% in 6 cities and 0.1% in Warsaw",
+     "supported": true
+    },
+    {
+     "claim": "Primary market offer prices were higher year on year by 4.5% in 10 cities, 1.5% in 6 cities and 6.5% in Warsaw",
+     "supported": true
+    },
+    {
+     "claim": "Average transaction prices were 17,159 PLN/sqm in Warsaw, 13,345 PLN/sqm in 6 cities and 10,755 PLN/sqm in the remaining 7 cities",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q24",
+   "repeat": 2,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer matches the reference: under the amendment, the notary charges the parties a fee for placing electronic extracts and copies in the Central Repository, with the amount set by ministerial regulation. It omits that the provisions are not yet in force, but the question asks only what the amendment provides.",
+   "claims": [
+    {
+     "claim": "The rule comes from a 2026 amendment",
+     "supported": false
+    },
+    {
+     "claim": "The notary charges the parties to the notarial act a fee for placing electronic extracts, copies or duplicates of documents in the Repository",
+     "supported": true
+    },
+    {
+     "claim": "The Repository is the Centralne Repozytorium Elektronicznych Wypisów Aktów Notarialnych",
+     "supported": false
+    },
+    {
+     "claim": "The minister responsible for internal affairs will set the amount and payment method of the fee by regulation",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "id": "q25",
+   "repeat": 2,
+   "correct": true,
+   "grounded": null,
+   "by": "rule"
+  },
+  {
+   "id": "q26",
+   "repeat": 2,
+   "correct": true,
+   "grounded": null,
+   "by": "rule"
+  },
+  {
+   "id": "q27",
+   "repeat": 2,
+   "correct": true,
+   "grounded": null,
+   "by": "rule"
+  },
+  {
+   "id": "q28",
+   "repeat": 2,
+   "correct": true,
+   "grounded": null,
+   "by": "rule"
+  },
+  {
+   "id": "q29",
+   "repeat": 2,
+   "correct": true,
+   "grounded": false,
+   "by": "judge",
+   "reason": "The answer correctly says no. It also correctly states that the exemption requires 5 years of residence after a permanent residence or EU long-term resident permit. It matches the reference that temporary residence only supports ties to Poland in the permit application. The 'generalnie' qualifier and the omission of the spouse exemption do not contradict the reference.",
+   "claims": [
+    {
+     "claim": "A temporary residence permit generally does not exempt a foreigner from needing a permit to buy real estate",
+     "supported": false
+    },
+    {
+     "claim": "A temporary residence permit can be a circumstance confirming the foreigner's ties with Poland",
+     "supported": true
+    },
+    {
+     "claim": "Certain types of temporary residence permits are excluded from counting as such a circumstance",
+     "supported": true
+    },
+    {
+     "claim": "The exemption applies to a foreigner residing in Poland at least 5 years since being granted a permanent residence or EU long-term resident permit",
+     "supported": true
+    }
+   ]
+  }
+ ]
+}

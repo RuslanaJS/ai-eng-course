@@ -1,0 +1,27 @@
+{
+ "prompt": "rag_answer_v1",
+ "model": "claude-haiku-4-5",
+ "search": "hybrid+rerank[gemini]",
+ "questions": 29,
+ "repeats": 3,
+ "pass@1": 0.828,
+ "pass_every_time": 0.828,
+ "flaky": [],
+ "failed_every_time": [
+  "q07",
+  "q13",
+  "q21",
+  "q22",
+  "q23"
+ ],
+ "facts": 0.84,
+ "recall@5": 1.0,
+ "in_context": 1.0,
+ "cited": 0.88,
+ "abstain": 1.0,
+ "false_abstain": 0.04,
+ "invalid": 0,
+ "latency_p50_s": 2.81,
+ "latency_p95_s": 3.83,
+ "cost_per_1000_questions_usd": 3.41
+}

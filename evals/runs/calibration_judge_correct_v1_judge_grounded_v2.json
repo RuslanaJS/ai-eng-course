@@ -1,0 +1,213 @@
+{
+ "judge": "claude-opus-5-5",
+ "prompts": [
+  "judge_correct_v1",
+  "judge_grounded_v2"
+ ],
+ "correct": {
+  "n": 15,
+  "agreement": 0.867,
+  "false_pass": 0.5,
+  "false_fail": 0.077
+ },
+ "grounded": {
+  "n": 15,
+  "agreement": 0.6,
+  "false_pass": 0.5,
+  "false_fail": 0.385
+ },
+ "disagreements": [
+  {
+   "id": "q04",
+   "field": "grounded",
+   "human": true,
+   "judge": false,
+   "reason": "Deweloper rozpoczynający sprzedaż ma obowiązek zawarcia umowy zamkniętego mieszkaniowego rachunku powierniczego dla danego przedsięwzięcia deweloperskiego."
+  },
+  {
+   "id": "q12",
+   "field": "grounded",
+   "human": true,
+   "judge": false,
+   "reason": "After adjusting for inflation and wage growth, annual price dynamics for new apartments (primary market) stayed negative.; This indicates a fall in the real value of apartments."
+  },
+  {
+   "id": "q14",
+   "field": "grounded",
+   "human": true,
+   "judge": false,
+   "reason": "The 6M and 10M groups are the 6 and 10 largest cities"
+  },
+  {
+   "id": "q21",
+   "field": "correct",
+   "human": false,
+   "judge": true,
+   "reason": "The answer says no permit is needed for a self-contained apartment (the general rule) and correctly names the open or closed escrow account. It omits the border-zone and farmland exceptions, but these do not change the answer for a standard new apartment bought from a developer."
+  },
+  {
+   "id": "q21",
+   "field": "grounded",
+   "human": false,
+   "judge": true,
+   "reason": ""
+  },
+  {
+   "id": "q23",
+   "field": "correct",
+   "human": true,
+   "judge": false,
+   "reason": "The reference says that, according to NBP, prices in Q1 2026 stayed stable amid weak demand and a large stock of unsold developer flats. The answer instead describes moderate price growth, which contradicts that, and it omits the demand and oversupply context."
+  },
+  {
+   "id": "q23",
+   "field": "grounded",
+   "human": true,
+   "judge": false,
+   "reason": "Secondary market growth was weaker than on the primary market"
+  },
+  {
+   "id": "q24",
+   "field": "grounded",
+   "human": true,
+   "judge": false,
+   "reason": "Repozytorium to Centralne Repozytorium Elektronicznych Wypisów Aktów Notarialnych"
+  }
+ ],
+ "cost_usd": 0.338,
+ "labels": 15,
+ "verdicts": [
+  {
+   "id": "q01",
+   "repeat": 0,
+   "correct": false,
+   "grounded": false,
+   "reason": "",
+   "unsupported": []
+  },
+  {
+   "id": "q04",
+   "repeat": 0,
+   "correct": true,
+   "grounded": false,
+   "reason": "",
+   "unsupported": [
+    "Deweloper rozpoczynający sprzedaż ma obowiązek zawarcia umowy zamkniętego mieszkaniowego rachunku powierniczego dla danego przedsięwzięcia deweloperskiego."
+   ]
+  },
+  {
+   "id": "q05",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "reason": "",
+   "unsupported": []
+  },
+  {
+   "id": "q10",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "reason": "",
+   "unsupported": []
+  },
+  {
+   "id": "q12",
+   "repeat": 0,
+   "correct": true,
+   "grounded": false,
+   "reason": "",
+   "unsupported": [
+    "After adjusting for inflation and wage growth, annual price dynamics for new apartments (primary market) stayed negative.",
+    "This indicates a fall in the real value of apartments."
+   ]
+  },
+  {
+   "id": "q13",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "reason": "",
+   "unsupported": []
+  },
+  {
+   "id": "q14",
+   "repeat": 0,
+   "correct": true,
+   "grounded": false,
+   "reason": "",
+   "unsupported": [
+    "The 6M and 10M groups are the 6 and 10 largest cities"
+   ]
+  },
+  {
+   "id": "q16",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "reason": "",
+   "unsupported": []
+  },
+  {
+   "id": "q19",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "reason": "",
+   "unsupported": []
+  },
+  {
+   "id": "q21",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "reason": "The answer says no permit is needed for a self-contained apartment (the general rule) and correctly names the open or closed escrow account. It omits the border-zone and farmland exceptions, but these do not change the answer for a standard new apartment bought from a developer.",
+   "unsupported": []
+  },
+  {
+   "id": "q22",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "reason": "",
+   "unsupported": []
+  },
+  {
+   "id": "q23",
+   "repeat": 0,
+   "correct": false,
+   "grounded": false,
+   "reason": "The reference says that, according to NBP, prices in Q1 2026 stayed stable amid weak demand and a large stock of unsold developer flats. The answer instead describes moderate price growth, which contradicts that, and it omits the demand and oversupply context.",
+   "unsupported": [
+    "Secondary market growth was weaker than on the primary market"
+   ]
+  },
+  {
+   "id": "q24",
+   "repeat": 0,
+   "correct": true,
+   "grounded": false,
+   "reason": "",
+   "unsupported": [
+    "Repozytorium to Centralne Repozytorium Elektronicznych Wypisów Aktów Notarialnych"
+   ]
+  },
+  {
+   "id": "q29",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "reason": "",
+   "unsupported": []
+  },
+  {
+   "id": "q09",
+   "repeat": 0,
+   "correct": true,
+   "grounded": true,
+   "reason": "",
+   "unsupported": []
+  }
+ ],
+ "note": "verdicts rebuilt from the disagreements list; the run itself saved only the disagreements"
+}

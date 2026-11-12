@@ -1,0 +1,106 @@
+{
+ "judge": "claude-opus-5-5",
+ "prompts": [
+  "judge_correct_v1",
+  "judge_grounded_v1"
+ ],
+ "correct": {
+  "n": 15,
+  "agreement": 0.8,
+  "false_pass": 0.5,
+  "false_fail": 0.154
+ },
+ "grounded": {
+  "n": 15,
+  "agreement": 0.4,
+  "false_pass": 0.0,
+  "false_fail": 0.692
+ },
+ "disagreements": [
+  {
+   "id": "q04",
+   "field": "grounded",
+   "human": true,
+   "judge": false,
+   "reason": "The answer matches the reference. It describes a developer's trust account where the buyer's money is held and paid out in one lump sum after every right under the agreement has been transferred to the buyer. The extra point about the developer having to open such an account does not contradict the reference."
+  },
+  {
+   "id": "q05",
+   "field": "grounded",
+   "human": true,
+   "judge": false,
+   "reason": "The answer matches the reference. It describes the account as the developer's trust account, into which the buyer pays funds, with payouts made according to the schedule of the development project. The extra details do not contradict the reference."
+  },
+  {
+   "id": "q10",
+   "field": "grounded",
+   "human": true,
+   "judge": false,
+   "reason": "The answer matches the reference: when the prices differ, the buyer may demand that the contract be concluded at the price most favourable to them."
+  },
+  {
+   "id": "q12",
+   "field": "grounded",
+   "human": true,
+   "judge": false,
+   "reason": "The answer says nominal prices rise slightly but fall in real terms after adjusting for inflation and wages. This matches the reference. The added percentages do not contradict it."
+  },
+  {
+   "id": "q16",
+   "field": "grounded",
+   "human": true,
+   "judge": false,
+   "reason": "The answer names the data portal as the place of publication and the minister responsible for digitalization as the publisher, which matches the reference. It leaves out the once-a-day frequency, but that is a minor detail and not the key fact asked about."
+  },
+  {
+   "id": "q19",
+   "field": "grounded",
+   "human": true,
+   "judge": false,
+   "reason": "The answer states 0.5 ha, which matches the reference."
+  },
+  {
+   "id": "q21",
+   "field": "correct",
+   "human": false,
+   "judge": true,
+   "reason": "The answer says no permit is needed for a self-contained apartment (via the stated exception) and names the open or closed residential escrow account, so it matches the reference on both points. It omits the exceptions for the border zone and agricultural land, but these do not change the answer for the typical case of buying an apartment from a developer."
+  },
+  {
+   "id": "q22",
+   "field": "correct",
+   "human": true,
+   "judge": false,
+   "reason": "The closed-account part matches the reference: funds are released in one payment only after the rights are transferred. The open-account part omits the key feature, that funds are paid out in stages according to the construction schedule. It instead implies the developer can simply use the funds to finance the project."
+  },
+  {
+   "id": "q23",
+   "field": "correct",
+   "human": true,
+   "judge": false,
+   "reason": "The reference says, per NBP, that Q1 2026 prices in the 16 cities stayed stable amid weak demand and many unsold developer flats. The answer instead describes moderate upward dynamics, which contradicts the key characterization, and it omits the weak demand and large unsold stock."
+  },
+  {
+   "id": "q23",
+   "field": "grounded",
+   "human": true,
+   "judge": false,
+   "reason": "The reference says, per NBP, that Q1 2026 prices in the 16 cities stayed stable amid weak demand and many unsold developer flats. The answer instead describes moderate upward dynamics, which contradicts the key characterization, and it omits the weak demand and large unsold stock."
+  },
+  {
+   "id": "q24",
+   "field": "grounded",
+   "human": true,
+   "judge": false,
+   "reason": "The answer matches the reference: under the amendment, the notary charges the parties a fee for placing electronic extracts and copies in the Central Repository, with the amount and payment method set by ministerial regulation. It omits that the provision is not yet in force, but the question already asks about the 2026 amendment, so this does not change the answer."
+  },
+  {
+   "id": "q29",
+   "field": "grounded",
+   "human": true,
+   "judge": false,
+   "reason": "The answer says no, as the reference does. It correctly names the exemption (5 years since a permanent residence or EU long-term resident permit) and notes that a temporary residence permit only supports ties with Poland. The word 'generalnie' and the omitted spouse exemption do not change the key fact."
+  }
+ ],
+ "cost_usd": 0.332
+}
