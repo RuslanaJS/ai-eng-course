@@ -5,16 +5,8 @@ import json
 
 from ..retrieval.search import make_configs
 from ..retrieval.store import load_chunks
-from .answer import MODEL, PROMPT, Answerer
+from .answer import CONFIG, MODEL, PROMPT, Answerer, cost_usd
 from .context import DEFAULT_BUDGET
-
-CONFIG = "hybrid+rerank[gemini]"
-PRICE = {"claude-haiku-4-5": (1.0, 5.0)}  # USD per million input and output tokens
-
-
-def cost_usd(result):
-    price_in, price_out = PRICE.get(result["model"], (0.0, 0.0))
-    return (result.get("input_tokens", 0) * price_in + result.get("output_tokens", 0) * price_out) / 1e6
 
 
 def show(result):

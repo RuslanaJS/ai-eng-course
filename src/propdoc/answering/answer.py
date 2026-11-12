@@ -15,6 +15,13 @@ PROMPT = "rag_answer_v1"
 MODEL = "claude-haiku-4-5"  # 5.5 rejects a non-default temperature, and we run at 0
 MAX_TOKENS = 1024
 MARK = re.compile(r"\[(\d+)\]")
+CONFIG = "hybrid+rerank[gemini]"  # the best search configuration of the retrieval eval
+PRICE = {"claude-haiku-4-5": (1.0, 5.0)}  # USD per million input and output tokens
+
+
+def cost_usd(result):
+    price_in, price_out = PRICE.get(result["model"], (0.0, 0.0))
+    return (result.get("input_tokens", 0) * price_in + result.get("output_tokens", 0) * price_out) / 1e6
 
 
 class Answer(BaseModel):
@@ -44,14 +51,15 @@ class Answerer:
         self.client = client or anthropic.Anthropic(timeout=60.0, max_retries=3)
         self.schema = anthropic.transform_schema(Answer)
 
-    def ask(self, question, history=False):
-        """history=True also searches superseded versions of the documents."""
-        filters = None if history else dict(DEFAULT_FILTER)
+    def ask(self, question, history=False, filters=None):
+        """history=True also searches superseded versions; filters narrow the search (e.g. a period)."""
+        filters = {**({} if history else DEFAULT_FILTER), **(filters or {})} or None
         retrieved = self.search(question, filters)
         used, dropped, tokens = build_context(retrieved, self.budget)
         result = {"question": question, "model": self.model, "prompt": self.prompt_name,
                   "retrieved": len(retrieved), "used": len(used), "dropped": dropped,
-                  "context_tokens": tokens, "chunk_ids": [c["chunk_id"] for c in used]}
+                  "context_tokens": tokens, "retrieved_ids": [c["chunk_id"] for c in retrieved],
+                  "chunk_ids": [c["chunk_id"] for c in used]}
         message = f"<sources>\n{format_context(used)}\n</sources>\n\nQuestion: {question}"
         started = time.perf_counter()
         try:

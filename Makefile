@@ -1,4 +1,4 @@
-.PHONY: setup run run-all smoke metrics check-labels test lint clean clean-results fetch ingest check-ingest embed eval-retrieval search ask
+.PHONY: setup run run-all smoke metrics check-labels test lint clean clean-results fetch ingest check-ingest embed eval-retrieval search ask eval-answers
 
 # Like `npm install`: creates .venv and installs dependencies from pyproject.toml
 setup:
@@ -53,6 +53,10 @@ search: setup
 # A cited answer: make ask Q="Czy cudzoziemiec potrzebuje zezwolenia na zakup mieszkania?" (needs ANTHROPIC_API_KEY)
 ask: setup
 	uv run python -m propdoc.answering.ask "$(Q)" $(ARGS)
+
+# Every test question through the bot, three times, scored without a model (about 0.3 USD)
+eval-answers: setup
+	uv run python -m propdoc.evaluation.answers --repeat 3 $(ARGS)
 
 test: setup
 	uv run pytest
