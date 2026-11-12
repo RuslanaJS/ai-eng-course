@@ -1,4 +1,4 @@
-.PHONY: setup run run-all smoke metrics check-labels test lint clean clean-results fetch ingest check-ingest embed eval-retrieval search ask eval-answers
+.PHONY: setup run run-all smoke metrics check-labels test lint clean clean-results fetch ingest check-ingest embed eval-retrieval search ask eval-answers check-testset eval-gate judge calibrate
 
 # Like `npm install`: creates .venv and installs dependencies from pyproject.toml
 setup:
@@ -57,6 +57,21 @@ ask: setup
 # Every test question through the bot, three times, scored without a model (about 0.3 USD)
 eval-answers: setup
 	uv run python -m propdoc.evaluation.answers --repeat 3 $(ARGS)
+
+# CI layer without keys: the test set has no mechanical errors
+check-testset: setup
+	uv run python -m propdoc.evaluation.answers --lint
+
+# What CI runs with keys: laws only, compared with evals/baseline_open.json (about 0.1 USD)
+eval-gate: setup
+	uv run python -m propdoc.evaluation.answers --open --gate
+
+# LLM judge on the last full run, and its agreement with the human labels
+judge: setup
+	uv run python -m propdoc.evaluation.judge evals/runs/answers_rag_answer_v1.jsonl
+
+calibrate: setup
+	uv run python -m propdoc.evaluation.judge --calibrate evals/labels.json
 
 test: setup
 	uv run pytest

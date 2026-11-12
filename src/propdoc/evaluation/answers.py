@@ -2,6 +2,8 @@
 
 python -m propdoc.evaluation.answers [--repeat 3] [--prompt rag_answer_v1] [--ids q01 q05]
 python -m propdoc.evaluation.answers --score evals/runs/answers_rag_answer_v1.jsonl   # score a saved run
+python -m propdoc.evaluation.answers --lint                     # check the test set, no model calls
+python -m propdoc.evaluation.answers --open --gate              # CI: laws only, compare with the baseline
 
 Writes every answer to evals/runs/answers_<prompt>.jsonl and the metrics to answers_<prompt>_metrics.json.
 """
@@ -14,10 +16,13 @@ from ..answering.answer import CONFIG, MODEL, PROMPT, Answerer
 from ..ingest.fetch import ROOT
 from ..retrieval.search import make_configs
 from ..retrieval.store import load_chunks
+from .gate import case_rates, gate, lint, open_subset
 from .scorers import metrics, score
 
 QUESTIONS = ROOT / "evals" / "questions.json"
 RUNS = ROOT / "evals" / "runs"
+BASELINE = ROOT / "evals" / "baseline.json"  # the full corpus, run locally
+BASELINE_OPEN = ROOT / "evals" / "baseline_open.json"  # the committed corpus, the one CI compares with
 
 
 def load_questions(ids=None):
@@ -60,10 +65,25 @@ def main(argv=None):
     parser.add_argument("--model", default=MODEL)
     parser.add_argument("--ids", nargs="*")
     parser.add_argument("--score", help="score a saved run instead of asking the model")
+    parser.add_argument("--open", action="store_true",
+                        help="only the committed corpus (the laws) and the questions it can answer, as in CI")
+    parser.add_argument("--lint", action="store_true", help="check the test set itself, no model calls")
+    parser.add_argument("--gate", action="store_true", help="exit 1 if the run is worse than the baseline")
+    parser.add_argument("--save-baseline", action="store_true", help="make this run the new baseline")
     args = parser.parse_args(argv)
-    chunks = load_chunks()
+    chunks = load_chunks(open_only=args.open)
     by_chunk = {c["chunk_id"]: c for c in chunks}
     questions = load_questions(args.ids)
+    if args.lint:
+        problems, skipped = lint(questions, chunks)
+        print(f"{len(questions)} questions, {len(problems)} problems, {skipped} quotes skipped "
+              "(documents not in this checkout)")
+        for p in problems:
+            print("  " + p)
+        return 1 if problems else 0
+    if args.open:
+        questions = open_subset(questions, chunks)
+    name = f"answers_{args.prompt}" + ("_open" if args.open else "")
     if args.score:
         rows = [json.loads(line) for line in Path(args.score).read_text(encoding="utf-8").splitlines()]
         out = None
@@ -71,14 +91,26 @@ def main(argv=None):
         search = make_configs(chunks, [CONFIG.split("[")[1].rstrip("]")])[CONFIG]
         rows = run(Answerer(search, args.model, args.prompt), questions, args.repeat)
         RUNS.mkdir(parents=True, exist_ok=True)
-        out = RUNS / f"answers_{args.prompt}.jsonl"
+        out = RUNS / f"{name}.jsonl"
         out.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8")
     result, scores = report(rows, questions, by_chunk)
     show(result, scores)
+    meta = {"prompt": args.prompt, "model": args.model, "search": CONFIG,
+            "corpus": "open" if args.open else "full", **result, "case_pass": case_rates(scores)}
     if out:
-        meta = {"prompt": args.prompt, "model": args.model, "search": CONFIG, **result}
-        out.with_name(f"answers_{args.prompt}_metrics.json").write_text(
+        out.with_name(f"{name}_metrics.json").write_text(
             json.dumps(meta, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    baseline_path = BASELINE_OPEN if args.open else BASELINE
+    if args.save_baseline:
+        baseline_path.write_text(json.dumps(meta, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        print(f"\nbaseline saved to {baseline_path.relative_to(ROOT)}")
+    if args.gate:
+        baseline = json.loads(baseline_path.read_text(encoding="utf-8"))
+        violations = gate(result, meta["case_pass"], baseline)
+        print("\nGATE " + ("FAILED" if violations else "PASSED") + f" against {baseline_path.relative_to(ROOT)}")
+        for v in violations:
+            print("  " + v)
+        return 1 if violations else 0
     return 0
 
 

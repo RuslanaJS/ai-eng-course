@@ -32,3 +32,6 @@ jobs:
 
       - name: Unit tests (no network)
         run: uv run pytest
+
+      - name: Test set lint (no model calls)
+        run: uv run python -m propdoc.evaluation.answers --lint --open
