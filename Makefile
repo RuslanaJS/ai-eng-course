@@ -1,12 +1,17 @@
-.PHONY: setup run run-all smoke metrics check-labels test lint clean clean-results fetch ingest check-ingest embed eval-retrieval search ask eval-answers check-testset eval-gate judge calibrate
+.PHONY: setup run run-hw1 run-all smoke metrics check-labels test lint clean clean-results fetch ingest check-ingest embed eval-retrieval search ask eval-answers check-testset eval-gate judge calibrate
 
 # Like `npm install`: creates .venv and installs dependencies from pyproject.toml
 setup:
 	uv sync
 
-# Full pipeline for the recommended configuration: extract all texts with Haiku (prompt v2, T=0),
-# validate, save to results/, print metrics. About 2 minutes and 0.2 USD (needs a key in .env).
+# HW2: the RAG bot on the test questions that the committed corpus (the laws) can answer, then the metrics.
+# About 3 minutes and 0.1 USD the first time (needs ANTHROPIC_API_KEY and GEMINI_API_KEY in .env).
 run: setup
+	uv run python -m propdoc.evaluation.answers --open
+
+# HW1: extract all texts with Haiku (prompt v2, T=0), validate, save to results/, print metrics.
+# About 2 minutes and 0.2 USD; needs the local data/texts/.
+run-hw1: setup
 	uv run python -m propdoc.extraction.run
 	uv run python -m propdoc.extraction.metrics
 

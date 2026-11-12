@@ -10,14 +10,14 @@ A reviewer clones the repo with none of your local files (`.env`, `results`, `.v
 ## 1. Local state
 
 - `git status` is clean, `make lint` and `make test` pass, `make check-labels` reports 0 mismatches.
-- `REPORT.md` and `README.md` numbers equal `uv run python -m propdoc.extraction.metrics --report` for the committed `results/` snapshot.
+- `README.md`, `REPORT_HW1.md` and `REPORT_HW2.md` numbers match their data: HW1 equals `uv run python -m propdoc.extraction.metrics --report` for the committed `results/` snapshot, HW2 equals the files in `evals/runs/`.
 - No secret in any commit: `git grep -n -E "sk-ant-[A-Za-z0-9_-]{20,}" $(git rev-list --all)` returns nothing (the `sk-ant-...` placeholder in `.env.example` is fine).
 
 ## 2. Fresh clone
 
 1. Clone into a temporary folder (the session scratchpad), run `make test`.
-2. For `make run`, copy `.env` into the clone only with the user's agreement, run it (about 0.2 USD, 2 minutes), then delete the whole temporary folder so the key copy does not stay around.
-3. Expect 33/33 valid answers and the same metrics as in the report.
+2. For `make run` (HW2, about 0.1 USD, 3 minutes), copy `.env` into the clone only with the user's agreement, run it, then delete the whole temporary folder so the key copy does not stay around.
+3. Expect `make run` to give the open-corpus metrics close to `evals/baseline_open.json` (`make eval-gate` passes).
 
 ## 3. Git actions that need explicit OK
 

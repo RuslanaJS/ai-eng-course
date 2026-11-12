@@ -2,12 +2,14 @@
 
 Extracts one apartment record from dirty Polish real-estate texts and compares Anthropic Haiku 4.5
 with a local qwen2.5:3b (Ollama). Part of the AI Engineering course project, see `PROJECT_PLAN.md`
-(the plan is mirrored from a planning document) and `README.md` / `REPORT.md`.
+(the plan is mirrored from a planning document) and `README.md` / `REPORT_HW1.md`. HW2 (RAG with evals,
+`REPORT_HW2.md`) lives in the same package; its plan is `HW2_PLAN.md`.
 
 ## Commands
 
 - `make test` unit tests (no network), `make lint` ruff.
-- `make run` Haiku, prompt v2, T=0 on all texts, then metrics (about 0.2 USD, needs `ANTHROPIC_API_KEY` in `.env`).
+- `make run` HW2: the RAG bot on the open-corpus test questions, then metrics (about 0.1 USD, needs `ANTHROPIC_API_KEY` and `GEMINI_API_KEY`).
+- `make run-hw1` Haiku, prompt v2, T=0 on all texts, then metrics (about 0.2 USD, needs `ANTHROPIC_API_KEY` in `.env`).
 - `make run-all` every model x prompt x sampling, skips configurations that already have results.
 - `make metrics` dev-set table, `uv run python -m propdoc.extraction.metrics --set test|--report`.
 - `make check-labels` every labeled value must be findable in its source text.
@@ -21,7 +23,7 @@ with a local qwen2.5:3b (Ollama). Part of the AI Engineering course project, see
 - **Prompts are append-only.** A new version is a new file `prompts/extract_vN.md`; results and the changelog refer to version names.
 - **Models.** Haiku 4.5 (`claude-haiku-4-5`), not 5.5: 5.5 rejects non-default temperature. The SDK has no `temperature` argument, it goes through `extra_body`.
 - **Source texts stay local.** `data/texts/` is gitignored because the terms of the source pages forbid redistribution. Do not commit them and do not re-download them by script; tests that read them skip when the folder is empty.
-- **Never commit** `.env`, `.claude/settings.local.json` or `WORKING_NOTES.md`. `results/*.jsonl` is a committed snapshot behind `REPORT.md`.
+- **Never commit** `.env`, `.claude/settings.local.json` or `WORKING_NOTES.md`. `results/*.jsonl` is a committed snapshot behind `REPORT_HW1.md`.
 - **Git.** Work in a branch and merge it into `main` fast-forward only (`git merge --ff-only`, no merge commits); do not push short-lived branches to the public remote. Keep commits logical. Moving a tag or force-pushing needs the user's explicit OK and a backup tag first.
 
 ## Skills (`.claude/skills/`)

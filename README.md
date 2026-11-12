@@ -1,87 +1,121 @@
-# PropDoc: Structured Extraction (HW1)
+# PropDoc: questions about buying an apartment in Poland, answered from documents
 
-Extracts structured data about one apartment from "dirty" Polish and English real-estate texts
-(web pages, PDF excerpts). Compares Anthropic Haiku 4.5 with the local `qwen2.5:3b-instruct`
-(Ollama) on prompt versions v1 to v3 and two sampling configurations.
+PropDoc answers a buyer's questions (can a foreigner buy, how payments to a developer are protected, what
+prices do) from Polish laws and NBP reports. Every claim cites a document and its part; when the documents
+do not say, it answers "I don't know". Part of the AI Engineering course project:
+
+- **HW2 (this stage): RAG over own data, with evals.** Results in [`REPORT_HW2.md`](REPORT_HW2.md).
+- **HW1: structured extraction** of one apartment record from dirty texts. Results in
+  [`REPORT_HW1.md`](REPORT_HW1.md), how to run it [below](#hw1-structured-extraction).
 
 ## Run
 
 ```bash
-cp .env.example .env     # add ANTHROPIC_API_KEY
-ollama pull qwen2.5:3b-instruct   # only for the local model
-make run                 # Haiku, prompt v2, T=0 on all texts, then the metrics table (~2 min, ~0.2 USD)
-make run-all             # every model x prompt x sampling, skips results that already exist
-make metrics             # metrics table from results/ (dev set; use --set test for the test set)
-make smoke ID=005        # one text through the model
-make test                # unit tests (no network)
+cp .env.example .env     # add ANTHROPIC_API_KEY and GEMINI_API_KEY
+make run                 # the bot on the 23 test questions the committed corpus can answer, then metrics
+                         # (~3 min the first time, ~0.1 USD)
+make ask Q="Czy cudzoziemiec potrzebuje zezwolenia na zakup mieszkania?"   # one question
+make test                # unit tests, no network
 ```
 
-The local Ollama runs take about 15-20 minutes each, so `make run-all` takes over an hour the first time.
+Needs [uv](https://docs.astral.sh/uv/). The first run downloads the reranker model (about 0.6 GB) and
+embeds the 522 law chunks with Gemini; both are cached in `data/cache/`, later runs reuse them.
 
-**The source texts are not in the repository.** The 33 texts in `data/texts/` come from public web pages
-whose terms do not allow redistribution, so they were removed from the repository and its history. The
-labeled sets in `data/golden*` and the URL of every text in `data/sources.csv` stay. `make run`,
-`make smoke` and `make check-labels` need the files `data/texts/NNN.txt` on disk; without them the tests
-that read the texts are skipped.
+**What is and is not in the repository.** The laws (8 documents, open: Polish law excludes legal acts
+from copyright) are committed as chunks in `data/processed/chunks.jsonl`. The NBP and market reports (22
+documents) do not allow redistribution, so only their list with URLs and checksums is committed
+(`data/manifest.csv`); `make fetch` and `make ingest` rebuild them locally. Without them, `make run`
+and CI use the law questions only; the full numbers in `REPORT_HW2.md` were measured locally with the reports.
+
+Other commands:
+
+| Command | What it does |
+|---|---|
+| `make eval-gate` | `make run` compared with `evals/baseline_open.json`, exit 1 if worse (what CI runs) |
+| `make eval-answers` | all 29 questions, 3 runs each (needs the local reports, ~0.3 USD) |
+| `make eval-retrieval` | recall@5 and MRR of every search configuration |
+| `make judge`, `make calibrate` | LLM judge on the last full run, and its agreement with the manual labels |
+| `make check-testset` | test set lint without a model: ids, documents, every quote present in its document |
+| `make search Q="..."` | the top chunks for a query |
+| `make fetch`, `make ingest`, `make check-ingest`, `make embed` | build the corpus from `data/manifest.csv` |
 
 ## How it works
 
 ```
-data/texts/NNN.txt  --prompt (prompts/extract_vN.md)-->  model  -->  JSON
-                                                                      |
-   schema.py (OfferRecord) --JSON schema--> constrains / informs the model
-                              --Pydantic---> validates the answer
-   invalid answer -> one correction attempt (repair.py) -> status ok / fixed / failed
-   results/<model>__<prompt>__<sampling>.jsonl  -->  metrics.py vs data/golden*/
+data/manifest.csv --fetch--> data/raw/ --ingest (clean, chunk, versions)--> data/processed/chunks*.jsonl
+                                                                                     |
+question --> hybrid search: BM25 + Gemini vectors (RRF) --> reranker --> top 5 chunks
+         --> context up to 2500 tokens, <source n=...> tags --> Haiku 4.5 --> {found, answer, sources}
+         --> citation check --> answer with [n] citations, or "I don't know"
 ```
-
-- `src/propdoc/extraction/schema.py`: the record (single source of truth for fields, types, enums).
-- `src/propdoc/extraction/providers/`: one interface (`Provider.extract`), two implementations
-  (Anthropic with structured output, Ollama with a JSON-schema `format`); timeout and retry in both.
-- `src/propdoc/extraction/run.py`, `matrix.py`: runners. `repair.py`: validation with one correction attempt.
-- `src/propdoc/extraction/metrics.py`: field accuracy, valid answers, hallucinations, latency p50/p95, cost per 1000 documents.
-- `prompts/`: prompt versions and `CHANGELOG.md` (what changed and why, with measured effects).
-- `configs/`: models (price, timeout, retries) and sampling.
-- `data/`: `texts/` (33 texts, local only), `golden/` (10 labeled texts, development set), `golden_test/`
-  (8 labeled texts, held-out test set), `sources.csv` (URL and date of every text).
-- `results/`: committed snapshot of the 12 runs behind `REPORT.md` (JSON Lines, one row per text: model, prompt version, sampling, status, latency, tokens, raw and parsed answer). `make run-all` skips configurations that already have a file; run `uv run python -m propdoc.extraction.matrix --force` to redo them (about 0.2 USD per Haiku run, 15-20 minutes per Ollama run).
-
-## Project structure (RAG, stage 2)
 
 All code is one package, `src/propdoc/`, one folder per component:
 
-- `extraction/`: the record extractor (above).
-- `ingest/`: fetch, load, clean, chunk and deduplicate the corpus (`make ingest`, `make check-ingest`).
-- `retrieval/`: embeddings, BM25 and vector indexes, hybrid search, reranking (`make embed`, `make search`).
-- `evaluation/`: retrieval metrics, recall@5 and MRR (`make eval-retrieval`).
+- `ingest/`: fetch, load (HTML, PDF), clean, chunk, deduplicate and mark versions.
+- `retrieval/`: embeddings (Gemini, local bge-m3), BM25 and vector indexes in Qdrant (in memory), hybrid
+  search, reranking, metadata filters.
+- `answering/`: context within the token budget, the answer with citations, `make ask`.
+- `evaluation/`: retrieval metrics, deterministic scorers for answers, the LLM judge, the CI gate.
+- `extraction/`: the HW1 record extractor.
 
-Data and test sets live outside `src/`:
+Prompts are in `prompts/` (append-only versions, changes in `prompts/CHANGELOG.md`); the test sets,
+manual labels, baselines and measured runs in `evals/`.
 
-- `data/manifest.csv`: the 31 corpus documents with source and date; `data/processed/`: chunks and ingestion reports.
-- `evals/retrieval_questions.json`: the reviewed test questions with labelled quotes; `evals/runs/`: measured results.
+### Chunking
+
+Structure-aware: a chunk never crosses a section heading; a law article, a table or a figure stays whole
+unless it is longer than 700 tokens (then it is split at sentence boundaries); paragraphs are packed up to
+450 tokens. The section, article or page and the document version go into the chunk's metadata, so a
+citation can name them.
+
+Why: buyers' questions are answered by one article or one table, and the citation must name it. Compared
+with fixed-size chunks of the same size (450 tokens, 15% overlap) on five documents, fixed chunks start
+mid-sentence 84-98% of the time and cut 53 of 88 articles and tables in the buyers act (structural: 22,
+only the over-long ones). On retrieval, fixed chunks drop recall@5 from 1.00 to 0.75 and MRR from 0.88 to
+0.53 with the same search. Details in [`REPORT_HW2.md`](REPORT_HW2.md#corpus-and-chunking).
+
+Versions: older consolidated texts of a law are `superseded`, a law that enters into force later is
+`upcoming`, an annual report more than a year older than the newest one is `outdated`. Search uses
+`current` and `upcoming` only, unless a question asks about an older period.
+
+### Evals and CI
+
+- Test set: `evals/questions.json`, 29 reviewed questions including 4 without an answer and traps (similar
+  documents, older versions, cross-language, two documents).
+- Deterministic scorers: key facts, recall@5, quote in context, cited, abstain, false abstain; pass@1 over
+  repeated runs, cost per 1000 questions, latency p50/p95.
+- LLM judge (Opus 5.5) for correctness and groundedness, calibrated on 15 manual labels
+  (`evals/labels.json`), 0.87 agreement on both.
+- CI (`.github/workflows/`): `ci.yml` runs lint, unit tests and the test set lint on every pull request;
+  `evals.yml` runs the bot on a pull request that changes the prompt, search, answering or test set, and
+  fails when it falls below `evals/baseline_open.json` by more than 0.05 or a passing question regresses.
+  It needs the repository secrets `ANTHROPIC_API_KEY` and `GEMINI_API_KEY` and skips without them.
+
+## Results
+
+| | recall@5 | MRR | pass@1 | False abstain | Judge: correct | $ / 1000 questions | p50 |
+|---|---|---|---|---|---|---|---|
+| hybrid + rerank, Haiku 4.5, full corpus | 1.00 | 0.88 | 0.83 | 0.04 | 25 of 29 | 3.41 | 2.8 s |
+
+Error analysis, judge calibration and limits are in [`REPORT_HW2.md`](REPORT_HW2.md).
+
+## HW1: structured extraction
+
+Extracts one apartment record from dirty Polish real-estate texts with Haiku 4.5 or the local
+`qwen2.5:3b-instruct` (Ollama). The source texts are not in the repository (their terms do not allow
+redistribution); the labeled sets in `data/golden*` and the URLs in `data/sources.csv` are.
+
+```bash
+make run-hw1             # Haiku, prompt v2, T=0 on all texts, then metrics (~2 min, ~0.2 USD, needs data/texts/)
+make run-all             # every model x prompt x sampling, skips results that already exist
+make metrics             # metrics table from results/
+make check-labels        # every labeled value must be findable in its source text
+```
+
+Best configuration: Haiku 4.5 with prompt v2 at T=0, 100% field accuracy on both labeled sets, 5.44 USD
+per 1000 documents. The full comparison is in [`REPORT_HW1.md`](REPORT_HW1.md).
 
 ## Working with Claude Code
 
 `CLAUDE.md` holds the project rules and `.claude/skills/` three task skills (`run-experiment`,
 `prompt-iteration`, `release-check`); both are committed so every clone has them.
-`make check-labels` verifies that every labeled value can be found in its source text.
-
-## Results so far
-
-Accuracy over 12 schema fields, T=0, details and caveats in `prompts/CHANGELOG.md`:
-
-| Model | Prompt | Valid answers | Dev accuracy | Test accuracy | Hallucinations (test) | p50 latency | $ / 1000 docs |
-|---|---|---|---|---|---|---|---|
-| Haiku 4.5 | v1 | 100% | 92.5% | 97.9% | 0/38 | 3.0 s | 5.05 |
-| Haiku 4.5 | v2 | 100% | 100% | 100% | 0/38 | 3.1 s | 5.44 |
-| qwen2.5:3b | v1 | 67% | 64.2% | 53.1% | 3/38 | 33.8 s | 0 |
-| qwen2.5:3b | v2 | 100% | 95.8% | 93.8% | 3/38 | 21.2 s | 0 |
-
-Limits: the labeled sets are small (10 and 8 texts) and every configuration was run once, so
-differences of one or two fields can be noise. The apartment's own price is hidden on the source
-site, so `price_per_m2_pln` is the price range of the whole development. The Ollama server was updated
-from 0.6.1 to 0.40.5 between the first qwen runs (v1) and the later ones. Almost all texts are
-Polish; the only English ones are market texts without an apartment.
-
-The full table (all 12 configurations, dev and test side by side), the analysis of five errors and the
-final choice for production are in [`REPORT.md`](REPORT.md).

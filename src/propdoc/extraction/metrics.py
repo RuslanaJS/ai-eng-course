@@ -192,7 +192,7 @@ def summary_table(all_metrics: list[dict[str, Any]]) -> str:
 
 
 def report_table(dev: list[dict[str, Any]], test: list[dict[str, Any]]) -> str:
-    """One row per run with both labeled sets side by side (for REPORT.md)."""
+    """One row per run with both labeled sets side by side (for REPORT_HW1.md)."""
     head = (
         "| Model | Prompt | Sampling | Valid (1st try) | Dev acc. | Test acc. | Amenities F1 (dev) "
         "| Halluc. dev / test | p50 s | p95 s | $ / 1000 docs |"
@@ -227,7 +227,7 @@ def main(argv: list[str] | None = None) -> None:
         "files", nargs="*", type=Path, help="results files (default: all full runs)"
     )
     parser.add_argument(
-        "--report", action="store_true", help="one combined table (dev and test) for REPORT.md"
+        "--report", action="store_true", help="one combined table (dev and test) for REPORT_HW1.md"
     )
     parser.add_argument(
         "--set",
